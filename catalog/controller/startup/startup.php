@@ -41,7 +41,21 @@ class ControllerStartupStartup extends Controller {
 		$this->load->model('localisation/language');
 		
 		$languages = $this->model_localisation_language->getLanguages();
-		
+
+        // Nikita_Sp Language MOD
+        $language_from_url = explode("/", $this->request->server['REQUEST_URI']);
+        foreach($language_from_url as $lang){
+            if(array_key_exists($lang, $languages)){
+                $language_from_url = $lang;
+                break;
+            }
+        }
+        // If nothing was found don't apply
+        if(is_array($language_from_url)){
+            $language_from_url = false;
+        }
+        // End Nikita_Sp Language MOD
+
 		if (isset($this->session->data['language'])) {
 			$code = $this->session->data['language'];
 		}
@@ -80,7 +94,13 @@ class ControllerStartupStartup extends Controller {
 					}
 				}
 			}
-			
+
+            // Language Mod by Nikita_Sp
+            if(!$detect && ($language_from_url && array_key_exists($language_from_url, $languages) && $languages[$language_from_url]['status'])){
+                $detect = $language_from_url;
+            }
+            // End Language Mob by Nikita_Sp
+
 			$code = $detect ? $detect : '';
 		}
 		

@@ -463,7 +463,7 @@
               	  <input class="button-2 add-to-compare-list-button" type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"></input>
                 </div>
               	<div class="buttons-lower">
-              	  <button class="button-2 product-box-add-to-cart-button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span><?php echo $button_cart; ?></span></button>
+              	  <button class="button-2 product-box-add-to-cart-button" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><span><?php echo $button_cart; ?></span></button>
               	</div>
             </div>
           </div>
