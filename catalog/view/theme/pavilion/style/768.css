@@ -343,8 +343,8 @@
 	text-align: left;
 }
 .gallery .picture-thumbs a {
-	width: 18%;
-	margin: 0 1% 10px;
+	/* width: 18%; */
+	/* margin: 0 1% 10px; */
 }
 .overview {
 	float: right;

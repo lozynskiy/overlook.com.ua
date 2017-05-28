@@ -1,7 +1,5 @@
 <div class="buttons">
-  <div class="pull-right">
-    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="btn btn-primary" data-loading-text="<?php echo $text_loading; ?>" />
-  </div>
+    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button-1 confirm-order-next-step-button" data-loading-text="<?php echo $text_loading; ?>" />
 </div>
 <script type="text/javascript"><!--
 $('#button-confirm').on('click', function() {

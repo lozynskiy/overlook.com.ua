@@ -191,6 +191,5 @@
     </div>
 </div>
 </div>
-<script type="text/javascript" src="catalog/view/theme/pavilion/scripts/footable.js"></script>
 <script>$(".order-summary-content .cart").footable()</script>
 <?php echo $footer; ?>

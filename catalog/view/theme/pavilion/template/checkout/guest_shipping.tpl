@@ -1,50 +1,36 @@
-<form class="form-horizontal">
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-firstname"><?php echo $entry_firstname; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-shipping-firstname" class="form-control" />
-    </div>
+<form class="section shipping-addresses">
+  <div class="new-shipping-address">
+  <div class="inputs">
+    <label for="input-shipping-firstname"><?php echo $entry_firstname; ?><span class="required">*</span></label>
+      <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-shipping-firstname" />
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-lastname"><?php echo $entry_lastname; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label for="input-shipping-lastname"><?php echo $entry_lastname; ?><span class="required">*</span></label>
+      <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname"  />
   </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label" for="input-shipping-company"><?php echo $entry_company; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label cfor="input-shipping-company"><?php echo $entry_company; ?></label>
+      <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" />
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-address-1"><?php echo $entry_address_1; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-shipping-address-1" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label for="input-shipping-address-1"><?php echo $entry_address_1; ?><span class="required">*</span></label>
+      <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-shipping-address-1"  />
   </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label" for="input-shipping-address-2"><?php echo $entry_address_2; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-shipping-address-2" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label for="input-shipping-address-2"><?php echo $entry_address_2; ?></label>
+      <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-shipping-address-2"/>
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-city"><?php echo $entry_city; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label for="input-shipping-city"><?php echo $entry_city; ?><span class="required">*</span></label>
+      <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" />
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-postcode"><?php echo $entry_postcode; ?></label>
-    <div class="col-sm-10">
-      <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-shipping-postcode" class="form-control" />
-    </div>
+  <div class="inputs">
+    <label for="input-shipping-postcode"><?php echo $entry_postcode; ?><span class="required">*</span></label>
+      <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-shipping-postcode" />
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-country"><?php echo $entry_country; ?></label>
-    <div class="col-sm-10">
-      <select name="country_id" id="input-shipping-country" class="form-control">
+  <div class="inputs">
+    <label for="input-shipping-country"><?php echo $entry_country; ?><span class="required">*</span></label>
+      <select name="country_id" id="input-shipping-country">
         <option value=""><?php echo $text_select; ?></option>
         <?php foreach ($countries as $country) { ?>
         <?php if ($country['country_id'] == $country_id) { ?>
@@ -54,14 +40,11 @@
         <?php } ?>
         <?php } ?>
       </select>
-    </div>
   </div>
-  <div class="form-group required">
-    <label class="col-sm-2 control-label" for="input-shipping-zone"><?php echo $entry_zone; ?></label>
-    <div class="col-sm-10">
-      <select name="zone_id" id="input-shipping-zone" class="form-control">
+  <div class="inputs">
+    <label for="input-shipping-zone"><?php echo $entry_zone; ?><span class="required">*</span></label>
+      <select name="zone_id" id="input-shipping-zone">
       </select>
-    </div>
   </div>
   <?php foreach ($custom_fields as $custom_field) { ?>
   <?php if ($custom_field['location'] == 'address') { ?>
@@ -190,9 +173,8 @@
   <?php } ?>
   <?php } ?>
   <div class="buttons">
-    <div class="pull-right">
-      <input type="button" value="<?php echo $button_continue; ?>" id="button-guest-shipping" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
-    </div>
+      <input type="button" value="<?php echo $button_continue; ?>" id="button-guest-shipping" data-loading-text="<?php echo $text_loading; ?>" class="button-1 new-address-next-step-button" />
+  </div>
   </div>
 </form>
 <script type="text/javascript"><!--

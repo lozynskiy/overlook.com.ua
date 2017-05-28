@@ -79,7 +79,7 @@
             <h4 class="panel-title title"><?php echo $text_checkout_shipping_address; ?></h4>
           </div>
           <div class="panel-collapse collapse" id="collapse-shipping-address">
-            <div class="panel-body step a-item"></div>
+            <div id="opc-shipping" class="panel-body step a-item"></div>
           </div>
         </li>
         <li class="tab-section allow allow panel panel-default">

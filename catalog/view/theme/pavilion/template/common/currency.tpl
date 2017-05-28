@@ -1,5 +1,5 @@
 <?php if (count($currencies) > 1) { ?>
-<div class="header-links-wrapper">
+<div id="header-links-currency-wrapper" class="header-links-wrapper">
     <label data-toggle="dropdown">
     <?php foreach ($currencies as $currency) { ?>
     <?php if ($currency['symbol_left'] && $currency['code'] == $code) { ?>
@@ -10,7 +10,7 @@
     <?php } ?>
     <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_currency; ?></span> <i class="fa fa-caret-down"></i></label>
     <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-currency">
-        <ul class="header-links">
+        <ul id="currency-dropdown" class="header-links">
           <?php foreach ($currencies as $currency) { ?>
           <?php if ($currency['symbol_left']) { ?>
           <li><a class="currency-select" type="button" name="<?php echo $currency['code']; ?>"><?php echo $currency['symbol_left']; ?> <?php echo $currency['title']; ?></a></li>

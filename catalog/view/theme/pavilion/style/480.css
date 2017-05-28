@@ -45,7 +45,7 @@
 
 .mini-shopping-cart .items {
 	display: block;
-	max-height: 250px;
+	/* max-height: 0; */
 }
 .search-box input.search-box-text {
 	width: 390px;

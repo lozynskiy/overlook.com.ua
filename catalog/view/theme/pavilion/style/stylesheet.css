@@ -86,14 +86,6 @@ div.required .control-label:before {
 	background-position: -10px;
 	padding-left: 0;
 }
-#top #form-currency .currency-select:hover,
-#top #form-language .language-select:hover {
-	/* text-shadow: none; */
-	/* color: #ffffff; */
-	/* background-color: #229ac8; */
-	/* background-image: linear-gradient(to bottom, #23a1d1, #1f90bb); */
-	/* background-repeat: repeat-x; */
-}
 #top .btn-link, #top-links li, #top-links a {
 	/* color: #888; */
 	/* text-shadow: 0 1px 0 #FFF; */
@@ -301,7 +293,7 @@ div.required .control-label:before {
 }
 /* content */
 #content {
-	min-height: 600px;
+	/* min-height: 600px; */
 }
 /* footer */
 footer {

@@ -1,16 +1,17 @@
 #megamenu-menu .dropdown-menu {
     padding-bottom: 0;
-    width: 100%
+    width: 100%;
 }
 #megamenu-menu .dropdown-inner {
     /* display: table; */
     padding: 18px 12px;
+    /* display: flex; */
 }
 .megamenu-parent-img img {
     width: 100%;
 }
 #megamenu-menu .dropdown-inner ul {
-    /* display: table-cell */
+    /* display: table-cell; */
 }
 #megamenu-menu .megamenu-parent-block a.megamenu-parent-img {
     padding: 0;
@@ -65,9 +66,10 @@
     #megamenu-menu .dropdown:hover .dropdown-menu {
         opacity: 1;
         top: 47px;
+        padding: 0;
     }
     .new-drop {
-        position: static!important;
+        /* position: static!important; */
     }
     #megamenu-menu .megamenu-type-category-simple ul.megamenu-haschild li {
         position: relative
@@ -285,7 +287,7 @@
     }
     #megamenu-menu .megamenu-type-category-full .megamenu-haschild {
         display: inline;
-        vertical-align: top
+        vertical-align: top;
     }
     #megamenu-menu .megamenu-type-information .megamenu-haschild {
         display: inline;
@@ -392,4 +394,123 @@ dropdown-toggle {
 }
 .dropdown-menu .dropdown-inner:not(.has-banner) .megamenu-parent-block:nth-child(5n+6) {
         clear: both;
+}
+@media screen and (max-width: 1000px){
+    .close-menu,.header-menu .back-button {
+background-color:#f6f6f6;
+cursor:pointer
+}
+.close-menu span,.header-menu .back-button span {
+display:block;
+height:50px;
+background:url(http://overlook.com.ua/catalog/view/theme/storeset/image/close.png) right center no-repeat;
+font-size:0
+}
+.navbar-header {
+position:fixed;
+display:none
+}
+    #megamenu-menu.navbar {position:fixed;z-index:600;width:320px;/* left:-320px; */top:0;height:inherit;overflow-y:scroll;-webkit-transition:all .5s;-moz-transition:all .5s;-o-transition:all .5s;transition:all .5s;background:#fff;height: 100%;z-index: 2000;}
+    #megamenu-menu .nav>li>div {background: 0;padding-left:20px;}
+    .navbar-collapse {
+display:block;
+visibility:inherit;
+background:#fff
+}
+.megamenu-toggle-a,.parent-title-toggle {
+position:absolute!important;
+display:block;
+right:0;
+top:0;
+width:60px!important
+}
+.megamenu-toggle-a:before,.parent-title-toggle:before {
+position:absolute;
+right:24px;
+top:29px;
+display:block;
+width:12px;
+height:2px;
+background:var(--color1);
+content:"";
+-webkit-transition:all .1s ease-out;
+-moz-transition:all .1s ease-out;
+-ms-transition:all .1s ease-out;
+-o-transition:all .1s ease-out;
+transition:all .1s ease-out
+}
+.open>.megamenu-toggle-a:after,.open>.megamenu-toggle-a:before,.parent-title-toggle.opened:after,.parent-title-toggle.opened:before {
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg)
+}
+.megamenu-toggle-a:after,.parent-title-toggle:after {
+position:absolute;
+right:29px;
+top:24px;
+z-index:5;
+display:block;
+height:12px;
+width:2px;
+background:var(--color1);
+content:"";
+-webkit-transition:all .1s ease-out;
+-moz-transition:all .1s ease-out;
+-ms-transition:all .1s ease-out;
+-o-transition:all .1s ease-out;
+transition:all .1s ease-out
+}
+.open>.megamenu-toggle-a:after,.open>.megamenu-toggle-a:before,.parent-title-toggle.opened:after,.parent-title-toggle.opened:before {
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg)
+}
+#megamenu-menu .megamenu-type-category-full .megamenu-parent-block {
+position:relative;
+z-index:1
+}
+.navbar-nav>li,nav {height:auto;}
+#megamenu-menu .nav li a {
+font-size:15px;
+font-weight:700;
+padding:20px;
+line-height:19px;
+height:59px;
+color:#333;
+text-transform:uppercase
+}
+#megamenu-menu .dropdown-inner {
+border-left:2px solid var(--color1)
+}
+#megamenu-menu .dropdown-inner a.megamenu-parent-img,#popup-found-cheaper-wrapper .popup_product_image {
+display:none!important
+}
+#megamenu-menu .dropdown-menu .megamenu-ischild {display:none;}
+#megamenu-menu .dropdown-menu .megamenu-ischild.megamenu-ischild-opened {
+display:block;
+border-left:2px solid var(--color1)
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+}
+@media screen and (min-width: 1000px){
+      .navbar-nav > li {
+    float: left;
+    min-height: 50px;
+    line-height: 50px;
+  }
+    .navbar-collapse.collapse {
+    display: block !important;
+    float: left;
+  }
+    .navbar-nav {
+    float: left;
+  }
 }

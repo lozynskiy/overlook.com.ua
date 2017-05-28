@@ -19,7 +19,7 @@
     -ms-touch-action: pan-Y;
     -moz-backface-visibility: hidden;
     /* fix firefox animation glitch */
-    margin: auto;
+    /* margin: auto; */
     }
   .owl-carousel .owl-stage:after {
     content: ".";

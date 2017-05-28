@@ -55,7 +55,7 @@
         		  </div>
         		  
         		  <?php if ($images) { ?>
-        		  <div id="image-gallery" class="thumbs owl-carousel owl-theme">
+        		  <div id="image-gallery" class="picture-thumbs in-carousel owl-carousel owl-theme">
         		  <?php if ($thumb) { ?>
                        <a class="fancybox" href="<?php echo $popup; ?>" data-image="<?php echo $thumb; ?>" data-zoom-image="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>">
                            <img src="<?php echo $mini_thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
@@ -709,14 +709,17 @@ $(document).ready(function() {
         responsiveClass:true,
         responsive : {
 		    0 : {
+                nav:false,
 		    	margin:5,
 		        items:3
 		    },
 		    480 : {
+                nav:false,
 		    	margin:5,
 		        items:4
 		    },
 		    992 : {
+                nav:false,
 		    	margin:5,
 		        items:5
 		    }
@@ -732,6 +735,7 @@ $(document).ready(function() {
         responsiveClass:true,
         responsive : {
 		    0 : {
+                margin:10,
 		        items:1,
             	nav:true
 		    },

@@ -72,11 +72,11 @@
             <a type="button" id="list-view" class="viewmode-icon list" data-toggle="tooltip" title="<?php echo $button_list; ?>"></a>
             <a type="button" id="grid-view" class="viewmode-icon grid" data-toggle="tooltip" title="<?php echo $button_grid; ?>"></a>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <!--div class="col-md-3 col-sm-6">
           <div class="form-group">
             <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
           </div>
-        </div>
+        </div!-->
         <div class="product-sorting">
             <span><?php echo $text_sort; ?></span>
             <select id="input-sort" class="sortOptionsDropDown" onchange="location = this.value;">

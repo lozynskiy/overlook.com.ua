@@ -1,6 +1,9 @@
 <?php
 class ControllerCheckoutCart extends Controller {
 	public function index() {
+
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+
 		$this->load->language('checkout/cart');
 
 		$this->document->setTitle($this->language->get('heading_title'));
