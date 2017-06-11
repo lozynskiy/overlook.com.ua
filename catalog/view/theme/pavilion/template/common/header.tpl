@@ -37,7 +37,6 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/stylesheet/megamenu.css"/>
     <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/print.css" /!-->
-
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -82,39 +81,32 @@
     <nav id="top" class="header-upper">
         <div class="center">
             <div id="top-links">
-                <?php echo $currency; ?>
-                <?php echo $language; ?>
-                <div id="header-links-wrapper" class="header-links-wrapper"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>"
-                                                     class="dropdown-toggle" data-toggle="dropdown"><label><i
-                                    class="fa fa-user"></i> <span
-                                    class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span
-                                    class="caret"></span></a></label>
-                    <ul id="header-links" class="header-links">
+                <div class="header-selectors-wrapper">
+                    <label><?php echo $text_preferences; ?></label>
+                    <div class="header-selectors">
+                        <?php echo $currency; ?>
+                        <?php echo $language; ?>
+                    </div>
+                </div>
+                <div id="header-links-wrapper" class="header-links-wrapper"><label><?php echo $text_account; ?></label>
+                    <div class="header-links">
+                    <ul id="header-links">
                         <?php if ($logged) { ?>
-                        <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-                        <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                        <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                        <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-                        <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                        <li><a class="ico-account" href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+                        <li><a class="ico-logout" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                        </li>
                         <?php } else { ?>
-                        <li><a class="ico-register" href="<?php echo $register; ?>"><?php echo $text_register; ?></a>
-                        </li>
+                        <li><a class="ico-register" href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
                         <li><a class="ico-login modal-login" href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
-                        </li>
-                        <li><a class="ico-wishlist" href="<?php echo $wishlist; ?>" id="wishlist-total"
-                               title="<?php echo $text_wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
                         <?php } ?>
+                        <li><a class="ico-wishlist" href="<?php echo $wishlist; ?>" id="wishlist-total"
+                                    title="<?php echo $text_wishlist; ?>"><?php echo $text_wishlist; ?></a>
+                        </li>
+                        <li><a class="compare" href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $text_compare; ?>">
+                                <i class="fa fa-exchange "></i><?php echo $text_compare; ?></a>
+                        </li>
                     </ul>
                 </div>
-                <div class="header-selectors-wrapper">
-                    <label>
-                        <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $text_compare; ?>">
-                            <i class="fa fa-exchange "></i>
-                            <span class="hidden-xs hidden-sm hidden-md">
-                                <?php echo $text_compare; ?>
-                            </span>
-                        </a>
-                    </label>
                 </div>
                 <!--div class="header-selectors-wrapper">
                     <label>
@@ -167,6 +159,9 @@
             </div>
             <div class="personal-button" id="header-links-opener">
                 <span>Personal menu</span>
+            </div>
+            <div class="filters-button">
+                <span>Filters</span>
             </div>
             <div class="preferences-button" id="header-selectors-opener">
                 <span>Preferences</span>

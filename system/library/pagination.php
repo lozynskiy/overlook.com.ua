@@ -30,7 +30,7 @@ class Pagination {
 
 		$this->url = str_replace('%7Bpage%7D', '{page}', $this->url);
 
-		$output = '<ul>';
+		$output = '<ul class="pagination">';
 
 		if ($page > 1) {
             $output .= '<li class="first-page"><a href="' . str_replace(array('&amp;page={page}', '?page={page}', '&page={page}'), '', $this->url) . '">' . $this->text_first . '</a></li>';
@@ -63,7 +63,7 @@ class Pagination {
 
 			for ($i = $start; $i <= $end; $i++) {
 				if ($page == $i) {
-					$output .= '<li class="current-page"><span>' . $i . '</span></li>';
+					$output .= '<li class="active current-page"><span>' . $i . '</span></li>';
 				} else {
 					if ($i === 1) {
                         $output .= '<li><a href="' . str_replace(array('&amp;page={page}', '?page={page}', '&page={page}'), '', $this->url) . '">' . $i . '</a></li>';

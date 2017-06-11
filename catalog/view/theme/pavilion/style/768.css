@@ -700,7 +700,7 @@ div.rental-price {
 	text-align: right;
 }
 .order-details-page .actions input {
-	margin: 0 0 0 10px;
+	/* margin: 0 0 0 10px; */
 }
 .order-details-page .totals {
 	width: 45%;

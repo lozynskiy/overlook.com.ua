@@ -81,7 +81,8 @@
                   <span class="footable-toggle"></span>
                   <span class="item-count">1</span>
                 </td>
-                <td class="remove-from-cart"><div type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="fa fa-remove" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"</div></td>
+                <td class="remove-from-cart">
+                  <div type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="remove-from-cart-button fa fa-remove" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"></div></td>
                 <td class="product-picture"><?php if ($product['thumb']) { ?>
                   <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
                   <?php } ?></td>
@@ -105,7 +106,7 @@
 
                     <?php if ($product['recurring']) { ?>
                       <br />
-                      <span class="label label-info"><?php echo $text_recurring_item; ?></span><?php echo $product['recurring']; ?>
+                      <span><?php echo $text_recurring_item; ?></span>: <?php echo $product['recurring']; ?>
                     <?php } ?>
 
                     <br />
@@ -141,8 +142,8 @@
         </div>
         <div class="cart-options">
         <div class="common-buttons">
-          <input type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="button-2 update-cart-button" value="<?php echo $button_update; ?>" />
-          <input type="button" onclick="javascript:window.location.href='<?php echo $continue; ?>'" data-toggle="tooltip" title="<?php echo $button_shopping; ?>" class="button-2 continue-shopping-button" value="<?php echo $button_shopping; ?>" />
+          <button type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="button-2 update-cart-button"><?php echo $button_update; ?></button>
+          <input type="button" onclick="setLocation('<?php echo $continue; ?>')" data-toggle="tooltip" title="<?php echo $button_shopping; ?>" class="button-2 continue-shopping-button" value="<?php echo $button_shopping; ?>" />
         </div>
         </div>
       </form>

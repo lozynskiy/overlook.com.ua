@@ -55,25 +55,31 @@ $(document).ready(function() {
         navText:['<i class="fa fa-chevron-left fa-1x"></i>', '<i class="fa fa-chevron-right fa-1x"></i>'],
         responsiveClass:true,
         responsive : {
-		    0 : {
-		        items:1,
-            	nav:true
-		    },
-		    480 : {
-		    	margin:10,
-		        items:2,
-            	nav:true
-		    },
-		    768 : {
-		    	margin:15,
-		        items:3,
-            	nav:true
-		    },
-		    992 : {
-		    	margin:23,
-		        items:4,
-            	nav:true
-		    }
+            0 : {
+                margin:10,
+                items:1,
+                nav:true
+            },
+            460 : {
+                margin:10,
+                items:2,
+                nav:true
+            },
+            745 : {
+                margin:10,
+                items:3,
+                nav:true
+            },
+            1000 : {
+                margin:15,
+                items:4,
+                nav:true
+            },
+            1200 : {
+                margin:23,
+                items:5,
+                nav:true
+            }
 		}
 	});
 });

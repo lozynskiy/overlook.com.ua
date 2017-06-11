@@ -146,8 +146,8 @@
             <?php foreach ($options as $option) { ?>
             <?php if ($option['type'] == 'select') { ?>
             <div class="form-group">
-              <label class="text-prompt" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?>
-                <?php echo ($option['required'] ? '<span class="required">*</span>' : ''); ?>
+              <label class="text-prompt" for="input-option<?php echo $option['product_option_id']; ?>">
+                  <?php echo $option['name']; ?><?php echo ($option['required'] ? '<span class="required">*</span>' : ''); ?>
               </label>
               <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
                 <option value=""><?php echo $text_select; ?></option>
@@ -276,12 +276,13 @@
             <?php } ?>
             <?php if ($recurrings) { ?>
             <hr>
-            <h3><?php echo $text_payment_recurring; ?></h3>
             <div class="form-group">
-              <select name="recurring_id" class="form-control">
+                <label class="text-prompt"><?php echo $text_payment_recurring; ?><span class="required">*</span>
+                </label>
+              <select name="recurring_id">
                 <option value=""><?php echo $text_select; ?></option>
                 <?php foreach ($recurrings as $recurring) { ?>
-                <option value="<?php echo $recurring['recurring_id']; ?>"><?php echo $recurring['name']; ?><?php echo ($option['required'] ? '<span class="required">*</span>' : ''); ?></option>
+                <option value="<?php echo $recurring['recurring_id']; ?>"><?php echo $recurring['name']; ?></option>
                 <?php } ?>
               </select>
               <div class="help-block" id="recurring-description"></div>
@@ -734,26 +735,31 @@ $(document).ready(function() {
         navText:['<i class="fa fa-chevron-left fa-1x"></i>', '<i class="fa fa-chevron-right fa-1x"></i>'],
         responsiveClass:true,
         responsive : {
-		    0 : {
+            0 : {
                 margin:10,
-		        items:1,
-            	nav:true
-		    },
-		    480 : {
-		    	margin:10,
-		        items:2,
-            	nav:true
-		    },
-		    768 : {
-		    	margin:15,
-		        items:3,
-            	nav:true
-		    },
-		    992 : {
-		    	margin:23,
-		        items:4,
-            	nav:true
-		    }
+                items:1,
+                nav:true
+            },
+            460 : {
+                margin:10,
+                items:2,
+                nav:true
+            },
+            745 : {
+                margin:10,
+                items:3,
+                nav:true
+            },
+            1000 : {
+                margin:15,
+                items:4,
+                nav:true
+            },
+            1200 : {
+                margin:23,
+                items:5,
+                nav:true
+            }
 		}
 	});
 });

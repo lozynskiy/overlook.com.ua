@@ -220,7 +220,7 @@
 	margin: 0;
 }
 .order-details-page .actions input {
-	width: 205px;
+	/* width: 205px; */
 }
 .order-details-page .totals {
 	width: 35%;

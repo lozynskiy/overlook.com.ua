@@ -7,6 +7,8 @@ class ControllerAccountWishList extends Controller {
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+
 		$this->load->language('account/wishlist');
 
 		$this->load->model('account/wishlist');

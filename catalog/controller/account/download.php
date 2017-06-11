@@ -7,6 +7,8 @@ class ControllerAccountDownload extends Controller {
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+
 		$this->load->language('account/download');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -39,6 +41,7 @@ class ControllerAccountDownload extends Controller {
 		$data['column_size'] = $this->language->get('column_size');
 		$data['column_date_added'] = $this->language->get('column_date_added');
 
+        $data['text_download'] = $this->language->get('text_download');
 		$data['button_download'] = $this->language->get('button_download');
 		$data['button_continue'] = $this->language->get('button_continue');
 

@@ -18,14 +18,14 @@
             <?php if ($product['option']) { ?>
             <?php foreach ($product['option'] as $option) { ?>
             <div class="attributes">
-            	<?php echo $option['name']; ?> <?php echo $option['value']; ?>
+            	<?php echo $option['name']; ?>: <?php echo $option['value']; ?>
             	<br />
             </div>
             <?php } ?>
             <?php } ?>
             <?php if ($product['recurring']) { ?>
             <div class="attributes">
-             	<small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
+             	<?php echo $text_recurring; ?>: <?php echo $product['recurring']; ?>
             	<br />
             </div>
             <?php } ?>

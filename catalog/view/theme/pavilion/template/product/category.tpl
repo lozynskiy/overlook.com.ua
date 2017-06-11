@@ -148,10 +148,10 @@
         </div>
         <?php } ?>
       </div>
-      </div>
-      <div class="pager">
-        <?php echo $pagination; ?>
-        <p><?php echo $results; ?></p>
+          <div class="pager">
+              <?php echo $pagination; ?>
+              <p><?php echo $results; ?></p>
+          </div>
       </div>
       <?php if ($thumb || $description) { ?>
       <div class="category-description">
@@ -171,8 +171,8 @@
       </div>
       <?php } ?>
       <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
 	</div>
+        <?php echo $column_right; ?></div>
 	</div>
 </div>
 <?php echo $footer; ?>

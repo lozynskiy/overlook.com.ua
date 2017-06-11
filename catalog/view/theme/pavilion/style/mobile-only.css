@@ -169,6 +169,7 @@ margin-top: 53px;
 .header-menu.open {
     box-shadow: 1px 0 5px rgba(0,0,0,0.5);
 }
+.mfilter-free-container.open,
 .header-menu.open {
     -webkit-transform: translate(0);
     -ms-transform: translate(0);
@@ -427,6 +428,20 @@ margin-top: 53px;
     margin: 0 0 0 20px;
     transition: all 0.2s ease;
 }
+    .close-filters {
+        background-color: #f6f6f6;
+        cursor: pointer
+    }
+
+    .close-filters span {
+        display: block;
+        height: 50px;
+        background: url('../image/close.png') right center no-repeat;
+        font-size: 0
+    }
+    .filtersContainer .page-title{
+    	display:none;
+    }
 }
 
 @media all and (min-width: 769px) and (max-width: 1000px) {
@@ -438,5 +453,5 @@ margin-top: 53px;
 	float: left;
 	width: 50%;
 }
-	
+
 }

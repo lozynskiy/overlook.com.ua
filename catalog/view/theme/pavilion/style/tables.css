@@ -16,12 +16,12 @@ td.footable-first-column {
 
 .footable.breakpoint > tbody > tr > td > span.footable-toggle {
 	position: absolute;
-	/*top: 50%;*/ /*doesn't work in IE*/
+	/* top: 50%; */ /*doesn't work in IE*/
 	left: 50%;
 	width: 32px;
 	height: 32px;
-	/*margin: -16px 0 0 -16px;*/
-	margin: -5px 0 0 -16px; /*IE hack*/
+	margin: -16px 0 0 -16px;
+	/* margin: -5px 0 0 -16px; */ /*IE hack*/
 	overflow: hidden;
 	background-color: #f93b54;
 	background-image: url('../image/table-sprite.png');

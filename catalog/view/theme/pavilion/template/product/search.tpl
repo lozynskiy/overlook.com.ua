@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div class="container">
+<div class="master-wrapper-content"">
   <div class="breadcrumb">
     <ul itemscope itemtype="http://schema.org/BreadcrumbList">
       <?php foreach ($breadcrumbs as $cnt=> $breadcrumb) { ?>
@@ -191,11 +191,11 @@
               </div>
         <?php } ?>
       </div>
+            <div class="pager">
+                <?php echo $pagination; ?>
+                <p><?php echo $results; ?></p>
+            </div>
         </div>
-          <div class="pager">
-              <?php echo $pagination; ?>
-              <p><?php echo $results; ?></p>
-          </div>
       <?php } else { ?>
       <p><?php echo $text_empty; ?></p>
       <?php } ?>

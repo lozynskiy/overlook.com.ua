@@ -86,14 +86,6 @@ div.required .control-label:before {
 	background-position: -10px;
 	padding-left: 0;
 }
-#top .btn-link, #top-links li, #top-links a {
-	/* color: #888; */
-	/* text-shadow: 0 1px 0 #FFF; */
-	/* text-decoration: none; */
-}
-#top .btn-link:hover, #top-links a:hover {
-	/* color: #444; */
-}
 #top-links .dropdown-menu a {
 	text-shadow: none;
 }
@@ -319,11 +311,11 @@ body .alert {
 	padding: 15px 14px;
 	margin-bottom: 15px;
 	min-height: initial;
-	display: block;
+	/* display: block; */
 }
 /* breadcrumb */
 .pagination {
-	margin: 0;
+	/* margin: 0; */
 }
 /* buttons */
 .buttons {
@@ -392,10 +384,10 @@ body .alert {
 .btn-danger {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #da4f49;
-	background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+	/* background-color: #da4f49; */
+	/* background-image: linear-gradient(to bottom, #ee5f5b, #bd362f); */
 	background-repeat: repeat-x;
-	border-color: #bd362f #bd362f #802420;
+	/* border-color: #bd362f #bd362f #802420; */
 }
 .btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
 	box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);

@@ -46,8 +46,8 @@ class ControllerAccountOrder extends Controller {
 		$data['column_date_added'] = $this->language->get('column_date_added');
 
 		$data['button_view'] = $this->language->get('button_view');
-    $data['button_ocstore_payeer_onpay'] = $this->language->get('button_ocstore_payeer_onpay');
-    $data['button_ocstore_yk_onpay'] = $this->language->get('button_ocstore_yk_onpay');
+        $data['button_ocstore_payeer_onpay'] = $this->language->get('button_ocstore_payeer_onpay');
+        $data['button_ocstore_yk_onpay'] = $this->language->get('button_ocstore_yk_onpay');
 		$data['button_continue'] = $this->language->get('button_continue');
 
 		if (isset($this->request->get['page'])) {
@@ -109,6 +109,7 @@ class ControllerAccountOrder extends Controller {
 
 	public function info() {
 		$this->load->language('account/order');
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
 
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];
@@ -159,17 +160,19 @@ class ControllerAccountOrder extends Controller {
 
 			$data['heading_title'] = $this->language->get('text_order');
 
-			$data['text_order_detail'] = $this->language->get('text_order_detail');
-			$data['text_invoice_no'] = $this->language->get('text_invoice_no');
-			$data['text_order_id'] = $this->language->get('text_order_id');
-			$data['text_date_added'] = $this->language->get('text_date_added');
-			$data['text_shipping_method'] = $this->language->get('text_shipping_method');
-			$data['text_shipping_address'] = $this->language->get('text_shipping_address');
-			$data['text_payment_method'] = $this->language->get('text_payment_method');
-			$data['text_payment_address'] = $this->language->get('text_payment_address');
-			$data['text_history'] = $this->language->get('text_history');
-			$data['text_comment'] = $this->language->get('text_comment');
-			$data['text_no_results'] = $this->language->get('text_no_results');
+			$data['text_order_detail']      = $this->language->get('text_order_detail');
+			$data['text_invoice_no']        = $this->language->get('text_invoice_no');
+			$data['text_order_id']          = $this->language->get('text_order_id');
+			$data['text_date_added']        = $this->language->get('text_date_added');
+            $data['text_shipping']          = $this->language->get('text_shipping');
+			$data['text_shipping_method']   = $this->language->get('text_shipping_method');
+			$data['text_shipping_address']  = $this->language->get('text_shipping_address');
+            $data['text_payment']           = $this->language->get('text_payment');
+			$data['text_payment_method']    = $this->language->get('text_payment_method');
+			$data['text_payment_address']   = $this->language->get('text_payment_address');
+			$data['text_history']           = $this->language->get('text_history');
+			$data['text_comment']           = $this->language->get('text_comment');
+			$data['text_no_results']        = $this->language->get('text_no_results');
 
 			$data['column_name'] = $this->language->get('column_name');
 			$data['column_model'] = $this->language->get('column_model');
