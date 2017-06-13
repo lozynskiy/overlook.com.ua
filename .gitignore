@@ -6,3 +6,7 @@
 /system/storage/logs/
 /system/storage/
 /.idea/
+/admin/config.php
+/config.php
+/catalog/view/theme/pavilion/scripts/new.js
+/catalog/view/theme/pavilion/scripts/owl.carousel.min-.js

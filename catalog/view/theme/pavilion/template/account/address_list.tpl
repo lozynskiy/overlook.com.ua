@@ -16,7 +16,7 @@
                     <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
                 <span class="delimiter">/</span>
                 <meta itemprop="position" content="<?php echo $cnt+1; ?>"/>
-            </li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            </li>
             <?php } else { ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <strong itemprop="name" class="current-item"><?php echo $breadcrumb['text']; ?></strong>
@@ -71,7 +71,7 @@
                     <?php } else { ?>
                     <div class="no-data"><?php echo $text_empty; ?></div>
                     <?php } ?>
-                    <div class="buttons">
+                    <div class="add-button">
                         <a href="<?php echo $add; ?>"
                            class="button-1 add-address-button"><?php echo $button_new_address; ?></a>
                     </div>
