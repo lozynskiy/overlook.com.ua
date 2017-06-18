@@ -258,7 +258,7 @@ label, label + * {
 .inputs {
 	position: relative;
 	margin: 0 0 20px;
-	white-space: nowrap; /*fix for 'required' elements*/
+	/* white-space: nowrap; */ /*fix for 'required' elements*/
 	font-size: 0;
 }
 .inputs:after {
@@ -270,7 +270,7 @@ label, label + * {
 	display: block;
 	width: 100%;
 	margin: 0 0 5px;
-    font-size: 13px; /*reset zeroing*/
+	font-size: 13px; /*reset zeroing*/
 	font-weight: bold;
 }
 .inputs input[type="text"],
@@ -351,6 +351,7 @@ label, label + * {
 .forums-table-section table {
 	border: 1px solid #e9e9e9;
 	e9; */
+	background-color: #fff;
 	background-color: #fff;
 }
 .cart th, .data-table th,
@@ -1507,12 +1508,14 @@ margin-right: 10px;
 .item-box .product-title a {
 	display: block;
 }
+.sublist-wrap .prices,
 .item-box .prices {
 	height: 22px;
     margin: 0 0 20px;
     overflow: hidden;
 	padding: 0 15px;
 }
+.sublist-wrap .actual-price,
 .item-box .actual-price {
 	padding: 0 4px;
 	vertical-align: middle;
@@ -1520,6 +1523,7 @@ margin-right: 10px;
 	font-weight: bold;
 	color: #00a1b1;
 }
+.sublist-wrap .old-price,
 .item-box .old-price {
 	padding: 0 4px;
 	vertical-align: middle;
@@ -1997,6 +2001,11 @@ margin: 10px 0;
 }
 .overview .value{
 	font-weight: bold;
+	color: #333;
+	margin-left: 5px;
+}
+.overview .manufacturers .value{
+	font-weight: normal;
 	color: #333;
 	margin-left: 5px;
 }
@@ -3821,12 +3830,10 @@ margin: 10px 0;
 	border-bottom-color: #f74258;
 }
 .cart-collaterals .accordion-tab-content {
-	/* display: none; */
+	display: none;
 	max-width: 600px;
 	margin: auto;
-	/* display: -webkit-inline-box; */
-	/* padding: 30px; */
-	transition: .5s ease;
+	padding: 30px;
 }
 .cart-collaterals .title {
 	display: none; 
@@ -5624,27 +5631,6 @@ margin: 10px 0;
 .language-select img{
 margin-right: 5px;
 }
-#shedule i,
-#contacts i {
-    position: absolute;
-    left: 33%;
-    font-size: 21px;
-    cursor: default;
-}
-#shedule div,
-#contacts div {
-    font-weight: 700;
-    display: table-cell;
-    vertical-align: middle;
-}
-#contacts,
-#shedule {
-    padding-left: 48px;
-    /* height: 68px; */
-    display: table;
-    text-align: center;
-    position: relative;
-}
 .item-box:hover {-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.15);-moz-box-shadow:0 0 10px 0 rgba(0,0,0,.15);box-shadow:0 0 10px 0 rgba(0,0,0,.15);-webkit-transition:all .4s ease;-moz-transition:all .4s ease;transition:all .4s ease;}
 
 .category-slide .owl-carousel .owl-stage-outer {
@@ -5970,9 +5956,7 @@ color: #333;
 }
 .giftcard-box,
 .shipping,
-.coupon-box{
-padding: 30px;
-}
+.coupon-box{/* padding: 30px; */}
 .order-summary-content form{
 	margin-bottom:50px;
 }
@@ -6208,3 +6192,16 @@ min-width: 10px;
 max-width: 150px;
 }
 .option-list.listed li{float: none;padding: 5px 0;}
+
+.category-navigation-list .slider-wrapper img{
+	
+width: 100%;
+}
+
+.sublist-wrap .prices{
+	text-align:center;
+}
+ul.mega-menu-responsive .fa{
+	
+margin-right: 10px;
+}

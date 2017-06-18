@@ -1,12 +1,12 @@
 <div class="accordion-tab gift-cards">
   <div class="accordion-tab-title">
-    <span><a href="#collapse-voucher" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $heading_title; ?> <i class="fa fa-caret-down"></i></a></span>
+    <span><?php echo $heading_title; ?></span>
   </div>
-  <div id="collapse-voucher" class="accordion-tab-content collapse">
+  <div class="accordion-tab-content">
     <div class="giftcard-box">
       <div class="hint"><?php echo $entry_voucher; ?></div>
       <div class="coupon-code">
-        <input type="text" name="voucher" value="<?php echo $voucher; ?>" placeholder="<?php echo $entry_voucher; ?>" id="input-voucher" class="gift-card-coupon-code" />
+        <input type="text" name="voucher" value="<?php echo $voucher; ?>" id="input-voucher" class="gift-card-coupon-code" />
         <input type="submit" value="<?php echo $button_voucher; ?>" id="button-voucher" data-loading-text="<?php echo $text_loading; ?>"  class="button-2 apply-gift-card-coupon-code-button" />
         </div>
       <script type="text/javascript"><!--

@@ -1,8 +1,8 @@
 <div class="accordion-tab estimate-shipping">
   <div class="accordion-tab-title">
-    <span><a href="#collapse-shipping" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><?php echo $heading_title; ?> <i class="fa fa-caret-down"></i></a></span>
+    <span><?php echo $heading_title; ?></span>
   </div>
-  <div id="collapse-shipping" class="accordion-tab-content collapse">
+  <div class="accordion-tab-content">
     <div class="shipping">
       <div class="estimate-shipping">
         <div class="title">
@@ -29,7 +29,7 @@
         </div>
         <div class="inputs">
           <label for="input-postcode"><?php echo $entry_postcode; ?></label>
-          <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="zip-input" />
+          <input type="text" name="postcode" value="<?php echo $postcode; ?>" id="input-postcode" class="zip-input" />
         </div>
           <div class="buttons">
             <input type="button" id="button-quote" data-loading-text="<?php echo $text_loading; ?>" class="button-2 estimate-shipping-button" value="<?php echo $button_quote; ?>" />

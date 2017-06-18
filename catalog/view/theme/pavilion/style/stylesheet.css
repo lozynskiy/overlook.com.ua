@@ -207,7 +207,7 @@ div.required .control-label:before {
 #menu .dropdown-inner li a:hover {
 	color: #FFFFFF;
 }
-#menu .see-all {
+/*#menu .see-all {
 	display: block;
 	margin-top: 0.5em;
 	border-top: 1px solid #DDD;
@@ -216,14 +216,14 @@ div.required .control-label:before {
 	-moz-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 3px 3px;
 	font-size: 12px;
-}
-#menu .see-all:hover, #menu .see-all:focus {
+}*/
+/*#menu .see-all:hover, #menu .see-all:focus {
 	text-decoration: none;
 	color: #ffffff;
 	background-color: #229ac8;
 	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
 	background-repeat: repeat-x;
-}
+}*/
 #menu #category {
 	float: left;
 	padding-left: 15px;

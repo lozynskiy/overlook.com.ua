@@ -58,7 +58,7 @@
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/common.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/barrating.js"></script>
-    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/perfect-scrollbar.jquery.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/owl.carousel.min.js"></script>
 
 
@@ -78,7 +78,7 @@
 </head>
 <body class="<?php echo $class; ?>">
 <div class="header">
-    <nav id="top" class="header-upper">
+    <div id="top" class="header-upper">
         <div class="center">
             <div id="top-links">
                 <div class="header-selectors-wrapper">
@@ -108,17 +108,10 @@
                     </ul>
                 </div>
                 </div>
-                <!--div class="header-selectors-wrapper">
-                    <label>
-                    <a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>">
-                        <i class="fa fa-shopping-cart"></i>
-                    <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a>
-                    </label>
-                </div!-->
             </div>
         </div>
-    </nav>
-    <header class="header-middle">
+    </div>
+    <div class="header-middle">
         <div class="center">
             <div class="header-logo">
                 <div id="logo">
@@ -132,22 +125,150 @@
                 </div>
             </div>
             <div class="header-menu-parent">
-                <div id="contacts" class="col-md-6">
-                    <i class="fa fa-phone contacts-fa"></i>
-                    <div id="phone">
-                        <?php echo $telephone; ?>
+                <div class="header-menu sublist-wrap categories-in-side-panel">
+                    <div class="close-menu">
+                        <span>Close</span>
                     </div>
-                </div>
-                <div id="shedule" class="col-md-6">
-                    <i class="fa fa-clock-o"></i>
-                    <div id="phone">
-                        <?php echo $open; ?>
-                    </div>
+                    <ul class="mega-menu-responsive">
+                        <?php if($use_megamenu) { ?>
+                        <?php foreach ($items as $item) { ?>
+                        <?php if ($item['children']) {
+		                     $type = isset($item['subtype']) ? $item['subtype']: 'none';
+		                     $type_full = isset($item['type']) ? $item['type']: ''; ?>
+                        <li <?php if($item['type'] != "link" ) {echo 'class="has-sublist root-category-items"';} ?>>
+                        <a href="<?php echo $item['href']; ?>" <?php if($item['use_target_blank'] == 1) { echo ' target="_blank" ';} ?> <?php if($item['type'] == "link" ) {echo 'data-target="link"';} else {echo 'class="with-subcategories"';} ?>
+                        ><?php if($item['thumb']){ ?>
+                        <img class="megamenu-thumb" src="<?php echo$item['thumb']; ?>"
+                             alt="<?php echo $item['name']; ?>"
+                             title="<?php echo $item['name']; ?>"/>
+                        <?php } ?><?php echo $item['name']; ?>
+                        </a>
+                        <?php if($item['type'] != "link" ) {echo '<div class="plus-button"></div>';} ?>
+                        <?php if($item['type']=="category"){ ?>
+                        <?php if($item['subtype']=="full_image"){ ?>
+                        <div class="sublist-wrap categories with-pictures fullWidth boxes-3">
+                            <div class="sublist">
+                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
+                                <?php if($item['add_html']){ ?>
+                                <div class="slider-wrapper">
+                                    <?php echo$item['add_html'];?>
+                                </div>
+                                <?php } ?>
+                                <div class="inner-wrap">
+                                    <div class="row">
+                                        <ul class="sublist">
+                                            <li class="back-button"><span>back</span></li>
+                                            <?php foreach ($children as $child) { ?>
+                                            <li class="box <?php if(count($child['children'])){ ?>has-sublist<?php } ?>">
+                                                <a class="with-subcategories"
+                                                   href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                <div class="picture-title-wrap">
+                                                    <div class="title">
+                                                        <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                    </div>
+                                                    <div class="picture">
+                                                        <a href="<?php echo $child['href']; ?>"><img
+                                                                    src="<?php echo $child['thumb']; ?>"
+                                                                    alt="<?php echo $child['name']; ?>"
+                                                                    title="<?php echo $child['name']; ?>"/></a>
+                                                    </div>
+                                                </div>
+                                                <?php if(count($child['children'])){ ?>
+                                                <div class="plus-button close"></div>
+                                                <div class="sublist-wrap">
+                                                    <ul class="subcategories sublist">
+                                                        <li class="back-button"><span>back</span></li>
+                                                        <?php foreach ($child['children'] as $subchild) { ?>
+                                                        <li>
+                                                            <a href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a>
+                                                        </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </div>
+                                                <?php } ?>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <?php } ?>
+                        <?php if($item['type']=="html"){ ?>
+                        <div class="sublist-wrap">
+                            <ul class="sublist">
+                                <li class="back-button"><span>back</span></li>
+                                <div class="inner-wrap">
+                                    <?php echo$item['html']; ?>
+                                </div>
+                            </ul>
+                        </div>
+                        <?php } ?>
+                        <?php if($item['type']=="manufacturer"){ ?>
+                        <div class="sublist-wrap categories with-pictures fullWidth boxes-3">
+                            <div class="sublist">
+                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
+                                <?php if($item['add_html']){ ?>
+                                <div class="slider-wrapper">
+                                    <?php echo$item['add_html'];?>
+                                </div>
+                                <?php } ?>
+                                <div class="inner-wrap">
+                                    <div class="row">
+                                        <ul class="sublist">
+                                            <li class="back-button"><span>back</span></li>
+                                            <?php foreach ($children as $child) { ?>
+                                            <li class="box">
+                                                <a class="with-subcategories"
+                                                   href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                <div class="picture-title-wrap">
+                                                    <div class="title">
+                                                        <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                    </div>
+                                                    <div class="picture">
+                                                        <a href="<?php echo $child['href']; ?>"><img
+                                                                    src="<?php echo $child['thumb']; ?>" alt=""
+                                                                    title=""/></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        </li>
+                        <?php } else { ?>
+                        <li>
+                            <a href="<?php echo $item['href']; ?>">
+                                <?php if($item['thumb']){ ?>
+                                <img class="megamenu-thumb" src="<?php echo$item['thumb']; ?>"
+                                     alt="<?php echo $item['name']; ?>" title="<?php echo $item['name']; ?>"/>
+                                <?php } ?>
+                                <?php echo $item['name']; ?>
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <?php } ?>
+                        <?php } ?>
+
+                        <li>
+                            <span id="phone"><i class="fa fa-phone contacts-fa"></i><?php echo $telephone; ?></span>
+                        </li>
+                        <li>
+                            <span id="phone"><i class="fa fa-clock-o"></i><?php echo $open; ?></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <?php echo $cart; ?>
         </div>
-    </header>
+    </div>
     <div class="overlayOffCanvas"></div>
     <div class="responsive-nav-wrapper-parent">
         <div class="responsive-nav-wrapper">
@@ -175,263 +296,16 @@
     <?php if($use_megamenu) { ?>
     <div class="header-lower">
         <div class="center">
-            <nav id="megamenu-menu" class="navbar header-menu">
+            <span class="category-navigation-title">All Categories</span>
+            <div class="category-navigation-list-wrapper">
                 <div class="close-menu">
                     <span>Close</span>
                 </div>
-                <div class="navbar-header" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i>
-                        <span id="category" class="visible-xs"><?php echo $text_megamenu; ?></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-ex1-collapse no-padding">
-                    <ul class="nav navbar-nav">
-                        <?php foreach ($items as $item) { ?>
-                        <?php if ($item['children']) {
-		                     $type = isset($item['subtype']) ? $item['subtype']: 'none';
-		                     $type_full = isset($item['type']) ? $item['type']: '';
-		                     ?>
-                        <li class="dropdown <?php if($type == " full
-                        " || $type_full == "manufacturer"){echo"new-drop";} elseif($type ==
-                        "full_image"){echo"new-drop";} elseif($item['type']=="product"){echo"new-drop";} else {echo"";}
-                        ?>">
-                        <a href="<?php echo $item['href']; ?>" <?php if($item['use_target_blank'] == 1) { echo ' target="_blank" ';} ?> <?php if($item['type'] == "link" ) {echo 'data-target="link"';} else {echo 'class="dropdown-toggle dropdown-img" data-toggle="dropdown"';} ?>
-                        ><?php if($item['thumb']){ ?>
-                        <img class="megamenu-thumb" src="<?php echo$item['thumb']; ?>"
-                             alt="<?php echo $item['name']; ?>" title="<?php echo $item['name']; ?>"/>
-                        <?php } ?><?php echo $item['name']; ?>
-                        </a>
-                        <a <?php if($item['type'] == "link" ) {echo 'data-target="link" class="megamenu-notoggle-a"';} else {echo 'class="dropdown-toggle dropdown-img megamenu-toggle-a" data-toggle="dropdown"';} ?>
-                        ></a>
-                        <?php if($item['type']=="category"){ ?>
-                        <?php if($item['subtype']=="simple"){ ?>
-                        <div class="dropdown-menu megamenu-type-category-simple">
-                            <div class="dropdown-inner">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <ul class="list-unstyled megamenu-haschild simple-category">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="<?php if(count($child['children'])){ ?> megamenu-issubchild<?php } ?>">
-                                        <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a><?php if(count($child['children'])){ ?>
-                                        <a class="parent-title-toggle"></a><?php } ?>
-                                        <?php if(count($child['children'])){ ?>
-                                        <ul class="list-unstyled megamenu-ischild megamenu-ischild-simple">
-                                            <?php foreach ($child['children'] as $subchild) { ?>
-                                            <li><a class="mm-3-level-link"
-                                                   href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a>
-                                            </li>
-                                            <?php } ?>
-                                        </ul>
-                                        <?php } ?>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php } ?>
-                        <?php if($item['type']=="category"){ ?>
-                        <?php if($item['subtype']=="full"){ ?>
-                        <div class="dropdown-menu megamenu-type-category-full megamenu-bigblock">
-                            <div class="dropdown-inner">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <?php if($item['add_html']){ ?>
-                                <div style="" class="menu-add-html">
-                                    <?php echo$item['add_html'];?>
-                                </div>
-                                <?php } ?>
-                                <ul class="list-unstyled megamenu-haschild">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="megamenu-parent-block<?php if(count($child['children'])){ ?> megamenu-issubchild<?php } ?>">
-                                        <a class="megamenu-parent-title" href="<?php echo $child['href']; ?>">
-                                            <?php echo $child['name']; ?>
-                                        </a>
-                                        <?php if(count($child['children'])){ ?><a class="parent-title-toggle"></a>
-                                        <ul class="list-unstyled megamenu-ischild">
-                                            <?php foreach ($child['children'] as $subchild) { ?>
-                                            <li><a class="mm-3-level-link"
-                                                   href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a>
-                                            </li>
-                                            <?php } ?>
-                                        </ul>
-                                        <?php } ?>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php } ?>
-                        <?php if($item['type']=="category"){ ?>
-                        <?php if($item['subtype']=="full_image"){ ?>
-                        <div class="dropdown-menu megamenu-type-category-full megamenu-bigblock">
-                            <div class="dropdown-inner <?php if($item['add_html']){ ?>has-banner<?php } ?>">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <?php if($item['add_html']){ ?>
-                                <div style="" class="menu-add-html">
-                                    <?php echo$item['add_html'];?>
-                                </div>
-                                <?php } ?>
-                                <ul class="list-unstyled megamenu-haschild">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="megamenu-parent-block<?php if(count($child['children'])){ ?> megamenu-issubchild<?php } ?>">
-                                        <a class="megamenu-parent-title" href="<?php echo $child['href']; ?>">
-                                            <?php echo $child['name']; ?>
-                                        </a>
-                                        <a class="megamenu-parent-img" href="<?php echo $child['href']; ?>"><img
-                                                    src="<?php echo $child['thumb']; ?>"
-                                                    alt="<?php echo $child['name']; ?>"
-                                                    title="<?php echo $child['name']; ?>"/></a>
+                    <ul class="category-navigation-list sticky-flyout">
 
-                                        <?php if(count($child['children'])){ ?><a class="parent-title-toggle"></a>
-                                        <ul class="list-unstyled megamenu-ischild">
-                                            <?php foreach ($child['children'] as $subchild) { ?>
-                                            <li><a class="mm-3-level-link"
-                                                   href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a>
-                                            </li>
-                                            <?php } ?>
-                                        </ul>
-                                        <?php } ?>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php } ?>
-                        <?php if($item['type']=="html"){ ?>
-                        <div class="dropdown-menu megamenu-type-html">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled megamenu-haschild">
-                                    <li class="megamenu-parent-block">
-                                        <div class="megamenu-html-block">
-                                            <?php echo$item['html']; ?>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php if($item['type']=="manufacturer"){ ?>
-                        <div class="dropdown-menu megamenu-type-manufacturer <?php if($item['add_html']){ ?>megamenu-bigblock<?php } ?>">
-                            <div class="dropdown-inner">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <?php if($item['add_html']){ ?>
-                                <div style="" class="menu-add-html">
-                                    <?php echo$item['add_html'];?>
-                                </div>
-                                <?php } ?>
-                                <ul class="list-unstyled megamenu-haschild <?php if($item['add_html']){ ?>megamenu-blockwithimage<?php } ?>">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="megamenu-parent-block">
-                                        <a class="megamenu-parent-title"
-                                           href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                        <a class="megamenu-parent-img" href="<?php echo $child['href']; ?>"><img
-                                                    src="<?php echo $child['thumb']; ?>" alt="" title=""/></a>
-
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php if($item['type']=="information"){ ?>
-                        <div class="dropdown-menu megamenu-type-information <?php if($item['add_html']){ ?>megamenu-bigblock<?php } ?>">
-                            <div class="dropdown-inner">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <?php if($item['add_html']){ ?>
-                                <div style="" class="menu-add-html">
-                                    <?php echo$item['add_html'];?>
-                                </div>
-                                <?php } ?>
-                                <ul class="list-unstyled megamenu-haschild <?php if($item['add_html']){ ?>megamenu-blockwithimage<?php } ?>">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="info-href"><a
-                                                href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php if($item['type']=="product"){ ?>
-                        <div class="dropdown-menu megamenu-type-product <?php if($item['add_html']){ ?>megamenu-bigblock<?php } ?>">
-                            <div class="dropdown-inner">
-                                <?php foreach (array_chunk($item['children'], ceil(count($item['children']) / 1)) as $children) { ?>
-                                <?php if($item['add_html']){ ?>
-                                <div style="" class="menu-add-html">
-                                    <?php echo$item['add_html'];?>
-                                </div>
-                                <?php } ?>
-                                <ul class="list-unstyled megamenu-haschild <?php if($item['add_html']){ ?>megamenu-blockwithimage<?php } ?>">
-                                    <?php foreach ($children as $child) { ?>
-                                    <li class="megamenu-parent-block">
-                                        <a class="megamenu-parent-title"
-                                           href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                        <a class="megamenu-parent-img" href="<?php echo $child['href']; ?>"><img
-                                                    src="<?php echo $child['thumb']; ?>" alt="" title=""/></a>
-
-                                        <div class="dropprice">
-                                            <?php if($child['special']){ ?>
-                                            <span><?php } ?><?php echo $child['price']; ?><?php if($child['special']){ ?></span><?php } ?><?php echo $child['special']; ?>
-                                        </div>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php if($item['type']=="auth"){ ?>
-                        <div class="dropdown-menu megamenu-type-auth">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled megamenu-haschild">
-                                    <li class="megamenu-parent-block">
-                                        <div class="megamenu-html-block">
-                                            <form action="<?php echo $action; ?>" method="post"
-                                                  enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label class="control-label"
-                                                           for="input-email"><?php echo $entry_email; ?></label>
-                                                    <input type="text" name="email" value=""
-                                                           placeholder="<?php echo $entry_email; ?>" id="input-email"
-                                                           class="form-control"/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label"
-                                                           for="input-password"><?php echo $entry_password; ?></label>
-                                                    <input type="password" name="password" value=""
-                                                           placeholder="<?php echo $entry_password; ?>"
-                                                           id="input-password" class="form-control"/>
-                                                    <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a>
-                                                    <a href="<?php echo $register; ?>"><?php echo $text_register; ?></a>
-                                                </div>
-                                                <input type="submit" value="<?php echo $button_login; ?>"
-                                                       class="btn btn-primary"/>
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        </li>
-                        <?php } else { ?>
-                        <li><a href="<?php echo $item['href']; ?>"><?php if($item['thumb']){ ?>
-                                <img class="megamenu-thumb" src="<?php echo$item['thumb']; ?>"
-                                     alt="<?php echo $item['name']; ?>" title="<?php echo $item['name']; ?>"/>
-                                <?php } ?><?php echo $item['name']; ?></a>
-                        </li>
-                        <?php } ?>
-                        <?php } ?>
                     </ul>
-                </div>
-                <?php echo $search; ?>
-            </nav>
+            </div>
+            <?php echo $search; ?>
         </div>
     </div>
 
@@ -439,38 +313,65 @@
     <?php if ($categories && !$use_megamenu) { ?>
     <div class="header-lower">
         <div class="center">
-            <nav id="menu" class="navbar">
-                <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
-                    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-                </div>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-                        <?php foreach ($categories as $category) { ?>
-                        <?php if ($category['children']) { ?>
-                        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle"
-                                                data-toggle="dropdown"><?php echo $category['name']; ?></a>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-inner">
-                                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                                    <ul class="list-unstyled">
+            <span class="category-navigation-title">All Categories</span>
+            <div id="menu" class="category-navigation-list-wrapper">
+                <ul class="category-navigation-list sticky-flyout">
+                    <?php foreach ($categories as $category) { ?>
+                    <?php if ($category['children']) { ?>
+                    <li class="has-sublist">
+                        <a href="<?php echo $category['href']; ?>" class="with-subcategories">
+                            <span><?php echo $category['name']; ?></span>
+                        </a>
+                        <div class="sublist-wrap categories with-pictures fullWidth boxes-3">
+                            <ul class="sublist">
+                                        <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
                                         <?php foreach ($children as $child) { ?>
-                                        <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                        <li class="box">
+                                            <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                                            <div class="picture-title-wrap">
+                                                <div class="title">
+                                                    <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                </div>
+                                                <div class="picture">
+                                                    <a href="<?php echo $child['href']; ?>">
+                                                        <img src="<?php echo $child['thumb']; ?>"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                            <ul class="subcategories">
+                                                <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                                <li>
+                                                    <a href="<?php echo $child_lv3['href']; ?>"><span><?php echo $child_lv3['name']; ?></span></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php } ?>
+                                            </ul>
+                                            <?php } else { ?>
+                                            <div class="picture-title-wrap">
+                                                <div class="title">
+                                                    <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                </div>
+                                                <div class="picture">
+                                                    <a href="<?php echo $child['href']; ?>">
+                                                        <img src="<?php echo $child['thumb']; ?>"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <?php } ?>
                                         </li>
                                         <?php } ?>
-                                    </ul>
-                                    <?php } ?>
-                                </div>
-                                <a href="<?php echo $category['href']; ?>"
-                                   class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a></div>
-                        </li>
-                        <?php } else { ?>
-                        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                        <?php } ?>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </nav>
+                                        <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php } else { ?>
+                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                    <?php } ?>
+                    <?php } ?>
+                </ul>
+            </div>
+            <?php echo $search; ?>
         </div>
     </div>
     <?php } ?>

@@ -400,12 +400,6 @@ dropdown-toggle {
 background-color:#f6f6f6;
 cursor:pointer
 }
-.close-menu span,.header-menu .back-button span {
-display:block;
-height:50px;
-background:url(http://overlook.com.ua/catalog/view/theme/storeset/image/close.png) right center no-repeat;
-font-size:0
-}
 .navbar-header {
 position:fixed;
 display:none

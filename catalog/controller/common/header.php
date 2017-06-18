@@ -4,6 +4,8 @@ class ControllerCommonHeader extends Controller {
 		// Analytics
 		$this->load->model('extension/extension');
 
+        $this->load->model('tool/image');
+
 		$data['analytics'] = array();
 
 		$analytics = $this->model_extension_extension->getExtensions('analytics');
@@ -109,16 +111,46 @@ class ControllerCommonHeader extends Controller {
 				// Level 2
 				$children_data = array();
 
-				$children = $this->model_catalog_category->getCategories($category['category_id']);
+				$children = $this->model_catalog_category->getCategoriesTopMenu($category['category_id']);
 
 				foreach ($children as $child) {
+
+                    // Menu3rdLevel>>>
+                    $children_lv3_data = array();
+
+                    $children_lv3 = $this->model_catalog_category->getCategoriesTopMenu($child['category_id']);
+
+                    foreach ($children_lv3 as $child_lv3) {
+                        $filter_data_lv3 = array(
+                            'filter_category_id'  => $child_lv3['category_id'],
+                            'filter_sub_category' => true
+                        );
+
+                        $children_lv3_data[] = array(
+                            'name'  => $child_lv3['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data_lv3) . ')' : ''),
+                            'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'] . '_' . $child_lv3['category_id'])
+                        );
+                    }
+                    // <<<Menu3rdLevel
+
 					$filter_data = array(
 						'filter_category_id'  => $child['category_id'],
 						'filter_sub_category' => true
 					);
 
+                    if (isset($child['image']) && $child['image'] !="") {
+                        $cat_image = $this->model_tool_image->resize($child['image'], 203, 120);
+                    } else {
+                        $cat_image = $this->model_tool_image->resize("noimages2.png", 203, 120);
+                    }
+
 					$children_data[] = array(
+                        'thumb'    => $cat_image,
 						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+                        // Menu3rdLevel>>>
+                        'children_lv3' => $children_lv3_data,
+                        'column'   => $child['column'] ? $child['column'] : 1,
+                        // <<<Menu3rdLevel
 						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
 					);
 				}
@@ -130,6 +162,7 @@ class ControllerCommonHeader extends Controller {
 					'column'   => $category['column'] ? $category['column'] : 1,
 					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
+
 			}
 		}
 

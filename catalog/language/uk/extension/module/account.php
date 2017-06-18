@@ -24,3 +24,4 @@ $_['text_return']      = 'Повернення';
 $_['text_transaction'] = 'Оплати';
 $_['text_newsletter']  = 'Розсилання новин';
 $_['text_recurring']   = 'Регулярні платежі';
+$_['text_voucher']     = 'Подарункові сертифікати';

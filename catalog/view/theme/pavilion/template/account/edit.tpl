@@ -45,7 +45,7 @@
           <h1><?php echo $heading_title; ?></h1>
         </div>
         <div class="page-body">
-      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="fieldset">
           <div class="title">
             <strong><?php echo $text_your_details; ?></strong>
