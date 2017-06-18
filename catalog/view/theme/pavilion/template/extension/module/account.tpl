@@ -16,10 +16,10 @@
             <li><a href="<?php echo $address; ?>" class="inactive fa fa-address-book"><span><?php echo $text_address; ?></span></a></li>
             <?php } ?>
             <li><a href="<?php echo $wishlist; ?>" class="inactive fa fa-heart"><span><?php echo $text_wishlist; ?></span></a></li>
+            <li><a href="<?php echo $voucher; ?>" class="inactive fa fa-gift"><span><?php echo $text_voucher; ?></span></a></li>
             <?php if ($logged) { ?>
             <li><a href="<?php echo $order; ?>" class="inactive fa fa-shopping-basket"><span><?php echo $text_order; ?></span></a></li>
             <li><a href="<?php echo $download; ?>" class="inactive fa fa-download"><span><?php echo $text_download; ?></span></a></li>
-            <li><a href="<?php echo $voucher; ?>" class="inactive fa fa-gift"><span><?php echo $text_voucher; ?></span></a></li>
             <li><a href="<?php echo $recurring; ?>" class="inactive fa fa-credit-card"><span><?php echo $text_recurring; ?></span></a></li>
             <li><a href="<?php echo $reward; ?>" class="inactive fa fa-star"><span><?php echo $text_reward; ?></span></a></li>
             <li><a href="<?php echo $return; ?>" class="inactive fa fa-retweet"><span><?php echo $text_return; ?></span></a></li>
