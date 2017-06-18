@@ -40,13 +40,13 @@
                     <h1><?php echo $heading_title; ?></h1>
                 </div>
                 <div class="section order-completed">
-                <div class="page-body">
-                    <div class="details"><strong><?php echo $text_error; ?></strong></div>
-                    <div class="buttons">
-                        <a href="<?php echo $continue; ?>" class="button-1"><?php echo $button_continue; ?></a>
+                    <div class="page-body">
+                        <div class="details"><strong><?php echo $text_error; ?></strong></div>
+                        <div class="buttons">
+                            <a href="<?php echo $continue; ?>" class="button-1"><?php echo $button_continue; ?></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <?php echo $content_bottom; ?>
         </div>

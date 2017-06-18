@@ -3107,6 +3107,7 @@ margin: 10px 0;
 .login-page .buttons {
 	margin: 0 0 40px;
 }
+.category-page .button-1,
 .registration-page .button-1,
 .registration-result-page .button-1,
 .login-page .button-1,
@@ -3125,6 +3126,7 @@ margin: 10px 0;
 	outline: 1px solid transparent;
 	transition: all 0.2s ease;
 }
+.category-page .button-1:hover,
 .registration-page .button-1:hover,
 .registration-result-page .button-1:hover,
 .login-page .button-1:hover,
