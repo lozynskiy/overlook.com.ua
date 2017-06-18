@@ -537,8 +537,7 @@ label.mfilter-tb-as-td {
     margin: 0;
     max-height: none !important;
     max-width: none!important;
-    overflow-x: hidden!important;
-    overflow-y: scroll!important;
+    overflow: visible !important;
     padding: 0;
     top: 0;
     width: auto!important;

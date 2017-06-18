@@ -155,7 +155,7 @@ $(document).ready(function() {
         $(".filtersContainer").toggleClass("open"),
             $(".movedElements").toggleClass("move-right"),
             q(),
-            $('.filtersContainer').perfectScrollbar({
+            $('.filtersContainer.mfilter-free-container').perfectScrollbar({
                 swipePropagation: false,
                 wheelSpeed: 1,
                 suppressScrollX: true
