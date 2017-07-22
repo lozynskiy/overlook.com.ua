@@ -153,10 +153,10 @@
                                             <div class="buttons-upper">
                                                 <input class="button-2 add-to-wishlist-button" type="button"
                                                        data-toggle="tooltip" title="<?php echo $button_wishlist; ?>"
-                                                       onclick="wishlist.add('<?php echo $product['product_id']; ?>');"></input>
+                                                       onclick="wishlist.add('<?php echo $product['product_id']; ?>');"/>
                                                 <input class="button-2 add-to-compare-list-button" type="button"
                                                        data-toggle="tooltip" title="<?php echo $button_compare; ?>"
-                                                       onclick="compare.add('<?php echo $product['product_id']; ?>');"></input>
+                                                       onclick="compare.add('<?php echo $product['product_id']; ?>');"/>
                                             </div>
                                             <div class="buttons-lower">
                                                 <button class="button-2 product-box-add-to-cart-button" type="button"

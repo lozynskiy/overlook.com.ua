@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if IE 8 ]>
-<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie8"><![endif]-->
-<!--[if IE 9 ]>
-<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
-<!--<![endif]-->
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,14 +22,9 @@
     <?php } ?>
     <meta property="og:site_name" content="<?php echo $name; ?>"/>
 
-
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/style.css" /!-->
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/themify-icons.css" /!-->
-
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/stylesheet/megamenu.css"/>
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/print.css" /!-->
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -44,15 +32,23 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/1000.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/1280.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/tables.css"/>
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/min-769.css" />
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/min-1200.css" /!-->
-
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"/>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/perfect-scrollbar.min.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/owl.carousel.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/perfect-scrollbar.min.css"/>
+
+
+    <?php foreach ($styles as $style) { ?>
+        <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>"
+              media="<?php echo $style['media']; ?>"/>
+    <?php } ?>
+    <?php foreach ($links as $link) { ?>
+        <link  rel="<?php echo $link['rel']; ?>" href="<?php echo $link['href']; ?>"/>
+    <?php } ?>
+
 
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.js"></script>
@@ -62,15 +58,8 @@
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/owl.carousel.min.js"></script>
 
 
-    <?php foreach ($styles as $style) { ?>
-    <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
-          media="<?php echo $style['media']; ?>"/>
-    <?php } ?>
-    <?php foreach ($links as $link) { ?>
-    <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
-    <?php } ?>
     <?php foreach ($scripts as $script) { ?>
-    <script src="<?php echo $script; ?>" type="text/javascript"></script>
+    <script  type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
     <?php foreach ($analytics as $analytic) { ?>
     <?php echo $analytic; ?>
@@ -78,7 +67,7 @@
 </head>
 <body class="<?php echo $class; ?>">
 <div class="header">
-    <div id="top" class="header-upper">
+    <div class="header-upper" id="top">
         <div class="center">
             <div id="top-links">
                 <div class="header-selectors-wrapper">
@@ -90,23 +79,27 @@
                 </div>
                 <div id="header-links-wrapper" class="header-links-wrapper"><label><?php echo $text_account; ?></label>
                     <div class="header-links">
-                    <ul id="header-links">
-                        <?php if ($logged) { ?>
-                        <li><a class="ico-account" href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-                        <li><a class="ico-logout" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-                        </li>
-                        <?php } else { ?>
-                        <li><a class="ico-register" href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-                        <li><a class="ico-login modal-login" href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
-                        <?php } ?>
-                        <li><a class="ico-wishlist" href="<?php echo $wishlist; ?>" id="wishlist-total"
-                                    title="<?php echo $text_wishlist; ?>"><?php echo $text_wishlist; ?></a>
-                        </li>
-                        <li><a class="compare" href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $text_compare; ?>">
-                                <i class="fa fa-exchange "></i><?php echo $text_compare; ?></a>
-                        </li>
-                    </ul>
-                </div>
+                        <ul id="header-links">
+                            <?php if ($logged) { ?>
+                            <li><a class="ico-account" href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
+                            </li>
+                            <li><a class="ico-logout" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                            </li>
+                            <?php } else { ?>
+                            <li><a class="ico-register"
+                                   href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+                            <li><a class="ico-login modal-login"
+                                   href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
+                                <?php } ?>
+                            <li><a class="ico-wishlist" href="<?php echo $wishlist; ?>" id="wishlist-total"
+                                   title="<?php echo $text_wishlist; ?>"><?php echo $text_wishlist; ?></a>
+                            </li>
+                            <li><a class="compare" href="<?php echo $compare; ?>" id="compare-total"
+                                   title="<?php echo $text_compare; ?>">
+                                    <i class="fa fa-exchange "></i><?php echo $text_compare; ?></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,9 +109,9 @@
             <div class="header-logo">
                 <div id="logo">
                     <?php if ($logo) { ?>
-                    <a class="logo" <?php if ($home != $og_url) { ?>href="<?php echo $home; ?>"<?php } ?>><img
-                            src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"
-                            class="img-responsive"/></a>
+                    <a class="logo" <?php if ($home != $og_url) { ?>href="<?php echo $home; ?>"<?php } ?>>
+                    <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"
+                         class="img-responsive"/></a>
                     <?php } else { ?>
                     <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
                     <?php } ?>
@@ -136,8 +129,11 @@
 		                     $type = isset($item['subtype']) ? $item['subtype']: 'none';
 		                     $type_full = isset($item['type']) ? $item['type']: ''; ?>
                         <li <?php if($item['type'] != "link" ) {echo 'class="has-sublist root-category-items"';} ?>>
-                        <a href="<?php echo $item['href']; ?>" <?php if($item['use_target_blank'] == 1) { echo ' target="_blank" ';} ?> <?php if($item['type'] == "link" ) {echo 'data-target="link"';} else {echo 'class="with-subcategories"';} ?>
-                        ><?php if($item['thumb']){ ?>
+                        <a href="<?php echo $item['href']; ?>"
+                            <?php if($item['use_target_blank'] == 1) { echo ' target="_blank" ';} ?>
+                            <?php if($item['type'] == "link" ) { echo 'data-target="link"';
+                            } else { echo 'class="with-subcategories"';} ?>>
+                            <?php if($item['thumb']){ ?>
                         <img class="megamenu-thumb" src="<?php echo$item['thumb']; ?>"
                              alt="<?php echo $item['name']; ?>"
                              title="<?php echo $item['name']; ?>"/>
@@ -170,7 +166,8 @@
                                                         <a href="<?php echo $child['href']; ?>"><img
                                                                     src="<?php echo $child['thumb']; ?>"
                                                                     alt="<?php echo $child['name']; ?>"
-                                                                    title="<?php echo $child['name']; ?>"/></a>
+                                                                    title="<?php echo $child['name']; ?>"/>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <?php if(count($child['children'])){ ?>
@@ -230,7 +227,8 @@
                                                     <div class="picture">
                                                         <a href="<?php echo $child['href']; ?>"><img
                                                                     src="<?php echo $child['thumb']; ?>" alt=""
-                                                                    title=""/></a>
+                                                                    title=""/>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -256,7 +254,6 @@
                         <?php } ?>
                         <?php } ?>
                         <?php } ?>
-
                         <li>
                             <span id="phone"><i class="fa fa-phone contacts-fa"></i><?php echo $telephone; ?></span>
                         </li>
@@ -269,51 +266,26 @@
             <?php echo $cart; ?>
         </div>
     </div>
-    <div class="overlayOffCanvas"></div>
-    <div class="responsive-nav-wrapper-parent">
-        <div class="responsive-nav-wrapper">
-            <div class="menu-title">
-                <span>Menu</span>
-            </div>
-            <div class="shopping-cart-link">
-                <span>Shopping cart</span>
-            </div>
-            <div class="personal-button" id="header-links-opener">
-                <span>Personal menu</span>
-            </div>
-            <div class="filters-button">
-                <span>Filters</span>
-            </div>
-            <div class="preferences-button" id="header-selectors-opener">
-                <span>Preferences</span>
-
-            </div>
-            <div class="search-wrap">
-                <span>Search</span>
-            </div>
-        </div>
-    </div>
     <?php if($use_megamenu) { ?>
     <div class="header-lower">
         <div class="center">
-            <span class="category-navigation-title">All Categories</span>
+            <span class="category-navigation-title"><?php echo $text_category; ?></span>
             <div class="category-navigation-list-wrapper">
                 <div class="close-menu">
                     <span>Close</span>
                 </div>
-                    <ul class="category-navigation-list sticky-flyout">
+                <ul class="category-navigation-list sticky-flyout">
 
-                    </ul>
+                </ul>
             </div>
             <?php echo $search; ?>
         </div>
     </div>
-
     <?php } ?>
     <?php if ($categories && !$use_megamenu) { ?>
     <div class="header-lower">
         <div class="center">
-            <span class="category-navigation-title">All Categories</span>
+            <span class="category-navigation-title"><?php echo $text_category; ?></span>
             <div id="menu" class="category-navigation-list-wrapper">
                 <ul class="category-navigation-list sticky-flyout">
                     <?php foreach ($categories as $category) { ?>
@@ -324,44 +296,44 @@
                         </a>
                         <div class="sublist-wrap categories with-pictures fullWidth boxes-3">
                             <ul class="sublist">
-                                        <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                                        <?php foreach ($children as $child) { ?>
-                                        <li class="box">
-                                            <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
-                                            <div class="picture-title-wrap">
-                                                <div class="title">
-                                                    <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                                </div>
-                                                <div class="picture">
-                                                    <a href="<?php echo $child['href']; ?>">
-                                                        <img src="<?php echo $child['thumb']; ?>"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
-                                            <ul class="subcategories">
-                                                <?php foreach ($children_lv3 as $child_lv3) { ?>
-                                                <li>
-                                                    <a href="<?php echo $child_lv3['href']; ?>"><span><?php echo $child_lv3['name']; ?></span></a>
-                                                </li>
-                                                <?php } ?>
-                                                <?php } ?>
-                                            </ul>
-                                            <?php } else { ?>
-                                            <div class="picture-title-wrap">
-                                                <div class="title">
-                                                    <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                                </div>
-                                                <div class="picture">
-                                                    <a href="<?php echo $child['href']; ?>">
-                                                        <img src="<?php echo $child['thumb']; ?>"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
+                                <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                <?php foreach ($children as $child) { ?>
+                                <li class="box">
+                                    <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                                    <div class="picture-title-wrap">
+                                        <div class="title">
+                                            <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                        </div>
+                                        <div class="picture">
+                                            <a href="<?php echo $child['href']; ?>">
+                                                <img src="<?php echo $child['thumb']; ?>"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                    <ul class="subcategories">
+                                        <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                        <li>
+                                            <a href="<?php echo $child_lv3['href']; ?>"><span><?php echo $child_lv3['name']; ?></span></a>
                                         </li>
                                         <?php } ?>
                                         <?php } ?>
+                                    </ul>
+                                    <?php } else { ?>
+                                    <div class="picture-title-wrap">
+                                        <div class="title">
+                                            <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                        </div>
+                                        <div class="picture">
+                                            <a href="<?php echo $child['href']; ?>">
+                                                <img src="<?php echo $child['thumb']; ?>"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                </li>
+                                <?php } ?>
+                                <?php } ?>
                             </ul>
                         </div>
                     </li>
@@ -375,4 +347,28 @@
         </div>
     </div>
     <?php } ?>
+</div>
+<div class="overlayOffCanvas"></div>
+<div class="responsive-nav-wrapper-parent">
+    <div class="responsive-nav-wrapper">
+        <div class="menu-title">
+            <span>Menu</span>
+        </div>
+        <div class="shopping-cart-link">
+            <span>Shopping cart</span>
+        </div>
+        <div class="personal-button" id="header-links-opener">
+            <span>Personal menu</span>
+        </div>
+        <div class="filters-button">
+            <span>Filters</span>
+        </div>
+        <div class="preferences-button" id="header-selectors-opener">
+            <span>Preferences</span>
+
+        </div>
+        <div class="search-wrap">
+            <span>Search</span>
+        </div>
+    </div>
 </div>

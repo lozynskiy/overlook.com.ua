@@ -5,7 +5,7 @@
 //info@marketplus.if.ua
 
 // Text
-$_['text_items']    = '%s товар(ів) - %s';
+$_['text_items']    = '<span class="cart-qty">%s</span><span class="cart-label"> товар(ів)</span><span class="cart-ttl"> - %s</span>';
 $_['text_empty']    = 'Ваш кошик порожній!';
 $_['text_cart']     = 'Переглянути кошик';
 $_['text_checkout'] = 'Оформити замовлення';

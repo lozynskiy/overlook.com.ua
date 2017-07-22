@@ -1,4 +1,7 @@
 <div class="section shipping-method">
+    <div class="category-description">
+        <p><?php echo $text_shipping_method; ?></p>
+    </div>
     <ul class="method-list">
         <?php if ($error_warning) { ?>
         <li>
@@ -8,19 +11,18 @@
         <?php } ?>
         <?php if ($shipping_methods) { ?>
         <li>
-            <p><?php echo $text_shipping_method; ?></p>
             <?php foreach ($shipping_methods as $shipping_method) { ?>
-            <div class="method-name"><label><?php echo $shipping_method['title']; ?></label></div>
             <?php if (!$shipping_method['error']) { ?>
             <?php foreach ($shipping_method['quote'] as $quote) { ?>
+             <!--label><?php echo $shipping_method['title']; ?></label!-->
             <div class="method-name">
                 <?php if ($quote['code'] == $code || !$code) { ?>
                 <?php $code = $quote['code']; ?>
-                <input type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>" checked="checked"/>
+                <input id="shipping_method_<?php echo $quote['code']; ?>" type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>" checked="checked"/>
                 <?php } else { ?>
-                <input type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>"/>
+                <input id="shipping_method_<?php echo $quote['code']; ?>" type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>"/>
                 <?php } ?>
-                <label>
+                <label for="shipping_method_<?php echo $quote['code']; ?>">
                     <?php echo $quote['title']; ?> - <?php echo $quote['text']; ?>
                 </label>
             </div>

@@ -1,6 +1,6 @@
 <?php
 // Heading 
-$_['heading_title']     		= 'OCtemplates Мегаменю';
+$_['heading_title']     		= 'Мегаменю';
 
 
 // Text

@@ -1,36 +1,40 @@
 <div class="section shipping-method">
+    <div class="category-description">
+        <p><?php echo $text_payment_method; ?></p>
+    </div>
     <ul class="method-list">
         <?php if ($error_warning) { ?>
-        <li>
-            <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
-        </li>
+            <li>
+                <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+                </div>
+            </li>
         <?php } ?>
         <?php if ($payment_methods) { ?>
-        <li>
-            <label><?php echo $text_payment_method; ?></label>
             <?php foreach ($payment_methods as $payment_method) { ?>
-            <div class="radio">
-                <?php if ($payment_method['code'] == $code || !$code) { ?>
-                <?php $code = $payment_method['code']; ?>
-                <input type="radio" name="payment_method" value="<?php echo $payment_method['code']; ?>"
-                       checked="checked"/>
-                <?php } else { ?>
-                <input type="radio" name="payment_method" value="<?php echo $payment_method['code']; ?>"/>
-                <?php } ?>
-                <label>
-                    <?php echo $payment_method['title']; ?>
-                    <?php if ($payment_method['terms']) { ?>
-                    (<?php echo $payment_method['terms']; ?>)
-                    <?php } ?>
-                    <?php if (isset($payment_method['description'])) { ?>
-                    <br/>
-                    <small><?php echo $payment_method['description']; ?></small>
-                    <?php } ?>
-                </label>
-            </div>
+                <li>
+                    <div class="method-name">
+                        <?php if ($payment_method['code'] == $code || !$code) { ?>
+                            <?php $code = $payment_method['code']; ?>
+                            <input id="payment_method_<?php echo $payment_method['code']; ?>" type="radio"
+                                   name="payment_method" value="<?php echo $payment_method['code']; ?>"
+                                   checked="checked"/>
+                        <?php } else { ?>
+                            <input id="payment_method_<?php echo $payment_method['code']; ?>" type="radio"
+                                   name="payment_method" value="<?php echo $payment_method['code']; ?>"/>
+                        <?php } ?>
+                        <label for="payment_method_<?php echo $payment_method['code']; ?>">
+                            <?php echo $payment_method['title']; ?>
+                            <?php if ($payment_method['terms']) { ?>
+                                (<?php echo $payment_method['terms']; ?>)
+                            <?php } ?>
+                        </label>
+                        <?php if (isset($payment_method['description'])) { ?>
+                            <div class="payment-description"><?php echo $payment_method['description']; ?></div>
+                        <?php } ?>
+                    </div>
+                </li>
             <?php } ?>
-            <?php } ?>
-        </li>
+        <?php } ?>
         <li>
             <strong><?php echo $text_comments; ?></strong>
             <textarea name="comment" rows="8"><?php echo $comment; ?></textarea>
@@ -38,11 +42,11 @@
         <?php if ($text_agree) { ?>
         <div class="buttons">
             <p><?php echo $text_agree; ?>
-            <?php if ($agree) { ?>
-            <input type="checkbox" name="agree" value="1" checked="checked"/>
-            <?php } else { ?>
-            <input type="checkbox" name="agree" value="1"/>
-            <?php } ?></p>
+                <?php if ($agree) { ?>
+                    <input type="checkbox" name="agree" value="1" checked="checked"/>
+                <?php } else { ?>
+                    <input type="checkbox" name="agree" value="1"/>
+                <?php } ?></p>
             <br \>
             <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
                    data-loading-text="<?php echo $text_loading; ?>" class="button-1 payment-method-next-step-button"/>
@@ -50,8 +54,8 @@
     </ul>
 </div>
 <?php } else { ?>
-<div class="buttons">
-    <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
-           data-loading-text="<?php echo $text_loading; ?>" class="button-1 payment-method-next-step-button"/>
-</div>
+    <div class="buttons">
+        <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
+               data-loading-text="<?php echo $text_loading; ?>" class="button-1 payment-method-next-step-button"/>
+    </div>
 <?php } ?>

@@ -749,7 +749,7 @@ margin-right: 10px;
 }
 .header-logo a img {
 	max-width: 100%;
-	background-color: #f74258;
+	background-color: #ff6400;
 }
 
 .mini-shopping-cart {
@@ -895,7 +895,7 @@ margin-right: 10px;
 	height: 47px;
 	margin: 0 5px;
 	border: none;
-	background: #f74258 url('../image/search-button.png') center no-repeat;
+	background: #FF3B00 url('../image/search-button.png') center no-repeat;
 	vertical-align: middle;
 	font-size: 0;
 	outline: 1px solid transparent;
@@ -946,7 +946,7 @@ margin-right: 10px;
 }
 
 .footer-upper {
-	background-color: var(--color2);
+	background-color: #6d655d;
 	padding: 25px 0 20px;
 }
 .newsletter .title {
@@ -1366,7 +1366,7 @@ margin-right: 10px;
 }
 .breadcrumb strong {
 	font-weight: normal;
-	color: #f74258;
+	color: #ff6400;
 }
 .breadcrumb li:first-child > span a { /*this is on product page*/
 	display: block;
@@ -2815,11 +2815,27 @@ margin: 10px 0;
 	width: 37px;
 	height: 37px;
 	border: none;
-	background: #777 url('../img/account-sprite.png') center -37px no-repeat;
+	background: #777 url('../image/account-sprite.png') center -37px no-repeat;
 	font-size: 0;
 	transition: all 0.2s ease;
+	float: left;
+	margin: 0 3px 0 0;
+}
+.compare-products-page .add-to-cart-button {
+	display: inline-block;
+	width: 37px;
+	height: 37px;
+	border: none;
+	background: #777 url('../image/product-sprite.png') -112px 0 no-repeat;
+	font-size: 0;
+	transition: all 0.2s ease;
+	float: left;
+	margin: 0 3px 0 0;
 }
 .compare-products-page .remove-button:hover {
+	background-color: #f74258;
+}
+.compare-products-page .add-to-cart-button:hover {
 	background-color: #f74258;
 }
 .compare-products-page img {
@@ -3107,6 +3123,7 @@ margin: 10px 0;
 .login-page .buttons {
 	margin: 0 0 40px;
 }
+.compare-products-page .button-1,
 .category-page .button-1,
 .registration-page .button-1,
 .registration-result-page .button-1,
@@ -3126,6 +3143,7 @@ margin: 10px 0;
 	outline: 1px solid transparent;
 	transition: all 0.2s ease;
 }
+.compare-products-page .button-1:hover,
 .category-page .button-1:hover,
 .registration-page .button-1:hover,
 .registration-result-page .button-1:hover,
@@ -3173,7 +3191,7 @@ margin: 10px 0;
 	position: static;
 }
 .login-page .customer-blocks .title.active {
-	background-color: #f74258;
+	background-color: #ff6400;
 	color: #fff;
 }
 .login-page .customer-blocks .text {
@@ -3836,6 +3854,10 @@ margin: 10px 0;
 	max-width: 600px;
 	margin: auto;
 	padding: 30px;
+}
+.checkout-page .accordion-tab-content {
+	display: none;
+	margin: auto;
 }
 .cart-collaterals .title {
 	display: none; 
@@ -6203,7 +6225,18 @@ width: 100%;
 .sublist-wrap .prices{
 	text-align:center;
 }
-ul.mega-menu-responsive .fa{
-	
+ul.mega-menu-responsive li span .fa{
 margin-right: 10px;
+}
+s{
+text-decoration: line-through;
+}
+.text-danger {
+  color: #f74258;
+  font-size: 13px;
+}
+.has-error select,
+.has-error input{
+	
+border: 1px solid #ff9aa6;
 }

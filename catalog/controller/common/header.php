@@ -180,7 +180,7 @@ class ControllerCommonHeader extends Controller {
       
           $data['items'] = array();
 
-          $menu_items = $this->cache->get('octemplates.megamenu.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
+          $menu_items = $this->cache->get('megamenu.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
               
           if (!$menu_items) {
             $tmp_items= $this->model_extension_module_megamenu->getItems();
@@ -211,7 +211,7 @@ class ControllerCommonHeader extends Controller {
               }
             }
 
-            $this->cache->set('octemplates.megamenu.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'), $menu_items);
+            $this->cache->set('megamenu.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'), $menu_items);
           }
 
           $data['items'] = $menu_items;

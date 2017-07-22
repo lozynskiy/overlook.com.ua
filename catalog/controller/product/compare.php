@@ -7,6 +7,8 @@ class ControllerProductCompare extends Controller {
 
 		$this->load->model('tool/image');
 
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+
 		if (!isset($this->session->data['compare'])) {
 			$this->session->data['compare'] = array();
 		}
