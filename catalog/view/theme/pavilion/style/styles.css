@@ -6248,3 +6248,8 @@ text-decoration: line-through;
 	
 border: 1px solid #ff9aa6;
 }
+.column2{
+	width:50%;
+	display:block;
+	float: left;
+}

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="master-column-wrapper">
   <div class="col-sm-6">
     <div class="page-title">
     <h4><?php echo $text_new_customer; ?></h4>

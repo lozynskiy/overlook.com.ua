@@ -1,4 +1,4 @@
-<div class="row">
+<div class="master-column-wrapper">
   <div class="col-sm-6">
     <fieldset id="account">
       <legend><?php echo $text_your_details; ?></legend>
