@@ -2810,6 +2810,8 @@ margin: 10px 0;
 .compare-products-table {
 	display: none;
 }
+.shopping-cart-page .remove-button,
+.wishlist-page .remove-button,
 .compare-products-page .remove-button {
 	display: inline-block;
 	width: 37px;
@@ -2821,6 +2823,7 @@ margin: 10px 0;
 	float: left;
 	margin: 0 3px 0 0;
 }
+.wishlist-page .add-to-cart-button,
 .compare-products-page .add-to-cart-button {
 	display: inline-block;
 	width: 37px;
@@ -2832,9 +2835,12 @@ margin: 10px 0;
 	float: left;
 	margin: 0 3px 0 0;
 }
+.shopping-cart-page .remove-button:hover,
+.wishlist-page .remove-button:hover,
 .compare-products-page .remove-button:hover {
 	background-color: #f74258;
 }
+.wishlist-page .add-to-cart-button:hover,
 .compare-products-page .add-to-cart-button:hover {
 	background-color: #f74258;
 }
@@ -4390,12 +4396,12 @@ margin: 10px 0;
 	font-size: 0;
 }
 .order-details-page .actions input {
-	width: 180px;
-	max-width: 100%;
+	/* width: 180px; */
+	/* max-width: 100%; */
 	height: 45px;
 	margin: 0 5px 10px;
 	border: medium none;
-	padding: 0 28px 0 48px;
+	/* padding: 0 28px 0 48px; */
 	font-size: 13px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -4404,12 +4410,14 @@ margin: 10px 0;
 	text-align: left;
 }
 .order-details-page .actions .re-order-button {
-	background: #f74258 url('../image/cart-sprite.png') left 0 no-repeat;
+	/* background: #f74258 url('../image/cart-sprite.png') left 0 no-repeat; */
 	color: #777;
+	background-color: transparent;
 }
 .order-details-page .actions .return-items-button {
-	background: #f74258 url('../image/cart-sprite.png') left -44px no-repeat;
+	/* background: #f74258 url('../image/cart-sprite.png') left -44px no-repeat; */
 	color: #777;
+	background-color: transparent;
 }
 .order-details-page .actions .remove-items-button {
 	background: #f74258 url('../image/cart-sprite.png') left -88px no-repeat;
@@ -4554,7 +4562,7 @@ margin: 10px 0;
 	padding: 0;
 }
 #opc-confirm_order .table-wrapper {
-	margin: 0 -33px; /*hacking the outer padding on smallest resolution*/
+	margin: 0 -31px; /*hacking the outer padding on smallest resolution*/
 }
 #opc-confirm_order .terms-of-service {
 	margin: 0 0 30px;

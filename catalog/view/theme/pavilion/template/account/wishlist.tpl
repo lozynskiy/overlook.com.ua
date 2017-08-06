@@ -41,7 +41,7 @@
         <?php $class = 'center-1'; ?>
         <?php } ?>
         <div id="content" class="<?php echo $class; ?>">
-            <div class="page wishlist-page order-details-page">
+            <div class="page wishlist-page">
                 <?php echo $content_top; ?>
                 <div class="page-title">
                     <h2><?php echo $heading_title; ?></h2>
@@ -93,14 +93,12 @@
                                             <input type="button"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_cart; ?>"
-                                                   value="<?php echo $button_cart; ?>"
-                                                   class="re-order-button"
+                                                   class="button-2 add-to-cart-button"
                                                    onclick="cart.add('<?php echo $product['product_id']; ?>');"/>
                                             <input type="button"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_remove; ?>"
-                                                   value="<?php echo $button_remove; ?>"
-                                                   class="remove-items-button"
+                                                   class="button-2 remove-button"
                                                    onclick="setLocation('<?php echo $product['remove']; ?>')" />
                                         </div>
                                     </td>

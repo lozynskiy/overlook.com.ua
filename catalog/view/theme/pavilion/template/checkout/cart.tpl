@@ -87,7 +87,7 @@
                                         <td class="remove-from-cart">
                                             <div type="button" data-toggle="tooltip"
                                                  title="<?php echo $button_remove; ?>"
-                                                 class="remove-from-cart-button fa fa-remove"
+                                                 class="button2 remove-button"
                                                  onclick="cart.remove('<?php echo $product['cart_id']; ?>');">
                                             </div>
                                         </td>

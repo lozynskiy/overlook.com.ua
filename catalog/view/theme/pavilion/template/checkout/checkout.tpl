@@ -48,64 +48,64 @@
                 </div>
                 <div class="page-body checkout-data">
                     <div class="panel-group opc" id="accordion">
-                        <div id="opc-option" class="panel panel-default tab-section allow accordion-tab">
+                        <div id="opc-option" class="tab-section allow accordion-tab">
                             <div class="panel-heading step-title accordion-tab-title">
                                 <h4 class="panel-title"><?php echo $text_checkout_option; ?></h4>
                             </div>
-                            <div class="step a-item accordion-tab-content" id="collapse-checkout-option">
+                            <div class="step accordion-tab-content" id="collapse-checkout-option">
                                 <div class="panel-body"></div>
                             </div>
                         </div>
                         <?php if (!$logged && $account != 'guest') { ?>
-                            <div id="opc-account" class="panel panel-default tab-section allow accordion-tab">
+                            <div id="opc-account" class="tab-section allow accordion-tab">
                                 <div class="panel-heading step-title accordion-tab-title">
                                     <h4 class="panel-title"><?php echo $text_checkout_account; ?></h4>
                                 </div>
-                                <div class="step a-item accordion-tab-content" id="collapse-payment-address">
+                                <div class="step accordion-tab-content" id="collapse-payment-address">
                                     <div class="panel-body"></div>
                                 </div>
                             </div>
                         <?php } else { ?>
-                            <div id="opc-account" class="panel panel-default tab-section allow accordion-tab">
+                            <div id="opc-account" class="tab-section allow accordion-tab">
                                 <div class="panel-heading step-title accordion-tab-title">
                                     <h4 class="panel-title"><?php echo $text_checkout_payment_address; ?></h4>
                                 </div>
-                                <div class="step a-item accordion-tab-content" id="collapse-payment-address">
+                                <div class="step accordion-tab-content" id="collapse-payment-address">
                                     <div class="panel-body"></div>
                                 </div>
                             </div>
                         <?php } ?>
                         <?php if ($shipping_required) { ?>
-                            <div id="opc-shipping" class="panel panel-default tab-section allow accordion-tab">
+                            <div id="opc-shipping" class="tab-section allow accordion-tab">
                                 <div class="panel-heading step-title accordion-tab-title">
                                     <h4 class="panel-title"><?php echo $text_checkout_shipping_address; ?></h4>
                                 </div>
-                                <div class="step a-item accordion-tab-content" id="collapse-shipping-address">
+                                <div class="step accordion-tab-content" id="collapse-shipping-address">
                                     <div class="panel-body"></div>
                                 </div>
                             </div>
-                            <div id="opc-shipping-method" class="panel panel-default tab-section allow accordion-tab">
+                            <div id="opc-shipping-method" class="tab-section allow accordion-tab">
                                 <div class="panel-heading step-title accordion-tab-title">
                                     <h4 class="panel-title"><?php echo $text_checkout_shipping_method; ?></h4>
                                 </div>
-                                <div class="step a-item accordion-tab-content" id="collapse-shipping-method">
+                                <div class="step accordion-tab-content" id="collapse-shipping-method">
                                     <div class="panel-body"></div>
                                 </div>
                             </div>
                         <?php } ?>
-                        <div id="opc-billing-method" class="panel panel-default tab-section allow accordion-tab">
+                        <div id="opc-billing-method" class="tab-section allow accordion-tab">
                             <div class="panel-heading step-title accordion-tab-title">
                                 <h4 class="panel-title"><?php echo $text_checkout_payment_method; ?></h4>
                             </div>
-                            <div class="panel-collapse accordion-tab-content" id="collapse-payment-method">
+                            <div class="step accordion-tab-content" id="collapse-payment-method">
                                 <div class="panel-body"></div>
                             </div>
                         </div>
-                        <div id="opc-confirm" class="panel panel-default tab-section allow accordion-tab">
+                        <div id="opc-confirm_order" class="tab-section allow accordion-tab">
                             <div class="panel-heading step-title accordion-tab-title">
                                 <h4 class="panel-title"><?php echo $text_checkout_confirm; ?></h4>
                             </div>
-                            <div class="panel-collapse accordion-tab-content" id="collapse-checkout-confirm">
+                            <div class="step accordion-tab-content" id="collapse-checkout-confirm">
                                 <div class="panel-body"></div>
                             </div>
                         </div>
@@ -813,7 +813,7 @@
 
                             $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('<?php echo $text_checkout_confirm; ?> <i class="fa fa-caret-down"></i>');
 
-                            $('#opc-confirm .accordion-tab-title').trigger('click');
+                            $('#opc-confirm_order .accordion-tab-title').trigger('click');
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
                             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);

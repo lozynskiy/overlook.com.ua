@@ -51,6 +51,7 @@ $_['column_model']                   = 'Модель';
 $_['column_quantity']                = 'Кількість';
 $_['column_price']                   = 'Ціна за одиницю';
 $_['column_total']                   = 'Загалом';
+$_['column_image']                   = 'Зображення';
 
 // Entry
 $_['entry_email_address']            = 'E-Mail';

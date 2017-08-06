@@ -14,7 +14,6 @@
             <?php foreach ($shipping_methods as $shipping_method) { ?>
             <?php if (!$shipping_method['error']) { ?>
             <?php foreach ($shipping_method['quote'] as $quote) { ?>
-             <!--label><?php echo $shipping_method['title']; ?></label!-->
             <div class="method-name">
                 <?php if ($quote['code'] == $code || !$code) { ?>
                 <?php $code = $quote['code']; ?>
@@ -22,8 +21,11 @@
                 <?php } else { ?>
                 <input id="shipping_method_<?php echo $quote['code']; ?>" type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>"/>
                 <?php } ?>
-                <label for="shipping_method_<?php echo $quote['code']; ?>">
+                <!--label for="shipping_method_<?php echo $quote['code']; ?>">
                     <?php echo $quote['title']; ?> - <?php echo $quote['text']; ?>
+                </label!-->
+                <label for="shipping_method_<?php echo $quote['code']; ?>">
+                    <?php echo $shipping_method['title']; ?> (<?php echo $quote['text']; ?>)
                 </label>
             </div>
             <?php if (isset($quote['description'])) { ?>
@@ -40,10 +42,8 @@
         </li>
         <?php } ?>
         <li>
-            <p><strong><?php echo $text_comments; ?></strong></p>
-            <p>
-                <textarea name="comment" rows="8"><?php echo $comment; ?></textarea>
-            </p>
+            <strong><?php echo $text_comments; ?></strong>
+            <textarea name="comment" rows="8"><?php echo $comment; ?></textarea>
         </li>
     </ul>
 </div>

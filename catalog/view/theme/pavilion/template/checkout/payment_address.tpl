@@ -1,7 +1,6 @@
 <form class="form-horizontal">
     <?php if ($addresses) { ?>
         <div class="select-shipping-address">
-
             <div class="radio">
                 <label>
                     <input type="radio" name="payment_address" value="existing" checked="checked"/>

@@ -1,5 +1,6 @@
 <form class="form-horizontal">
     <?php if ($addresses) { ?>
+    <div class="select-shipping-address">
         <div class="radio">
             <label>
                 <input type="radio" name="shipping_address" value="existing" checked="checked"/>
@@ -33,6 +34,7 @@
                 <?php echo $text_address_new; ?>
             </label>
         </div>
+    </div>
     <?php } ?>
     <br/>
     <div id="shipping-new" class="new-shipping-address" style="display: <?php echo($addresses ? 'none' : 'block'); ?>;">

@@ -85,20 +85,20 @@
                                   </div>
                                   <div class="inputs">
                                       <?php if ($sub_category) { ?>
-                                      <input type="checkbox" name="sub_category" value="1" checked="checked"/>
+                                      <input id="sub_category" type="checkbox" name="sub_category" value="1" checked="checked"/>
                                       <?php } else { ?>
-                                      <input type="checkbox" name="sub_category" value="1"/>
+                                      <input id="sub_category" type="checkbox" name="sub_category" value="1"/>
                                       <?php } ?>
-                                      <label><?php echo $text_sub_category; ?></label>
+                                      <label for="sub_category"><?php echo $text_sub_category; ?></label>
                                   </div>
                                   <div class="inputs">
                                       <?php if ($description) { ?>
-                                      <input type="checkbox" name="description" value="1" id="description"
+                                      <input id="description" type="checkbox" name="description" value="1" id="description"
                                              checked="checked"/>
                                       <?php } else { ?>
-                                      <input type="checkbox" name="description" value="1" id="description"/>
+                                      <input id="description" type="checkbox" name="description" value="1" id="description"/>
                                       <?php } ?>
-                                      <label><?php echo $entry_description; ?></label>
+                                      <label for="description"><?php echo $entry_description; ?></label>
                                   </div>
                               </div>
                           </div>

@@ -45,15 +45,15 @@ td.footable-first-column {
 }
 .footable-row-detail-row {
 	margin: 0 0 10px;
-    display: table-row;
+	display: table-row;
 }
 .footable-row-detail-name {
 	display: table-cell;
-    padding: 10px;
+	padding: 10px;
 }
 .footable-row-detail-value {
     display: table-cell;
-	padding: 10px;
+    padding: 10px;
 }
 
 .go-to-page {

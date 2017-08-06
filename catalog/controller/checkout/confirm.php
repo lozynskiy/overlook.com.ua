@@ -2,7 +2,6 @@
 class ControllerCheckoutConfirm extends Controller {
 	public function index() {
 		$redirect = '';
-
 		if ($this->cart->hasShipping()) {
 			// Validate if shipping address has been set.
 			if (!isset($this->session->data['shipping_address'])) {
@@ -210,6 +209,7 @@ class ControllerCheckoutConfirm extends Controller {
 
 			$order_data['products'] = array();
 
+
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 
@@ -335,8 +335,9 @@ class ControllerCheckoutConfirm extends Controller {
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_total'] = $this->language->get('column_total');
-
+            $data['column_image'] = $this->language->get('column_image');
 			$this->load->model('tool/upload');
+            $this->load->model('tool/image');
 
 			$data['products'] = array();
 
@@ -383,11 +384,16 @@ class ControllerCheckoutConfirm extends Controller {
 						$recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
 					}
 				}
-
+                if ($product['image']) {
+                    $image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
+                } else {
+                    $image = '';
+                }
 				$data['products'][] = array(
 					'cart_id'    => $product['cart_id'],
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
+                    'thumb'      => $image,
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'recurring'  => $recurring,

@@ -6,6 +6,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
 
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+
 		// Validate minimum quantity requirements.
 		$products = $this->cart->getProducts();
 
