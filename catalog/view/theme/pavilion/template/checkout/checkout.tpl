@@ -41,8 +41,8 @@
             <?php $class = 'center-1'; ?>
         <?php } ?>
         <div id="content" class="<?php echo $class; ?>">
+            <?php echo $content_top; ?>
             <div class="page checkout-page">
-                <?php echo $content_top; ?>
                 <div class="page-title">
                     <h1><?php echo $heading_title; ?></h1>
                 </div>
@@ -111,8 +111,8 @@
                         </div>
                     </div>
                 </div>
-                <?php echo $content_bottom; ?>
             </div>
+            <?php echo $content_bottom; ?>
         </div>
         <?php echo $column_right; ?>
     </div>

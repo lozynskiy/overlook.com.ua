@@ -1,6 +1,5 @@
 <div class="order-summary-content">
     <?php if (!isset($redirect)) { ?>
-
         <div class="table-wrapper">
             <table class="cart footable">
                 <thead>

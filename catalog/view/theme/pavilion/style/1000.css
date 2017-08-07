@@ -289,7 +289,7 @@
 	left: -32px;
 	width: 32px;
 	height: 52px;
-	background: #ff6400 url('../image/flyout-cart.png') center no-repeat;
+	background: #ff683a url(../image/flyout-cart.png) center no-repeat;
 }
 .cart-trigger .cart-qty,
 .cart-trigger .cart-label {
@@ -307,8 +307,8 @@
 	background: #fff;
 }
 .flyout-cart-wrapper:hover .cart-trigger {
-	border-color: #f66100;
-	background-color: #f66100;
+	border-color: #ff683a;
+	background-color: #ff683a;
 	color: #fff;
 }
 .flyout-cart-wrapper:hover .cart-qty,
@@ -383,7 +383,7 @@
 	right: 19px;
 	width: 17px;
 	height: 15px;
-	background: #ff6400 url('../image/category-nav.png') center no-repeat;
+	background: #ff683a url('../image/category-nav.png') center no-repeat;
 }
 .home-page-body .category-navigation-title {
 	cursor: auto;

@@ -8,7 +8,11 @@
     <?php } else { ?>
     <?php $class = 'center-1'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
+    <div id="content" class="<?php echo $class; ?>">
+        <?php echo $content_top; ?>
+
+        <?php echo $content_bottom; ?>
+    </div>
     <?php echo $column_right; ?>
 </div>
 <?php echo $footer; ?>

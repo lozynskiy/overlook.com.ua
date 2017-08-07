@@ -747,7 +747,7 @@ margin-right: 10px;
 }
 .header-logo a img {
 	max-width: 100%;
-	background-color: #ff6400;
+	background-color: #ff683a;
 }
 
 .mini-shopping-cart {
@@ -849,7 +849,7 @@ margin-right: 10px;
 }
 .mini-shopping-cart input.checkout-button,
 .mini-shopping-cart input[type="button"]:only-child {
-	background-color: #f74258;
+	background-color: #ff4812;
 	color: #fff !important;
 }
 .mini-shopping-cart input.checkout-button:hover,
@@ -984,7 +984,7 @@ margin-right: 10px;
 	height: 47px;
 	margin: 0 5px;
 	border: none;
-	background: #f74258 url('../image/subscribe-button.png') center no-repeat;
+	background: #ff531f url(../image/subscribe-button.png) center no-repeat;
 	vertical-align: middle;
 	font-size: 0;
 	outline: 1px solid transparent;
@@ -3127,6 +3127,7 @@ margin: 10px 0;
 .login-page .buttons {
 	margin: 0 0 40px;
 }
+.sitemap-page .button-1,
 .compare-products-page .button-1,
 .category-page .button-1,
 .registration-page .button-1,
@@ -3147,6 +3148,7 @@ margin: 10px 0;
 	outline: 1px solid transparent;
 	transition: all 0.2s ease;
 }
+.sitemap-page .button-1:hover,
 .compare-products-page .button-1:hover,
 .category-page .button-1:hover,
 .registration-page .button-1:hover,
@@ -3195,7 +3197,7 @@ margin: 10px 0;
 	position: static;
 }
 .login-page .customer-blocks .title.active {
-	background-color: #ff6400;
+	background-color: #ff683a;
 	color: #fff;
 }
 .login-page .customer-blocks .text {
@@ -4703,7 +4705,9 @@ margin: 10px 0;
 .sitemap-page a:empty {
 	display: none;
 }
-
+.sitemap-page .button-1{
+	display: inline-block;
+}
 
 /********** BLOG & NEWS **********/
 
