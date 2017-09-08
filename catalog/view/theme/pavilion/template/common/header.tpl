@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
+<html prefix="og: http://ogp.me/ns#" dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,6 +65,7 @@
     <?php foreach ($analytics as $analytic) { ?>
         <?php echo $analytic; ?>
     <?php } ?>
+<?php echo $tc_og; ?>
 </head>
 <body class="<?php echo $class; ?>">
 <div class="header">

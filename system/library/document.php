@@ -8,6 +8,10 @@ class Document {
 	private $scripts = array();
 	private $og_image;
 
+	private $tc_og;
+	public function setTc_og($data){$this->tc_og = $data;}
+	public function getTc_og(){return $this->tc_og;}
+
 	public function setTitle($title) {
 		$this->title = $title;
 	}
