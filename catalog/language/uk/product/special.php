@@ -5,7 +5,7 @@
 //info@marketplus.if.ua
 
 // Heading
-$_['heading_title']     = 'Спеціальні пропозиції';
+$_['heading_title']     = 'Акціїї';
 
 // Text
 $_['text_empty']        = 'Зараз немає спеціальних пропозицій.';
