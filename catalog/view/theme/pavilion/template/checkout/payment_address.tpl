@@ -53,7 +53,7 @@
                     <input type="text" name="lastname" value=""
                            id="input-payment-lastname"/>
                 </div>
-                <div class="inputs">
+                <div class="inputs" style="display: none;">
                     <label for="input-payment-company"><?php echo $entry_company; ?></label>
                     <input type="text" name="company" value=""
                            id="input-payment-company"/>
@@ -65,7 +65,7 @@
                     <input type="text" name="address_1" value=""
                            id="input-payment-address-1"/>
                 </div>
-                <div class="inputs">
+                <div class="inputs" style="display: none;">
                     <label for="input-payment-address-2"><?php echo $entry_address_2; ?></label>
                     <input type="text" name="address_2" value=""
                            id="input-payment-address-2"/>
@@ -76,14 +76,14 @@
                     </label>
                     <input type="text" name="city" value="" id="input-payment-city"/>
                 </div>
-                <div class="inputs">
+                <div class="inputs" style="display: none;">
                     <label for="input-payment-postcode"><?php echo $entry_postcode; ?>
                         <span class="required">*</span>
                     </label>
                     <input type="text" name="postcode" value=""
                            id="input-payment-postcode"/>
                 </div>
-                <div class="inputs">
+                <div class="inputs" style="display: none;">
                     <label for="input-payment-country"><?php echo $entry_country; ?>
                         <span class="required">*</span>
                     </label>

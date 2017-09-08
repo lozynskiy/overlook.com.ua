@@ -1,27 +1,33 @@
 <?php
+
+$host = $_SERVER['HTTP_HOST'];
+
 // HTTP
-define('HTTP_SERVER', 'http://overlook.com.ua/admin/');
-define('HTTP_CATALOG', 'http://overlook.com.ua/');
+define('HTTP_SERVER', 'http://'.$host.'/admin/');
+define('HTTP_CATALOG', 'http://'.$host.'/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://overlook.com.ua/admin/');
-define('HTTPS_CATALOG', 'http://overlook.com.ua/');
+define('HTTPS_SERVER', 'http://'.$host.'/admin/');
+define('HTTPS_CATALOG', 'http://'.$host.'/');
+
+$dir = dirname(dirname(__FILE__));
 
 // DIR
-define('DIR_APPLICATION', '/home/overlook/public_html/admin/');
-define('DIR_SYSTEM', '/home/overlook/public_html/system/');
-define('DIR_IMAGE', '/home/overlook/public_html/image/');
-define('DIR_LANGUAGE', '/home/overlook/public_html/admin/language/');
-define('DIR_TEMPLATE', '/home/overlook/public_html/admin/view/template/');
-define('DIR_CONFIG', '/home/overlook/public_html/system/config/');
-define('DIR_CACHE', '/home/overlook/public_html/system/storage/cache/');
-define('DIR_DOWNLOAD', '/home/overlook/public_html/system/storage/download/');
-define('DIR_LOGS', '/home/overlook/public_html/system/storage/logs/');
-define('DIR_MODIFICATION', '/home/overlook/public_html/system/storage/modification/');
-define('DIR_UPLOAD', '/home/overlook/public_html/system/storage/upload/');
-define('DIR_CATALOG', '/home/overlook/public_html/catalog/');
+define('DIR_APPLICATION', $dir.'/admin/');
+define('DIR_SYSTEM', $dir.'/system/');
+define('DIR_IMAGE', $dir.'/image/');
+define('DIR_LANGUAGE', $dir.'/admin/language/');
+define('DIR_TEMPLATE', $dir.'/admin/view/template/');
+define('DIR_CONFIG', $dir.'/system/config/');
+define('DIR_CACHE', $dir.'/system/storage/cache/');
+define('DIR_DOWNLOAD', $dir.'/system/storage/download/');
+define('DIR_LOGS', $dir.'/system/storage/logs/');
+define('DIR_MODIFICATION', $dir.'/system/storage/modification/');
+define('DIR_UPLOAD', $dir.'/system/storage/upload/');
+define('DIR_CATALOG', $dir.'/catalog/');
 
 // DB
+
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'overlook_admin');

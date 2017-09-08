@@ -47,7 +47,11 @@
 	color: #f74258;
 	text-transform: uppercase;
 }
-
+.side-2 .page-title strong {
+	font-size: 18px;
+	color: #f74258;
+	text-transform: uppercase;
+}
 /*.category-page-body .block-category-navigation,
 .manufacturer-page-body .block-manufacturer-navigation,
 .manufacturer-all-page-body .block-manufacturer-navigation,
@@ -160,6 +164,7 @@
 	left: -15px;
 	z-index: 1020;
 	min-width: 150px;
+	width: 100%;
 	background-color: #fff;
 	border-top: 3px solid #f74258;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
@@ -289,7 +294,7 @@
 	left: -32px;
 	width: 32px;
 	height: 52px;
-	background: #ff683a url(../image/flyout-cart.png) center no-repeat;
+	background: #59C2E6 url(../image/flyout-cart.png) center no-repeat;
 }
 .cart-trigger .cart-qty,
 .cart-trigger .cart-label {
@@ -307,8 +312,8 @@
 	background: #fff;
 }
 .flyout-cart-wrapper:hover .cart-trigger {
-	border-color: #ff683a;
-	background-color: #ff683a;
+	border-color: #59C2E6;
+	background-color: #59C2E6;
 	color: #fff;
 }
 .flyout-cart-wrapper:hover .cart-qty,
@@ -352,7 +357,7 @@
 }
 
 .header-lower {
-	background-color: #6d655d;
+	background-color: #4F5F6F;
 	padding: 9px 0;
 }
 .header-lower .center {
@@ -383,7 +388,7 @@
 	right: 19px;
 	width: 17px;
 	height: 15px;
-	background: #ff683a url('../image/category-nav.png') center no-repeat;
+	background: #59C2E6 url('../image/category-nav.png') center no-repeat;
 }
 .home-page-body .category-navigation-title {
 	cursor: auto;
@@ -506,10 +511,10 @@
     .category-navigation-list>li>.sublist-wrap>.sublist .box .title,.header-menu>ul>li>.sublist-wrap>.sublist .box .title {
         display: block;
         margin: 0 0 10px;
-        border-bottom: 3px solid #f74258;
+        border-bottom: 3px solid #59C2E6;
         padding: 0 0 5px;
         font-weight: bold;
-        text-transform: uppercase
+        text-transform: uppercase;
     }
     .category-navigation-list>li>.sublist-wrap>.sublist .box .picture,.header-menu>ul>li>.sublist-wrap>.sublist .box .picture {
         height: 100px;
@@ -1314,7 +1319,7 @@
 }
 #opc-confirm_order .totals {
 	float: right;
-	width: 40%;
+	width: 50%;
 }
 #opc-confirm_order .terms-of-service {
 	width: 40%;

@@ -114,6 +114,35 @@
 
                     </div>
                     </div>
+<hr>
+		    <div class="row">
+		        <div class="col-sm-6">
+		          <?php if (!empty($blog_categories)) { ?>
+		          <ul class="list-unstyled">
+		          <?php foreach ($blog_categories as $category_1) { ?>
+		              <li><a href="<?php echo $category_1['href']; ?>" ><?php echo $category_1['name']; ?></a> 
+		                <?php if ($category_1['children']) { ?>
+		                <ul>
+		                <?php foreach ($category_1['children'] as $category_2) { ?>
+		                  <li><a href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a></li>
+		                <?php } ?>
+		                </ul>
+		                <?php } ?>
+		              </li>
+		              <?php } ?>
+		          </ul>
+		          <?php } ?>
+		        </div>
+		        <div class="col-sm-6">
+		        <?php if($blogs){ ?>
+		          <ul class="list-unstyled">
+		            <?php foreach ($blogs as $blog) { ?>
+		              <li><a href="<?php echo $blog['href']; ?>" ><?php echo $blog['title']; ?></a></li>
+		            <?php } ?>
+		          </ul>
+		        <?php } ?>
+		        </div>
+		    </div>
                 <?php echo $content_bottom; ?>
             </div>
             <?php echo $column_right; ?></div>

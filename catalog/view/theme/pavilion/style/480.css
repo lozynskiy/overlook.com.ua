@@ -89,12 +89,6 @@
 
 /* LEFT/RIGHT COLUMN */
 
-.block {
-	float: left;
-	width: 48%;
-	margin: 0 1% 2%;
-	text-align: left;
-}
 .block:nth-of-type(2n+1) {
 	clear: both;
 }
@@ -295,6 +289,7 @@
 .section.order-completed {
 	padding: 40px;
 }
+.shipping-method .shipping-logo img,
 .payment-method .payment-logo img {
 	max-width: none;
 }

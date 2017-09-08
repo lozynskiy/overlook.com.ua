@@ -63,6 +63,38 @@ class ControllerExtensionFeedGoogleSitemap extends Controller {
 				$output .= '<priority>0.5</priority>';
 				$output .= '</url>';
 			}
+			
+			$this->load->model('blog/blog_category');
+			$categories_1 = $this->model_blog_blog_category->getBlogCategories(0);
+			foreach ($categories_1 as $category_1) {
+				// First level
+				$output .= '<url>';
+				$output .= '<loc>' . $this->url->link('blog/category', 'blogpath=' . $category_1['blog_category_id']) . '</loc>';
+				$output .= '<changefreq>weekly</changefreq>';
+				$output .= '<priority>0.7</priority>';
+				$output .= '</url>';
+				$categories_2 = $this->model_blog_blog_category->getBlogCategories($category_1['blog_category_id']);
+				foreach ($categories_2 as $category_2) {
+					// Second level
+					$categories_2 = $this->model_blog_blog_category->getBlogCategories(0);
+					$output .= '<url>';
+					$output .= '<loc>' . $this->url->link('blog/category', 'blogpath=' . $category_1['blog_category_id'] . '_' . $category_2['blog_category_id']) . '</loc>';
+					$output .= '<changefreq>weekly</changefreq>';
+					$output .= '<priority>0.7</priority>';
+					$output .= '</url>';				
+				}
+			}
+
+			$this->load->model('blog/blog');
+			$blogs = $this->model_blog_blog->getBlogs(array('filter_tag'=>''));
+	    	foreach ($blogs as $blog) {
+	    		$output .= '<url>';
+				$output .= '<loc>' . $this->url->link('blog/blog', 'blog_id=' . $blog['blog_id']) . '</loc>';
+				$output .= '<changefreq>weekly</changefreq>';
+				$output .= '<priority>0.5</priority>';
+				$output .= '</url>';
+			}
+			
 
 			$output .= '</urlset>';
 

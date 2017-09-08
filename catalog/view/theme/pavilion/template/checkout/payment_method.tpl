@@ -1,6 +1,6 @@
 <div class="section shipping-method">
     <div class="category-description">
-        <p><?php echo $text_payment_method; ?></p>
+        <strong><?php echo $text_payment_method; ?></strong>
     </div>
     <ul class="method-list">
         <?php if ($error_warning) { ?>
@@ -36,26 +36,34 @@
             <?php } ?>
         <?php } ?>
         <li>
-            <strong><?php echo $text_comments; ?></strong>
+            <div class="category-description">
+                <strong><?php echo $text_comments; ?></strong>
+            </div>
             <textarea name="comment" rows="8"><?php echo $comment; ?></textarea>
         </li>
         <?php if ($text_agree) { ?>
         <div class="buttons">
-            <p><?php echo $text_agree; ?>
-                <?php if ($agree) { ?>
-                    <input type="checkbox" name="agree" value="1" checked="checked"/>
-                <?php } else { ?>
-                    <input type="checkbox" name="agree" value="1"/>
-                <?php } ?></p>
+            <label for="agree"><?php echo $text_agree; ?></label>
+            <?php if ($agree) { ?>
+                <input id="agree" type="checkbox" name="agree" value="1" checked="checked"/>
+            <?php } else { ?>
+                <input id="agree" type="checkbox" name="agree" value="1"/>
+            <?php } ?>
             <br \>
-            <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
+            <input style="display: none;" type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
                    data-loading-text="<?php echo $text_loading; ?>" class="button-1 payment-method-next-step-button"/>
         </div>
     </ul>
 </div>
 <?php } else { ?>
-    <div class="buttons">
+    <div class="buttons" style="display: none;">
         <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method"
                data-loading-text="<?php echo $text_loading; ?>" class="button-1 payment-method-next-step-button"/>
     </div>
 <?php } ?>
+<div class="buttons">
+    <input type="button" value="<?php echo $button_continue; ?>"
+           id="button-combine-step"
+           data-loading-text="<?php echo $text_loading; ?>"
+           class="button-1 combine-next-button"/>
+</div>

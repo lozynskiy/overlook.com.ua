@@ -164,10 +164,15 @@
                                                                onclick="compare.add('<?php echo $product['product_id']; ?>');"/>
                                                     </div>
                                                     <div class="buttons-lower">
-                                                        <button class="button-2 product-box-add-to-cart-button"
-                                                                type="button"
-                                                                onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
-                                                            <span><?php echo $button_cart; ?></span></button>
+                                                        <div class="ajax-cart-button-wrapper">
+                                                            <input id="productQuantity<?php echo $product['product_id']; ?>"
+                                                                   type="text" class="productQuantityTextBox"
+                                                                   value="<?php echo $product['minimum']; ?>">
+                                                            <button class="button-2 product-box-add-to-cart-button"
+                                                                    type="button"
+                                                                    onclick="cart.add('<?php echo $product['product_id']; ?>', $('#productQuantity<?php echo $product['product_id']; ?>').val());">
+                                                                <span><?php echo $button_cart; ?></span></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

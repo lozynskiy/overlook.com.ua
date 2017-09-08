@@ -1750,11 +1750,11 @@ MegaFilter.prototype = {
 			//self.ajax();
 		}
 			
-		jQuery('#button-search').unbind('click').click(function(e){
+/*		jQuery('#button-search').unbind('click').click(function(e){
 			e.preventDefault();
 				
 			search();
-		});
+		});*/
 			
 		self._jqContent.find('input[name=filter_name],input[name=search]').unbind('keydown').unbind('keyup').bind('keydown', function(e){
 			if( e.keyCode == 13 ) {

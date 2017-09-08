@@ -81,7 +81,41 @@ class ControllerInformationSitemap extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['search'] = $this->url->link('product/search');
 		$data['contact'] = $this->url->link('information/contact');
+		
+		$this->load->model('blog/blog');
+			$data['blogs'] = array();
+			$results = $this->model_blog_blog->getBlogs(array('filter_tag'  => ''));
+	    	foreach ($results as $result) {		
+				$data['blogs'][] = array(
+				'title'      => $result['title'],
+				'href' => $this->url->link('blog/blog', 'blog_id=' . $result['blog_id'])
+				);
+			}
 
+			$this->load->model('blog/blog_category');
+			$categories_1 = $this->model_blog_blog_category->getBlogCategories(0);
+			$data['categories_1'] = array();
+			foreach ($categories_1 as $category_1) {
+				$level_2_data = array();
+				$categories_2 = $this->model_blog_blog_category->getBlogCategories($category_1['blog_category_id']);
+				foreach ($categories_2 as $category_2) {
+					$level_3_data = array();
+					// Second level
+					$categories_2 = $this->model_blog_blog_category->getBlogCategories(0);		
+					$level_2_data[] = array(
+						'name'    	=> $category_2['name'],
+						'children'	=> $level_3_data,
+						'href'    	=> $this->url->link('blog/category', 'blogpath=' . $category_1['blog_category_id'] . '_' . $category_2['blog_category_id'])
+						);					
+					}
+				// First level
+				$data['blog_categories'][] = array(
+					'name'     => $category_1['name'],				
+					'children' => $level_2_data,
+					'href'     => $this->url->link('blog/category', 'blogpath=' . $category_1['blog_category_id'])
+				);
+			}
+		
 		$this->load->model('catalog/information');
 
 		$data['informations'] = array();

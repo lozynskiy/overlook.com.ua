@@ -1,5 +1,5 @@
 <div class="master-column-wrapper">
-  <div class="col-sm-6">
+  <div class="column-2">
     <fieldset id="account">
       <div class="page-title">
       <h4><?php echo $text_your_details; ?></h4>
@@ -39,7 +39,7 @@
         <label for="input-payment-telephone"><?php echo $entry_telephone; ?><span class="required">*</span></label>
         <input type="text" name="telephone" value="<?php echo $telephone; ?>" id="input-payment-telephone" />
       </div>
-      <div class="inputs">
+      <div class="inputs" style="display: none;">
         <label for="input-payment-fax"><?php echo $entry_fax; ?></label>
         <input type="text" name="fax" value="<?php echo $fax; ?>" id="input-payment-fax" />
       </div>
@@ -156,13 +156,13 @@
     </fieldset>
 
   </div>
-  <div class="col-sm-6">
+  <div class="column-2">
     <fieldset id="address">
       <div class="page-title">
       <h4><?php echo $text_your_address; ?></h4>
       </div>
       <div class="form-fields">
-      <div class="inputs">
+      <div class="inputs" style="display: none">
         <label for="input-payment-company"><?php echo $entry_company; ?></label>
         <input type="text" name="company" value="<?php echo $company; ?>" id="input-payment-company" />
       </div>
@@ -170,19 +170,19 @@
         <label for="input-payment-address-1"><?php echo $entry_address_1; ?><span class="required">*</span></label>
         <input type="text" name="address_1" value="<?php echo $address_1; ?>" id="input-payment-address-1" />
       </div>
-      <div class="inputs">
+      <div class="inputs" style="display: none">
         <label for="input-payment-address-2"><?php echo $entry_address_2; ?></label>
         <input type="text" name="address_2" value="<?php echo $address_2; ?>" id="input-payment-address-2" />
       </div>
-      <div class="inputs">
+      <div class="inputs" >
         <label for="input-payment-city"><?php echo $entry_city; ?><span class="required">*</span></label>
         <input type="text" name="city" value="<?php echo $city; ?>" id="input-payment-city" />
       </div>
-      <div class="inputs">
+      <div class="inputs" style="display: none">
         <label for="input-payment-postcode"><?php echo $entry_postcode; ?></label>
         <input type="text" name="postcode" value="<?php echo $postcode; ?>" id="input-payment-postcode" />
       </div>
-      <div class="inputs">
+      <div class="inputs" style="display:none;">
         <label for="input-payment-country"><?php echo $entry_country; ?><span class="required">*</span></label>
         <select name="country_id" id="input-payment-country">
           <option value=""><?php echo $text_select; ?></option>
@@ -195,7 +195,7 @@
           <?php } ?>
         </select>
       </div>
-      <div class="inputs">
+      <div class="inputs" style="display:none;">
         <label for="input-payment-zone"><?php echo $entry_zone; ?><span class="required">*</span></label>
         <select name="zone_id" id="input-payment-zone">
         </select>
@@ -315,14 +315,31 @@
     <?php echo $captcha; ?>
   </div>
 </div>
+<div class="checkbox"
+<div class="radio">
+    <label>
+        <input type="checkbox" name="agree" value="1" />
+        <span>Я хочу зареєструватись на сайті <?php if ($text_agree) { ?>(<?php echo $text_agree; ?>)<?php } ?></span>
+    </label>
+</div>
+<div id="enter-password" class="master-column-wrapper">
+    <div class="column-2" style="display: none;">
+            <div class="inputs">
+                <label for="input-payment-password"><?php echo $entry_password; ?><span
+                            class="required">*</span></label>
+                <input type="password" name="password" value="" id="input-payment-password"/>
+            </div>
+            <div class="inputs">
+                <label for="input-payment-confirm"><?php echo $entry_confirm; ?><span class="required">*</span></label>
+                <input type="password" name="confirm" value="" id="input-payment-confirm"/>
+            </div>
+    </div>
+</div>
+</div>
 <?php if ($shipping_required) { ?>
-<div class="checkbox">
+<div class="checkbox" style="display:none;">
   <label>
-    <?php if ($shipping_address) { ?>
     <input type="checkbox" name="shipping_address" value="1" checked="checked" />
-    <?php } else { ?>
-    <input type="checkbox" name="shipping_address" value="1" />
-    <?php } ?>
     <?php echo $entry_shipping; ?></label>
 </div>
 <?php } ?>
@@ -506,3 +523,8 @@ $('#collapse-payment-address select[name=\'country_id\']').on('change', function
 
 $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
 //--></script>
+<script>
+    $(document).on('change', '#collapse-payment-address input[name=\'agree\']', function () {
+        $('#enter-password .column-2').slideToggle()
+    });
+</script>

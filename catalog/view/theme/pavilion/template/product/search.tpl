@@ -48,10 +48,14 @@
                                 <div class="basic-search">
                                     <div class="inputs">
                                         <label for="input-search"><?php echo $entry_search; ?></label>
-                                        <input type="text" name="search" value="<?php echo $search; ?>"
-                                               placeholder="<?php echo $text_keyword; ?>" id="input-search"
+                                        <input type="text" name="search" value="<?php echo $search; ?>" id="input-search"
                                                class="search-text valid"/>
                                     </div>
+                                    <div class="inputs reversed">
+                                        <input checked="checked" id="adv" name="adv" type="checkbox" value="true"><input name="adv" type="hidden" value="false">
+                                        <label for="adv">Advanced search</label>
+                                    </div>
+                                </div>
                                     <div class="advanced-search">
                                         <div class="inputs">
                                             <label><?php echo $text_select_category; ?></label>
@@ -109,7 +113,6 @@
                                             <label for="description"><?php echo $entry_description; ?></label>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                         <div class="buttons">
@@ -212,10 +215,15 @@
                                                                onclick="compare.add('<?php echo $product['product_id']; ?>');"></input>
                                                     </div>
                                                     <div class="buttons-lower">
-                                                        <button class="button-2 product-box-add-to-cart-button"
-                                                                type="button"
-                                                                onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
-                                                            <span><?php echo $button_cart; ?></span></button>
+                                                        <div class="ajax-cart-button-wrapper">
+                                                            <input id="productQuantity<?php echo $product['product_id']; ?>"
+                                                                   type="text" class="productQuantityTextBox"
+                                                                   value="<?php echo $product['minimum']; ?>">
+                                                            <button class="button-2 product-box-add-to-cart-button"
+                                                                    type="button"
+                                                                    onclick="cart.add('<?php echo $product['product_id']; ?>', $('#productQuantity<?php echo $product['product_id']; ?>').val());">
+                                                                <span><?php echo $button_cart; ?></span></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +273,6 @@
             if (filter_description) {
                 url += '&description=true';
             }
-
             location = url;
         });
 

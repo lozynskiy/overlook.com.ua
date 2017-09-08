@@ -153,7 +153,47 @@ class ControllerCommonColumnLeft extends Controller {
 				);		
 			}
 			
-	
+			// Blog start
+			$blog = array();
+			$this->load->language('blog/blog');
+            if ($this->user->hasPermission('access', 'blog/blog')) {
+                $blog[] = array(
+                    'name'     => $this->language->get('text_blog_post'),
+                    'href'     => $this->url->link('blog/blog', 'token=' . $this->session->data['token'], true),
+                    'children' => array()   
+                );
+            }
+            if ($this->user->hasPermission('access', 'blog/blog_category')) {
+                $blog[] = array(
+                    'name'     => $this->language->get('text_blog_category'),
+                    'href'     => $this->url->link('blog/blog_category', 'token=' . $this->session->data['token'], true),
+                    'children' => array()   
+                );
+            }
+            if ($this->user->hasPermission('access', 'blog/blog_comment')) {
+                $blog[] = array(
+                    'name'     => $this->language->get('text_blog_comment'),
+                    'href'     => $this->url->link('blog/blog_comment', 'token=' . $this->session->data['token'], true),
+                    'children' => array()   
+                );
+            }
+            if ($this->user->hasPermission('access', 'blog/blog_setting')) {
+                $blog[] = array(
+                    'name'     => $this->language->get('text_blog_setting'),
+                    'href'     => $this->url->link('blog/blog_setting', 'token=' . $this->session->data['token'], true),
+                    'children' => array()   
+                );
+            }
+            if ($catalog) {
+				$data['menus'][] = array(
+					'id'       => 'menu-catalog',
+					'icon'	   => 'fa-th-list', 
+					'name'	   => $this->language->get('text_blog'),
+					'href'     => '',
+					'children' => $blog
+				);		
+			}
+			// Blog ends
 			// Extension
 			$extension = array();
 			/*

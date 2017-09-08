@@ -28,6 +28,9 @@ class ControllerCheckoutGuest extends Controller {
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
 
+        $data['entry_password'] = $this->language->get('entry_password');
+        $data['entry_confirm'] = $this->language->get('entry_confirm');
+
 		$data['customer_groups'] = array();
 
 		if (is_array($this->config->get('config_customer_group_display'))) {
@@ -41,6 +44,20 @@ class ControllerCheckoutGuest extends Controller {
 				}
 			}
 		}
+
+        if ($this->config->get('config_account_id')) {
+            $this->load->model('catalog/information');
+
+            $information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
+
+            if ($information_info) {
+                $data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_account_id'), true), $information_info['title'], $information_info['title']);
+            } else {
+                $data['text_agree'] = '';
+            }
+        } else {
+            $data['text_agree'] = '';
+        }
 
 		if (isset($this->session->data['guest']['customer_group_id'])) {
 			$data['customer_group_id'] = $this->session->data['guest']['customer_group_id'];
@@ -123,7 +140,7 @@ class ControllerCheckoutGuest extends Controller {
 		} elseif (isset($this->session->data['shipping_address']['zone_id'])) {
 			$data['zone_id'] = $this->session->data['shipping_address']['zone_id'];
 		} else {
-			$data['zone_id'] = '';
+			$data['zone_id'] = $this->config->get('config_zone_id');
 		}
 
 		$this->load->model('localisation/country');

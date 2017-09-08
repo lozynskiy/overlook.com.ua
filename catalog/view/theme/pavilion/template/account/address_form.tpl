@@ -90,8 +90,7 @@
                                 <?php } ?>
                             </div>
                             <div class="inputs">
-                                <label for="input-postcode"><?php echo $entry_postcode; ?><span
-                                            class="required">*</span></label>
+                                <label for="input-postcode"><?php echo $entry_postcode; ?></label>
                                 <input type="text" name="postcode" value="<?php echo $postcode; ?>"
                                        id="input-postcode"/>
                                 <?php if ($error_postcode) { ?>

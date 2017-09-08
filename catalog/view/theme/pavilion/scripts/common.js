@@ -152,7 +152,7 @@ $(document).ready(function() {
         $(".filtersContainer").toggleClass("open"),
             $(".movedElements").toggleClass("move-right"),
             q(),
-            $('.filtersContainer.mfilter-free-container').perfectScrollbar({
+            $('.nopAjaxFilters7Spikes').perfectScrollbar({
                 swipePropagation: false,
                 wheelSpeed: 1,
                 suppressScrollX: true
@@ -209,9 +209,16 @@ $(document).ready(function() {
         }
     });
     function handleOrderSummaryAccordion() {
-        $('.shopping-cart-page .accordion-tab-title, .checkout-page .accordion-tab-title').on('click', function () {
+        $('.shopping-cart-page .accordion-tab-title').on('click', function () {
             $(this).siblings('.accordion-tab-content').slideToggle().closest('.accordion-tab').toggleClass('active')
                 .siblings('.accordion-tab').removeClass('active').find('.accordion-tab-content').slideUp();
+        });
+
+        $('.checkout-page .accordion-tab-title').on('click', function () {
+        	if ($(this).parent().hasClass('allow')){
+                $(this).siblings('.accordion-tab-content').slideToggle().closest('.accordion-tab').addClass('active')
+                    .siblings('.accordion-tab').removeClass('active').find('.accordion-tab-content').slideUp();
+			}
         });
 
         if ($('.shopping-cart-page .shipping-results').length > 0) {
@@ -319,6 +326,7 @@ $(document).ready(function() {
             suppressScrollX: !0
         })
     });
+
     $(".mega-menu-responsive > li > .sublist-wrap").css("width","313px");
     $(".mega-menu-responsive > li > .sublist-wrap .with-subcategories").css("width","263px");
     $(".mega-menu-responsive > li > .sublist-wrap ul > li > .sublist-wrap").css("width","306px");
@@ -478,28 +486,7 @@ var cart = {
 				}
 
 				if (json['success']) {
-                    $.ajax({
-                        url: 'index.php?route=common/cart/info',
-                        type: 'html',
-                        success: function(html){
-                            var newHtml = $(html).find('ul').html();
-                            var btnCheckout = $(html).find('p.text-right a:eq(1)').text();
-
-                            $('#notification .modal-footer #popup_checkout').html(btnCheckout);
-
-                            $("#notification .modal-body").html('<ul style="list-style: outside none none;margin-left: -3em;">' + newHtml + '</ul>');
-
-                            $("#notification .modal-body p.text-right").remove();
-
-                            $("#notification").modal('show');
-                            $("#notification .modal-footer").show();
-                            $('#cart-total').html(json['total']);
-
-                            $('#notification .btn-danger').click(function(){
-                                $("#notification").modal('hide');
-                            })
-                        }
-                    })
+                    $('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {

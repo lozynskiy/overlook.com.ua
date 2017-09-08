@@ -29,6 +29,10 @@
 .cart td:first-child {
 	display: none !important; /*hides counter*/
 }
+.checkout-data .cart th:first-child,
+.checkout-data .cart td:first-child {
+	display: table-cell !important; /*hides counter*/
+}
 .account-page .data-table col:first-child,
 .account-page .data-table th:first-child,
 .account-page .data-table td:first-child {

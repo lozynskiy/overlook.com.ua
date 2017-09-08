@@ -14,4 +14,5 @@ $_['text_account']      = 'Личный кабинет';
 $_['text_order']        = 'История заказов';
 $_['text_wishlist']     = 'Мои закладки';
 $_['text_newsletter']   = 'Рассылка новостей';
-$_['text_powered']      = 'Работает на <a target="_blank" href="http://myopencart.com/">ocStore</a><br /> %s &copy; %s';
+$_['text_powered']      = '%s &copy; %s';
+$_['text_contactus']      = 'Связь с нами';

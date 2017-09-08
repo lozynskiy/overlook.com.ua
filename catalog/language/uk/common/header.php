@@ -1,12 +1,8 @@
 <?php
 
-//Update for OpenCart 2.3.x by OpenCart Ukrainian Community http://opencart.ua
-//Made by Sirchyk for www.marketplus.if.ua on 16 of october 2014.
-//info@marketplus.if.ua
-
 // Text
 $_['text_home']          = 'Головна';
-$_['text_wishlist']      = 'Список побажань (%s)';
+$_['text_wishlist']      = 'Список бажань (%s)';
 $_['text_shopping_cart'] = 'Кошик';
 $_['text_category']      = 'Категорії';
 $_['text_account']       = 'Обліковий запис';
@@ -19,5 +15,7 @@ $_['text_logout']        = 'Вихід';
 $_['text_checkout']      = 'Оформлення замовлення';
 $_['text_search']        = 'Пошук';
 $_['text_all']           = 'Переглянути всі';
-$_['text_compare']       = 'Порівняти товари (%s)';
+$_['text_compare']       = 'Порівняння (%s)';
 $_['text_preferences']   = 'Налаштування';
+
+$_['text_logged']        = 'Вітаємо Вас <b>%s</b>!';

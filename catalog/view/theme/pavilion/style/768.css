@@ -727,6 +727,7 @@ div.rental-price {
 /* SEARCH & SITEMAP */
 /* BLOG & NEWS */
 
+.fieldset .content,
 .blog-page .post,
 .news-items .news-item,
 .blogpost-page .post,
@@ -896,5 +897,16 @@ div.rental-price {
 }
 .product-specs-box .data-table td.spec-name {
     width: 25%;
+}
+.column-2{
+	width:49%;
+	display:block;
+	float: left;
+	margin-left:2%;
+}
+.shopping-cart-page .remove-button{
+	margin: auto;
+    display: block;
+    float: none;
 }
 }

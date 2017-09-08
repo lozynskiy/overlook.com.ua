@@ -16,7 +16,7 @@ td.footable-first-column {
 
 .footable.breakpoint > tbody > tr > td > span.footable-toggle {
 	position: absolute;
-	/* top: 50%; */ /*doesn't work in IE*/
+	top: 50%; /*doesn't work in IE*/
 	left: 50%;
 	width: 32px;
 	height: 32px;
