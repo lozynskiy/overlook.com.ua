@@ -6,7 +6,7 @@
  * Examples at http://fancyapps.com/fancybox/
  * License: www.fancyapps.com/fancybox/#license
  *
- * Copyright 2017 fancyapps.com
+ * Copyright 2017 fancyapps.coma
  *
  */
 

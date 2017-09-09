@@ -230,7 +230,7 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 			$this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.elevatezoom.min.js');
-			$this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.fancybox.js');
+			$this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.fancybox.min.js');
 			$this->document->addStyle('catalog/view/theme/pavilion/style/jquery.fancybox.css');
 			
 			if ($product_info['meta_h1']) {
