@@ -25,7 +25,7 @@
     <?php echo $tc_og; ?>
 
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/bootstrap.css"/>
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css"!-->
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -53,7 +53,7 @@
 
 
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/common.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/barrating.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/perfect-scrollbar.jquery.min.js"></script>
