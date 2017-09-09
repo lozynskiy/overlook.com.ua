@@ -505,6 +505,10 @@ class ControllerProductProduct extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('product/product', $data));
+			
+			$this->event->register('catalog/controller/product/product/after', new Action('extension/module/minify/minify'));
+			$this->event->trigger('catalog/controller/product/product/after');
+			
 		} else {
 			$url = '';
 
