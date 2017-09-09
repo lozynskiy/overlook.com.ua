@@ -664,7 +664,6 @@ $date_install = date('Y-m-d', filectime(DIR_SYSTEM . 'library/microdatapro.php')
 			$path = '';
 			$parts = explode('_', (string)$this->request->get['path']);
 			$category_id = (int)array_pop($parts);
-			$parts = explode('_', (string)$this->request->get['path']);
 
 			if(count($parts)>0){
 				foreach ($parts as $path_id) {
@@ -684,15 +683,42 @@ $date_install = date('Y-m-d', filectime(DIR_SYSTEM . 'library/microdatapro.php')
 				}
 			}
 
+            $category_info = $this->model_catalog_category->getCategory($category_id);
+
+            if ($category_info) {
+                $url = '';
+
+                if (isset($this->request->get['sort'])) {
+                    $url .= '&sort=' . $this->request->get['sort'];
+                }
+
+                if (isset($this->request->get['order'])) {
+                    $url .= '&order=' . $this->request->get['order'];
+                }
+
+                if (isset($this->request->get['page'])) {
+                    $url .= '&page=' . $this->request->get['page'];
+                }
+
+                if (isset($this->request->get['limit'])) {
+                    $url .= '&limit=' . $this->request->get['limit'];
+                }
+
+                $this->data['microdata_breadcrumbs'][] = array(
+                    'text' => $category_info['name'],
+                    'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+                );
+            }
+
 			if(!isset($this->data['microdata_breadcrumbs'])){
 				$this->data['microdata_breadcrumbs'] = array();
 			}
 			
- 			if($this->data['glob_route'] != "product/product"){
- 			  if(isset($this->data['microdata_breadcrumbs']) and count($this->data['microdata_breadcrumbs']) > 0){
-				array_pop($this->data['microdata_breadcrumbs']);
-			  }			
-			}			
+// 			if($this->data['glob_route'] != "product/product"){
+// 			  if(isset($this->data['microdata_breadcrumbs']) and count($this->data['microdata_breadcrumbs']) > 0){
+//				array_pop($this->data['microdata_breadcrumbs']);
+//			  }
+//			}
 		}	
 
 		return $category_info;

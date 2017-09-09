@@ -12,18 +12,20 @@
     <?php if ($keywords) { ?>
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
     <?php } ?>
-    <meta property="og:title" content="<?php echo $title; ?>"/>
-    <meta property="og:type" content="website"/>
+    <!--meta property="og:title" content="<?php echo $title; ?>"/!-->
+    <!--meta property="og:type" content="website"/!-->
     <meta property="og:url" content="<?php echo $og_url; ?>"/>
     <?php if ($og_image) { ?>
-        <meta property="og:image" content="<?php echo $og_image; ?>"/>
+        <!--meta property="og:image" content="<?php echo $og_image; ?>"/!-->
     <?php } else { ?>
-        <meta property="og:image" content="<?php echo $logo; ?>"/>
+        <!--meta property="og:image" content="<?php echo $logo; ?>"/!-->
     <?php } ?>
     <meta property="og:site_name" content="<?php echo $name; ?>"/>
 
+    <?php echo $tc_og; ?>
+
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css">
+    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css"!-->
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -39,7 +41,6 @@
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/perfect-scrollbar.min.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/owl.carousel.css"/>
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/perfect-scrollbar.min.css"/>
 
 
     <?php foreach ($styles as $style) { ?>
@@ -52,7 +53,7 @@
 
 
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/common.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/barrating.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/perfect-scrollbar.jquery.min.js"></script>
@@ -65,7 +66,6 @@
     <?php foreach ($analytics as $analytic) { ?>
         <?php echo $analytic; ?>
     <?php } ?>
-<?php echo $tc_og; ?>
 </head>
 <body class="<?php echo $class; ?>">
 <div class="header">

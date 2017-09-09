@@ -393,8 +393,8 @@ class ControllerProductCategory extends Controller {
 
 			$this->response->setOutput($this->load->view('product/category', $data));
 			
-//			$this->event->register('catalog/controller/product/category/after', new Action('extension/module/minify/minify'));
-//			$this->event->trigger('catalog/controller/product/category/after');
+			//$this->event->register('catalog/controller/product/category/after', new Action('extension/module/minify/minify'));
+			//$this->event->trigger('catalog/controller/product/category/after');
 			
 		} else {
 			$url = '';

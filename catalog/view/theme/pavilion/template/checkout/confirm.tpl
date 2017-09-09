@@ -1,4 +1,5 @@
 <div class="order-summary-content">
+    <div class="section order-summary">
     <?php if (!isset($redirect)) { ?>
         <div class="table-wrapper">
             <table class="cart footable">
@@ -98,4 +99,5 @@
             location = '<?php echo $redirect; ?>';
             //--></script>
     <?php } ?>
+</div>
 </div>

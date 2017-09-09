@@ -4,7 +4,6 @@
 <?php if($status && $a && $b && $c && $d){ ?>
 <?php if(isset($breadcrumbs) && $breadcrumbs && !is_array($breadcrumbs)){ ?><?php echo $breadcrumbs; ?><?php } ?>
 <?php if($config_company and $a){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> company start -->
 <?php if($config_company_syntax == "ld" or $config_company_syntax == "all"){ ?>
 <script type="application/ld+json">
 {
@@ -84,10 +83,8 @@
 </form>		  
 </span>
 <?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> company end -->
 <?php } ?>
 <?php if($microdata_route_product && $config_product_page && isset($product_info) and $b){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> product start --> 
 <?php if($config_item_syntax == "ld" or $config_item_syntax == "all"){ ?>
 <script type="application/ld+json">
 {
@@ -244,10 +241,8 @@
 </span>
 <?php } ?>
 <?php if($echo){ ?><div class="mdp-description"><?php echo $echo; ?></div><?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> product end -->
 <?php } ?>
 <?php if(isset($microdata_route_category) && $microdata_route_category && $config_category_page && $category_info and $c){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> category start -->
 <?php if(isset($microdata_products_json) && isset($microdata_products_microdata) && $microdata_products_json and $microdata_products_microdata){ ?>
 <?php if($min_max){ ?><?php echo $min_max; ?><?php } ?>
 <?php if($config_item_syntax == "ld" or $config_item_syntax == "all"){ ?>
@@ -276,10 +271,8 @@
 <?php } ?>
 <?php } ?>
 <?php if($echo){ ?><div class="mdp-description"><?php echo $echo; ?></div><?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> category end -->
 <?php } ?>
 <?php if($microdata_route_manufacturer && $config_manufacturer_page and $d){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> manufacturer start -->
 <?php if($microdata_products_json and $microdata_products_microdata){ ?>
 <?php if($min_max){ ?><?php echo $min_max; ?><?php } ?>
 <?php if($config_item_syntax == "ld" or $config_item_syntax == "all"){ ?>
@@ -308,10 +301,8 @@
 <?php } ?>
 <?php } ?>
 <?php if($echo){ ?><div class="mdp-description"><?php echo $echo; ?></div><?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> manufacturer end -->
 <?php } ?>
 <?php if($microdata_route_special && $config_special_page and $a and $d){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> special start -->
 <?php if($microdata_products_json and $microdata_products_microdata){ ?>
 <?php if($min_max){ ?><?php echo $min_max; ?><?php } ?>
 <?php if($config_item_syntax == "ld" or $config_item_syntax == "all"){ ?>
@@ -340,10 +331,8 @@
 <?php } ?>		  
 <?php } ?>
 <?php if($microdata_description){ ?><div class="mdp-description"><?php echo $microdata_description; ?></div><?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> special end -->
 <?php } ?>
 <?php if($microdata_route_information && $config_information_page && $information_info and $c and $d){ ?>
-<!--microdatapro <?php echo $microdata_version; ?> information start -->
 <?php if($config_item_syntax == "ld" or $config_item_syntax == "all"){ ?>
 <script type="application/ld+json">
 {
@@ -410,6 +399,5 @@
 <meta itemprop="dateModified" content="<?php echo $date_published; ?>" />
 </span>		 
 <?php } ?>
-<!--microdatapro <?php echo $microdata_version; ?> information end -->
 <?php } ?>
 <?php } ?>

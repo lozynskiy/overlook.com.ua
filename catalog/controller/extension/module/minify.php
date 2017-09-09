@@ -7,6 +7,8 @@ class ControllerExtensionModuleMinify extends Controller
 
     // Exclude JS-files
     private $exclude_js = [
+        'jquery-2.1.1.min.js',
+        'bootstrap.min.js',
         'bootstrap-datetimepicker.min.js',
         'moment.js',
         'ru-ru.js',
@@ -371,15 +373,15 @@ class ControllerExtensionModuleMinify extends Controller
         $script->appendChild($script_type);
         $script->appendChild($script_src);
 
-        if (($this->dom->getElementsByTagName('script')->length == 0) ||
-            !empty($this->dom->getElementsByTagName('script')->item(0)->nodeValue)
-        ) {
+//        if (($this->dom->getElementsByTagName('script')->length == 0) ||
+//            !empty($this->dom->getElementsByTagName('script')->item(0)->nodeValue)
+//        ) {
             $head = $this->dom->getElementsByTagName('head')->item(0);
             $head->appendChild($script);
-        } else {
-            $first_js = $this->dom->getElementsByTagName('script')->item(0);
-            $first_js->parentNode->insertBefore($script, $first_js);
-        }
+//        } else {
+//            $first_js = $this->dom->getElementsByTagName('script')->item(0);
+//            $first_js->parentNode->insertBefore($script, $first_js);
+//        }
     }
 
     private function appendCss()

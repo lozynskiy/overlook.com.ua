@@ -4540,6 +4540,9 @@ margin: 10px 0;
 .opc .buttons {
 	margin-bottom: 0;
 }
+.opc .order-summary .buttons{
+	margin-top: 30px;
+}
 .opc .back-link {
 	display: inline-block;
 	vertical-align: top;

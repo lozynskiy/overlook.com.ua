@@ -787,15 +787,15 @@
         grecaptcha.reset();
     });
 
-    $(document).ready(function () {
-        $('.thumbnails').magnificPopup({
-            type: 'image',
-            delegate: 'a',
-            gallery: {
-                enabled: true
-            }
-        });
-    });
+//    $(document).ready(function () {
+//        $('.thumbnails').magnificPopup({
+//            type: 'image',
+//            delegate: 'a',
+//            gallery: {
+//                enabled: true
+//            }
+//        });
+//    });
 
     $(document).ready(function () {
         var hash = window.location.hash;
