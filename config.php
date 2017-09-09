@@ -3,26 +3,26 @@
 $host = $_SERVER['HTTP_HOST'];
 
 // HTTP
-define('HTTP_SERVER', 'http://overlook/');
+define('HTTP_SERVER', 'http://'.$host.'/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://overlook/');
+define('HTTPS_SERVER', 'http://'.$host.'/');
 
 $dir = dirname(__FILE__);
 
 // DIR
 
-define('DIR_APPLICATION',  'C:/OS/OpenServer/domains/overlook/catalog/');
-define('DIR_SYSTEM',  'C:/OS/OpenServer/domains/overlook/system/');
-define('DIR_IMAGE',  'C:/OS/OpenServer/domains/overlook/image/');
-define('DIR_LANGUAGE',  'C:/OS/OpenServer/domains/overlook/catalog/language/');
-define('DIR_TEMPLATE', 'C:/OS/OpenServer/domains/overlook/catalog/view/theme/');
-define('DIR_CONFIG',  'C:/OS/OpenServer/domains/overlook/system/config/');
-define('DIR_CACHE',  'C:/OS/OpenServer/domains/overlook/system/storage/cache/');
-define('DIR_DOWNLOAD',  'C:/OS/OpenServer/domains/overlook/system/storage/download/');
-define('DIR_LOGS',  'C:/OS/OpenServer/domains/overlook/system/storage/logs/');
-define('DIR_MODIFICATION',  'C:/OS/OpenServer/domains/overlook/system/storage/modification/');
-define('DIR_UPLOAD',  'C:/OS/OpenServer/domains/overlook/system/storage/upload/');
+define('DIR_APPLICATION',  $dir.'/catalog/');
+define('DIR_SYSTEM',  $dir.'/system/');
+define('DIR_IMAGE',  $dir.'/image/');
+define('DIR_LANGUAGE',  $dir.'/catalog/language/');
+define('DIR_TEMPLATE',  $dir.'/catalog/view/theme/');
+define('DIR_CONFIG',  $dir.'/system/config/');
+define('DIR_CACHE',  $dir.'/system/storage/cache/');
+define('DIR_DOWNLOAD',  $dir.'/system/storage/download/');
+define('DIR_LOGS',  $dir.'/system/storage/logs/');
+define('DIR_MODIFICATION',  $dir.'/system/storage/modification/');
+define('DIR_UPLOAD',  $dir.'/system/storage/upload/');
 
 // DB
 
