@@ -7,8 +7,8 @@ class ControllerExtensionModuleMicrodataPro extends Controller {
 	protected $data;
 	
 	public function index() {
-	$a=$b=$c=$d=0;
-
+		$a=$b=$c=$d=1;
+$date_install = date('Y-m-d', filectime(DIR_SYSTEM . 'library/microdatapro.php'));
 	  $this->microdatapro = new Microdatapro($this->registry);	
 
 	  if(isset($this->request->get['route']) && !empty($this->request->get['route'])){
@@ -26,15 +26,9 @@ class ControllerExtensionModuleMicrodataPro extends Controller {
 	  }
 
 	  $this->data['status'] = $status = $s = $this->config->get('config_microdata_status');
-	  $date_install = date('Y-m-d', filectime(DIR_SYSTEM . 'library/microdatapro.php'));
+		$this->data['activated'] =$a= 1;
 
-	  $a=0;
-	  if(isset($key) && !empty($key)){ $key_array = explode("327450", base64_decode(strrev(substr($key, 0, -7))));
-	  if($key_array[0] == base64_encode($this->microdatapro->module_info('main_host')) && $key_array[1] == base64_encode($this->microdatapro->module_info('sys_key').$this->microdatapro->module_info('sys_keyf')+100)){$this->data['activated'] =$a= 1;}} 
 
-	  {
-		if($a){$b=0;if(isset($key) && !empty($key)){ $key_array = explode("327450", base64_decode(strrev(substr($key, 0, -7))));
-		if($key_array[0] == base64_encode($this->microdatapro->module_info('main_host')) && $key_array[1] == base64_encode($this->microdatapro->module_info('sys_key').$this->microdatapro->module_info('sys_keyf')+100)){$b=$a?1:0;}}}
 		if(($route == "common/home" || $route == "product/product" || $route == "product/category" || $route == "product/manufacturer/info" || $route == "information/information" || $route == "product/special")&&$b){
 
 			if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
@@ -55,9 +49,6 @@ class ControllerExtensionModuleMicrodataPro extends Controller {
 			
 		//pages
 			$this->data['microdata_route_product']  	= ($route == "product/product")?true:false;
-			if($b){$c=0;
-			if(isset($key) && !empty($key)){ $key_array = explode("327450", base64_decode(strrev(substr($key, 0, -7))));
-			if($key_array[0] == base64_encode($this->microdatapro->module_info('main_host')) && $key_array[1] == base64_encode($this->microdatapro->module_info('sys_key').$this->microdatapro->module_info('sys_keyf')+100)){$c=$b?1:0;}}}
 			$this->data['microdata_route_category'] 	= ($route == "product/category")?true:false;
 			$this->data['microdata_route_manufacturer'] = ($route == "product/manufacturer/info")?true:false;
 			$this->data['microdata_route_information']  = ($route == "information/information")?true:false;
@@ -94,9 +85,6 @@ class ControllerExtensionModuleMicrodataPro extends Controller {
 			$this->data['microdata_base_url']  = $this->data['microdata_url'] = $microdata_server;
 			$this->data['microdata_name']      = $this->data['microdata_heading_title'] = $this->config->get('config_name');
 			$this->data['microdata_email']     = ($this->config->get('config_microdata_email'))?$this->config->get('config_microdata_email'):$this->config->get('config_email');
-			if($c){$d=0;
-			if(isset($key) && !empty($key)){ $key_array = explode("327450", base64_decode(strrev(substr($key, 0, -7))));
-			if($key_array[0] == base64_encode($this->microdatapro->module_info('main_host')) && $key_array[1] == base64_encode($this->microdatapro->module_info('sys_key').$this->microdatapro->module_info('sys_keyf')+100)){$d=$c?1:0;}}}
 			$this->data['microdata_logo']      = $this->data['microdata_base_url'] . "image/" . str_replace(' ', '%20', $this->config->get('config_logo'));
 			$this->data['microdata_popup']	   = $this->data['microdata_original_image'] = $this->data['microdata_logo'];
 			$this->data['microdata_address_1'] = $this->config->get('config_microdata_address_1');
@@ -455,7 +443,8 @@ class ControllerExtensionModuleMicrodataPro extends Controller {
 			
 		}
 	  }	
-	}
+	
+
 	
 	public function getImage($image,$w=375,$h=375){
 		if($image && $w && $h){
