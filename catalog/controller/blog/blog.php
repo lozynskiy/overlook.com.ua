@@ -5,11 +5,11 @@ class ControllerBlogBlog extends Controller {
 	
 	public function index() { 
 	
-//		if (file_exists('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css')) {
-//			$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css');
-//		} else {
-//			$this->document->addStyle('catalog/view/theme/default/stylesheet/blog.css');
-//		}
+		if (file_exists('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css')) {
+			$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css');
+		} else {
+			$this->document->addStyle('catalog/view/theme/pavilion/style/RichBlog.css');
+		}
 	 
 		$this->language->load('blog/blog');
 		

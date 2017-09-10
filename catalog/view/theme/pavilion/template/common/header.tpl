@@ -25,7 +25,7 @@
     <?php echo $tc_og; ?>
 
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css">
+    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css"!-->
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/1280.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/tables.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/ajaxCart.css"/>
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/RichBlog.css"/>
+    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/RichBlog.css"/!-->
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"/>
     <link rel="stylesheet" type="text/css"

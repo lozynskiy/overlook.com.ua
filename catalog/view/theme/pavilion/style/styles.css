@@ -6294,3 +6294,7 @@ border: 1px solid #ff9aa6;
 #enter-password .inputs:last-child{
 	margin: 0;
 }
+.date .input-group-btn{
+	display: inline-block;
+	vertical-align: middle;
+}

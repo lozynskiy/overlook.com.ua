@@ -3903,9 +3903,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-left: 0;
 }
 .input-group-btn {
-  position: relative;
-  font-size: 0;
-  white-space: nowrap;
+  /* position: relative; */
+  /* font-size: 0; */
+  /* white-space: nowrap; */
 }
 .input-group-btn > .btn {
   position: relative;
