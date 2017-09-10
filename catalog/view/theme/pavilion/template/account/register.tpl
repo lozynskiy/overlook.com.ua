@@ -117,7 +117,7 @@
                                             <div class="field-validation-error"><?php echo $error_telephone; ?></div>
                                         <?php } ?>
                                     </div>
-                                    <div class="inputs">
+                                    <div class="inputs" style="display:none">
                                         <label for="input-fax"><?php echo $entry_fax; ?></label>
                                         <input type="text" name="fax" value="<?php echo $fax; ?>" id="input-fax"/>
                                     </div>
@@ -358,7 +358,7 @@
                                     <strong><?php echo $text_your_address; ?></strong>
                                 </div>
                                 <div class="form-fields">
-                                    <div class="inputs">
+                                    <div class="inputs" style="display:none">
                                         <label for="input-company"><?php echo $entry_company; ?></label>
                                         <input type="text" name="company" value="<?php echo $company; ?>"
                                                id="input-company"/>
@@ -372,7 +372,7 @@
                                             <div class="field-validation-error"><?php echo $error_address_1; ?></div>
                                         <?php } ?>
                                     </div>
-                                    <div class="inputs">
+                                    <div class="inputs" style="display:none">
                                         <label for="input-address-2"><?php echo $entry_address_2; ?></label>
                                         <input type="text" name="address_2" value="<?php echo $address_2; ?>"
                                                id="input-address-2"/>
@@ -385,7 +385,7 @@
                                             <div class="field-validation-error"><?php echo $error_city; ?></div>
                                         <?php } ?>
                                     </div>
-                                    <div class="inputs">
+                                    <div class="inputs" style="display:none">
                                         <label for="input-postcode"><?php echo $entry_postcode; ?><span
                                                     class="required">*</span></label>
                                         <input type="text" name="postcode" value="<?php echo $postcode; ?>"
@@ -394,7 +394,7 @@
                                             <div class="field-validation-error"><?php echo $error_postcode; ?></div>
                                         <?php } ?>
                                     </div>
-                                    <div class="inputs">
+                                    <div class="inputs" style="display:none">
                                         <label for="input-country"><?php echo $entry_country; ?><span
                                                     class="required">*</span></label>
                                         <select name="country_id" id="input-country">
@@ -661,7 +661,7 @@
                                     <div class="inputs">
                                         <label for="input-password"><?php echo $entry_password; ?><span
                                                     class="required">*</span></label>
-                                        <input type="text" name="password" value="<?php echo $password; ?>"
+                                        <input type="password" name="password" value="<?php echo $password; ?>"
                                                id="input-password"/>
                                         <?php if ($error_password) { ?>
                                             <div class="field-validation-error"><?php echo $error_password; ?></div>
@@ -670,7 +670,7 @@
                                     <div class="inputs">
                                         <label for="input-confirm"><?php echo $entry_confirm; ?><span
                                                     class="required">*</span></label>
-                                        <input type="text" name="confirm" value="<?php echo $confirm; ?>"
+                                        <input type="password" name="confirm" value="<?php echo $confirm; ?>"
                                                id="input-confirm"/>
                                         <?php if ($error_confirm) { ?>
                                             <div class="field-validation-error"><?php echo $error_confirm; ?></div>
@@ -720,12 +720,15 @@
                         <?php echo $captcha; ?>
                         <?php if ($text_agree) { ?>
                             <div class="buttons">
-                                <p><?php echo $text_agree; ?>
+                                <p>
+                                    <label for="agree"><?php echo $text_agree; ?></label>
                                     <?php if ($agree) { ?>
-                                        <input type="checkbox" name="agree" value="1" checked="checked"/>
+                                        <input id="agree" type="checkbox" name="agree" value="1" checked="checked"/>
                                     <?php } else { ?>
-                                        <input type="checkbox" name="agree" value="1"/>
-                                    <?php } ?></p><br>
+                                        <input id="agree" type="checkbox" name="agree" value="1"/>
+                                    <?php } ?>
+                                </p>
+                                <br>
                                 <input type="submit" value="<?php echo $button_continue; ?>"
                                        class="button-1 register-next-step-button"/>
                             </div>
