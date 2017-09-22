@@ -722,7 +722,7 @@ line-height: 20px;
 	display: inline-block; 
 	margin: 0 1px; 
 }
-.language-list a { 
+.language-list a {
 	display: block;
 	position: relative;
 	width: 32px;
@@ -5693,9 +5693,7 @@ margin: 10px 0;
 	padding: 0 30px;
 	color: #999;
 }
-.language-select img{
-margin-right: 5px;
-}
+.language-select img{margin-right: 8px;}
 .item-box:hover {-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.15);-moz-box-shadow:0 0 10px 0 rgba(0,0,0,.15);box-shadow:0 0 10px 0 rgba(0,0,0,.15);-webkit-transition:all .4s ease;-moz-transition:all .4s ease;transition:all .4s ease;}
 
 .category-slide .owl-carousel .owl-stage-outer {
@@ -6051,8 +6049,9 @@ color: #333;
 	display:none;
 }
 #language-dropdown a{
-	
-background-image: none;
+	background-image: none;
+	text-align: left;
+	padding-left: 0;
 }
 
 .registration-page .alert{

@@ -177,18 +177,23 @@
 }
 .header-links ul {
 }
+.language-list-style li,
 .header-links li {
 	padding: 0 16px;
 }
+.language-list-style li:first-child,
 .header-links li:first-child {
 	padding-top: 4px;
 }
+.language-list-style li:last-child,
 .header-links li:last-child {
 	padding-bottom: 4px;
 }
+.language-list-style li:hover,
 .header-links li:hover {
 	background-color: #f9f9f9;
 }
+.language-list-style a,
 .header-links a {
 	display: block;
 	padding: 10px 0 10px 24px;
@@ -216,6 +221,9 @@
 .header-selectors > div {
 	border-top: 1px solid #f6f6f6;
 	padding: 15px;
+}
+#header-links-wrapper.language-selector {
+	padding:0
 }
 .header-selectors > div:first-child {
 	border-top: none;
