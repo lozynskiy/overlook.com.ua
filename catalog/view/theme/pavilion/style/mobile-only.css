@@ -320,9 +320,11 @@ margin-top: 53px;
 .mobile-sticky-logo .admin-header-links ~ .responsive-nav-wrapper-parent .header-selectors {
 	top: 205px;
 }
+.language-list-style li,
 .header-links li {
 	border-top: 1px solid #ececec;
 }
+.language-list-style a,
 .header-links a {
 	display: inline-block;
 	padding: 15px 25px;
@@ -347,6 +349,9 @@ margin-top: 53px;
 	display: block;
 	border-top: 1px solid #ececec;
 	padding: 15px;
+}
+#header-links-wrapper.language-selector {
+	padding:0
 }
 
 /* SEARCH BOX */
