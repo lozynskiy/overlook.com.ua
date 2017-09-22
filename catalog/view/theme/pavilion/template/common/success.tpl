@@ -57,4 +57,57 @@
             <?php echo $column_right; ?>
         </div>
     </div>
+<?php if (isset($orderDetails) && (isset($route) && $route == 'checkout/success' || $route == 'checkout/success/index' || $route == 'quickcheckout/success') && (!$user_logged || $ga_exclude_admin != 1 && $user_logged)) { ?>
+    <script type="text/javascript">
+        ga('set', 'currencyCode', '<?php echo $currency; ?>');
+
+        <?php foreach($orderProduct as $product) { ?>
+        ga('ec:addProduct', {
+            'id': '<?php echo $product['product_id']; ?>',
+            'name': '<?php echo $product['name']; ?>',
+            'model': '<?php echo $product['model']; ?>',
+            'sku': '<?php echo $product['sku']; ?>',
+            'category': '<?php echo $product['category']; ?>',
+            'brand': '<?php echo $product['manufacturer']; ?>',
+            'price': '<?php echo $product['price']; ?>',
+            'quantity': '<?php echo $product['quantity']; ?>'
+        });
+        <?php } ?>
+
+        ga('ec:setAction', 'purchase', {
+            'id': '<?php echo $orderDetails['order_id']; ?>',
+            'affiliation': '<?php echo $orderDetails['store_name']; ?>',
+            'revenue': '<?php echo $orderDetails['total']; ?>',
+            'tax': '<?php if ($orderDetails['order_tax'] == '') {
+                echo 0;
+            } else {
+                echo $orderDetails['order_tax'];
+            } ?>',
+            'shipping': '<?php echo $orderDetails['shipping_total']; ?>'
+        });
+        ga('send', 'event', 'Ecommerce', 'Purchase', 'Checkout');
+    </script>
+    <?php if ($ga_adwords == 1) { ?>
+        <script type="text/javascript">
+            var google_conversion_id = <?php echo $ga_conversion_id; ?>;
+            var google_conversion_language = "<?php echo $language; ?>";
+            var google_conversion_format = "3";
+            var google_conversion_color = "777";
+            var google_conversion_label = "<?php echo $ga_label; ?>";
+            var google_conversion_value = <?php echo round(($orderDetails['total'] - $orderDetails['order_tax']), 2); ?>;
+            var google_conversion_currency = "<?php echo $currency; ?>";
+            var google_remarketing_only = false;
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        <noscript>
+            <div style="display:none;visibility:hidden">
+                <img height="1" width="1" style="border-style:none;" alt=""
+                     src="//www.googleadservices.com/pagead/conversion/<?php echo $ga_conversion_id; ?>/?<?php if (isset($orderDetails)) {
+                         echo "value=" . round(($orderDetails['total'] - $orderDetails['order_tax']), 2);
+                     } ?>&amp;currency_code=<?php echo $currency; ?>&amp;label=<?php echo $ga_label; ?>&amp;guid=ON&amp;script=0"/>
+            </div>
+        </noscript>
+    <?php } ?>
+
+<?php } ?>
 <?php echo $footer; ?>

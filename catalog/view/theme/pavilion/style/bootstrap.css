@@ -5736,6 +5736,7 @@ button.list-group-item-danger.active:focus {
   /* text-shadow: 0 1px 0 #fff; */
   filter: alpha(opacity=20);
   /* opacity: .2; */
+  /* border: 0; */
 }
 .close:hover,
 .close:focus {
@@ -5746,11 +5747,11 @@ button.list-group-item-danger.active:focus {
   /* opacity: .5; */
 }
 button.close {
-  -webkit-appearance: none;
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
+  /* -webkit-appearance: none; */
+  /* padding: 0; */
+  /* cursor: pointer; */
+  /* background: transparent; */
+  /* border: 0; */
 }
 .modal-open {
   overflow: hidden;

@@ -4,6 +4,23 @@ class ControllerCheckoutSuccess extends Controller {
 		$this->load->language('checkout/success');
 
 		if (isset($this->session->data['order_id'])) {
+			
+			$this->user = new Cart\User($this->registry);
+            $this->load->model('checkout/order');
+			$data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+			$data['orderProduct'] = $this->model_checkout_order->getOrderProduct($this->session->data['order_id']);
+			$data['orderDetails']['shipping_total'] = (isset($this->session->data['shipping_method']['cost'])) ? $this->session->data['shipping_method']['cost'] : 0;
+			$data['ga_exclude_admin'] = $this->config->get('google_analytics_exclude_admin');
+			$data['ga_cookie'] = $this->config->get('google_analytics_cookie');
+			$data['ga_conversion_id'] = $this->config->get('google_analytics_conversion_id');
+			$data['ga_label'] = $this->config->get('google_analytics_label');
+			$data['ga_adwords'] = $this->config->get('google_analytics_adwords');
+			$data['language'] = $this->config->get('config_language');
+			$data['currency'] = $this->session->data['currency'];
+			$data['user_logged'] = $this->user->isLogged();
+			$data['route'] = $this->request->get['route'];
+			
+			
 			$this->cart->clear();
 
 			// Add to activity log

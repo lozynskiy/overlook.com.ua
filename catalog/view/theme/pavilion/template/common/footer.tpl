@@ -1,3 +1,4 @@
+
 <footer class="footer">
     <div class="footer-upper">
         <div class="center">
@@ -58,14 +59,6 @@
                 <li class="youtube"><a href="" target="_blank"></a></li>
                 <li class="google"><a href="" target="_blank"></a></li>
                 <li class="twitter"><a href="" target="_blank"></a></li>
-                <!--li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li!-->
             </ul>
         </div>
     </div>

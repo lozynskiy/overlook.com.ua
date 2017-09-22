@@ -124,11 +124,11 @@ $('#button-track_no-add').on('click', function() {
 		</file>
 		<file path="catalog/view/theme/*/template/account/order_info.tpl">
 			<operation>
-				<search><![CDATA[<b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>]]></search>
+				<search><![CDATA[<?php echo $shipping_method; ?>]]></search>
 				<add position="after"><![CDATA[
               <?php } ?>
               <?php if ($track_no) { ?>
-              <br /><b>Трек-номер:</b> <?php echo $track_no; ?>
+              <li><b>Трек-номер:</b> <?php echo $track_no; ?></li>
 				]]></add>
 			</operation>
 		</file>

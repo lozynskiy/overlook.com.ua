@@ -1,28 +1,20 @@
 <?php echo $header; ?>
 <div class="master-wrapper-content">
     <div class="breadcrumb">
-        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-            <?php foreach ($breadcrumbs as $cnt=> $breadcrumb) { ?>
-            <?php if($cnt==0) { ?>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="<?php echo $breadcrumb['href']; ?>">
-                    <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                <span class="delimiter">/</span>
-                <meta itemprop="position" content="<?php echo $cnt+1; ?>"/>
-            </li>
-            <?php } elseif($cnt+1<count($breadcrumbs)) { ?>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemprop="url" href="<?php echo $breadcrumb['href']; ?>">
-                    <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                <span class="delimiter">/</span>
-                <meta itemprop="position" content="<?php echo $cnt+1; ?>"/>
-            </li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <?php } else { ?>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <strong itemprop="name" class="current-item"><?php echo $breadcrumb['text']; ?></strong>
-                <meta itemprop="position" content="<?php echo $cnt+1; ?>"/>
-            </li>
-            <?php } ?>
+        <ul>
+            <?php foreach ($breadcrumbs as $cnt => $breadcrumb) { ?>
+                <?php if ($cnt + 1 < count($breadcrumbs)) { ?>
+                    <li>
+                        <a href="<?php echo $breadcrumb['href']; ?>">
+                            <span><?php echo $breadcrumb['text']; ?></span>
+                        </a>
+                        <span class="delimiter">/</span>
+                    </li>
+                <?php } else { ?>
+                    <li>
+                        <strong class="current-item"><?php echo $breadcrumb['text']; ?></strong>
+                    </li>
+                <?php } ?>
             <?php } ?>
         </ul>
     </div>
@@ -79,10 +71,22 @@
                     </div>
                     <div class="product-grid">
                         <div class="item-grid">
-                            <?php foreach ($products as $product) { ?>
+                            <?php foreach ($products as $p => $product) { ?>
                             <div class="item-box">
                                 <div class="product-item">
-                                    <div class="picture"><a href="<?php echo $product['href']; ?>"><img
+                                    <script>
+                                        var specialpage<?php echo $product['product_id']; ?> = {
+                                            id:'<?php echo $product['product_id']; ?>',
+                                            name:'<?php echo $product['name']; ?>',
+                                            model: '<?php echo $product['model']; ?>',
+                                            sku: '<?php echo $product['sku']; ?>',
+                                            category: '<?php echo $product['category']; ?>',
+                                            brand: '<?php echo $product['manufacturer']; ?>',
+                                            position: <?php echo $p; ?>
+                                        }
+                                    </script>
+                                    <div class="picture"><a onclick="GaListLink(specialpage<?php echo $product['product_id']; ?>, GaList.SpecialPage); return false;"
+                                                    href="<?php echo $product['href']; ?>"><img
                                                     src="<?php echo $product['thumb']; ?>"
                                                     alt="<?php echo $product['name']; ?>"
                                                     title="<?php echo $product['name']; ?>" class="img-responsive"/></a>
@@ -101,7 +105,7 @@
                                                 <?php } ?>
                                             </div>
                                         </div>
-                                        <h2 class="product-title"><a
+                                        <h2 class="product-title"><a onclick="GaListLink(specialpage<?php echo $product['product_id']; ?>, GaList.SpecialPage); return false;"
                                                     href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                                         </h2>
                                         <div class="add-info">
@@ -121,16 +125,24 @@
                                             <div class="description"><?php echo $product['description']; ?></div>
                                             <div class="buttons-upper">
                                                 <input class="button-2 add-to-wishlist-button" type="button"
-                                                       data-toggle="tooltip" title="<?php echo $button_wishlist; ?>"
-                                                       onclick="wishlist.add('<?php echo $product['product_id']; ?>');"></input>
+                                                       data-toggle="tooltip"
+                                                       title="<?php echo $button_wishlist; ?>"
+                                                       onclick="GaListAddToWishlist(specialpage<?php echo $product['product_id']; ?>, GaList.SpecialPage)"/>
                                                 <input class="button-2 add-to-compare-list-button" type="button"
-                                                       data-toggle="tooltip" title="<?php echo $button_compare; ?>"
-                                                       onclick="compare.add('<?php echo $product['product_id']; ?>');"></input>
+                                                       data-toggle="tooltip"
+                                                       title="<?php echo $button_compare; ?>"
+                                                       onclick="GaListAddToCompare(specialpage<?php echo $product['product_id']; ?>, GaList.SpecialPage);"/>
                                             </div>
                                             <div class="buttons-lower">
-                                                <button class="button-2 product-box-add-to-cart-button" type="button"
-                                                        onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
-                                                    <span><?php echo $button_cart; ?></span></button>
+                                                <div class="ajax-cart-button-wrapper">
+                                                    <input id="productQuantity<?php echo $product['product_id']; ?>"
+                                                           type="text" class="productQuantityTextBox"
+                                                           value="<?php echo $product['minimum']; ?>">
+                                                    <button class="button-2 product-box-add-to-cart-button"
+                                                            type="button"
+                                                            onclick="GaListAddToCart(specialpage<?php echo $product['product_id']; ?>, GaList.SpecialPage, $('#productQuantity<?php echo $product['product_id']; ?>').val());">
+                                                        <span><?php echo $button_cart; ?></span></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -142,6 +154,24 @@
                             <?php echo $pagination; ?>
                             <?php echo $results; ?>
                         </div>
+                        <script>
+                            if (typeof ga != 'undefined') {
+                                <?php foreach ($products as $p => $product) { ?>
+                                ga('ec:addImpression', {
+                                    'id': '<?php echo $product['product_id']; ?>',
+                                    'name': '<?php echo $product['name']; ?>',
+                                    'model': '<?php echo $product['model']; ?>',
+                                    'sku': '<?php echo $product['sku']; ?>',
+                                    'category': '<?php echo $product['category']; ?>',
+                                    'brand': '<?php echo $product['manufacturer']; ?>',
+                                    'list': GaList.SpecialPage,
+                                    'position': <?php echo $p; ?>
+                                });
+                                <?php } ?>
+
+                                ga('send', 'event', 'Ecommerce', 'Impression', GaList.SpecialPage, {'nonInteraction': 1});
+                            }
+                        </script>
                     </div>
                     <?php } else { ?>
                     <div class="no-data"><?php echo $text_empty; ?></div>

@@ -1,6 +1,7 @@
 <?php
 class ControllerCommonHeader extends Controller {
 	public function index() {
+		$this->user = new Cart\User($this->registry);
 		// Analytics
 		$this->load->model('extension/extension');
 
@@ -97,6 +98,14 @@ class ControllerCommonHeader extends Controller {
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['open'] = $this->config->get('config_open');
+		
+		$data['ga_exclude_admin'] = $this->config->get('google_analytics_exclude_admin');
+		$data['ua_tracking'] = $this->config->get('google_analytics_property_id');
+		$data['ga_status'] = $this->config->get('google_analytics_status');
+		$data['ga_remarketing'] = $this->config->get('google_analytics_remarketing');
+		$data['ga_cookie'] = $this->config->get('google_analytics_cookie');
+		$data['user_logged'] = $this->user->isLogged();
+		$data['template'] = $this->config->get('config_template');
 
 		// Menu
 		$this->load->model('catalog/category');

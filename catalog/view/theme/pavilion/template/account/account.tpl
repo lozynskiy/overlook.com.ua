@@ -2,26 +2,18 @@
 <!--div class="notAndroid23 customer-pages-body"!-->
 <div class="master-wrapper-content">
     <div class="breadcrumb">
-        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <ul>
             <?php foreach ($breadcrumbs as $cnt => $breadcrumb) { ?>
-                <?php if ($cnt == 0) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
+                <?php if ($cnt + 1 < count($breadcrumbs)) { ?>
+                    <li>
+                        <a href="<?php echo $breadcrumb['href']; ?>">
+                            <span><?php echo $breadcrumb['text']; ?></span>
+                        </a>
                         <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
                     </li>
-                <?php } elseif ($cnt + 1 < count($breadcrumbs)) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="url" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                        <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
-                    </li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <?php } else { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <strong itemprop="name" class="current-item"><?php echo $breadcrumb['text']; ?></strong>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
+                    <li>
+                        <strong class="current-item"><?php echo $breadcrumb['text']; ?></strong>
                     </li>
                 <?php } ?>
             <?php } ?>

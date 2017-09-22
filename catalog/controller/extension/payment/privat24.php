@@ -10,8 +10,8 @@ class ControllerExtensionPaymentPrivat24 extends Controller {
 		
 		// $data['action'] = 'https://api.privatbank.ua:9083/p24api/ishop';
 		$data['action'] = 'https://api.privatbank.ua/p24api/ishop';
-                    
- 	        $curr_code = $this->config->get('privat24_currency');
+
+ 	    $curr_code = $this->config->get('privat24_currency');
 		$eur_order_total = $this->currency->convert($order_info['total'], $order_info['currency_code'], $curr_code);               
 		$data['amt'] = $this->currency->format($eur_order_total, $curr_code, $order_info['currency_value'], false);
 		$data['ccy'] = $curr_code;

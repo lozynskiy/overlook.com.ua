@@ -1,26 +1,18 @@
 <?php echo $header; ?>
 <div class="master-wrapper-content">
     <div class="breadcrumb">
-        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <ul>
             <?php foreach ($breadcrumbs as $cnt => $breadcrumb) { ?>
-                <?php if ($cnt == 0) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
+                <?php if ($cnt + 1 < count($breadcrumbs)) { ?>
+                    <li>
+                        <a href="<?php echo $breadcrumb['href']; ?>">
+                            <span><?php echo $breadcrumb['text']; ?></span>
+                        </a>
                         <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
-                    </li>
-                <?php } elseif ($cnt + 1 < count($breadcrumbs)) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="url" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                        <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
                     </li>
                 <?php } else { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <strong itemprop="name" class="current-item"><?php echo $breadcrumb['text']; ?></strong>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
+                    <li>
+                        <strong class="current-item"><?php echo $breadcrumb['text']; ?></strong>
                     </li>
                 <?php } ?>
             <?php } ?>
@@ -380,13 +372,13 @@
                                         <input type="button" data-toggle="tooltip"
                                                class="button-2 add-to-wishlist-button"
                                                title="<?php echo $button_wishlist; ?>"
-                                               onclick="wishlist.add('<?php echo $product_id; ?>');"/>
+                                               onclick="ga_product_send_event('<?php echo $product_id; ?>', '<?php echo $heading_title; ?>', 1, 'click', GaEvent.AddToWishList, GaList.ProductDetail); wishlist.add('<?php echo $product_id; ?>');"/>
                                     </div>
                                     <div class="compare-products">
                                         <input type="button" data-toggle="tooltip"
                                                class="button-2 add-to-compare-list-button"
                                                title="<?php echo $button_compare; ?>"
-                                               onclick="compare.add('<?php echo $product_id; ?>');"/>
+                                               onclick="ga_product_send_event('<?php echo $product_id; ?>', '<?php echo $heading_title; ?>', 1, 'click', GaEvent.AddToCompare, GaList.ProductDetail); compare.add('<?php echo $product_id; ?>');"/>
                                     </div>
                                 </div>
                                 <?php if ($minimum > 1) { ?>
@@ -624,6 +616,17 @@
     });
     //--></script>
 <script type="text/javascript"><!--
+    var product = {
+        id:'<?php echo $product_id; ?>',
+        name:'<?php echo $heading_title; ?>',
+        model: '<?php echo $model; ?>',
+        sku: '<?php echo $sku; ?>',
+        category: '<?php echo $category; ?>',
+        brand: '<?php echo $manufacturer; ?>',
+        price:'<?php if (!$special) { ?><?php echo $price_0; ?><?php } else { ?><?php echo $special_0; ?><?php } ?>',
+        //qty: $('#input-quantity').val()
+    }
+    GaProductDetail(product);
     $('#button-cart').on('click', function () {
         $.ajax({
             url: 'index.php?route=checkout/cart/add',
@@ -669,6 +672,8 @@
                     $('html, body').animate({scrollTop: 0}, 'slow');
 
                     $('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+                    GaProductAddToCart(product, $('#input-quantity').val())
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -744,6 +749,7 @@
     });
     //--></script>
 <script type="text/javascript"><!--
+
     $('#review').delegate('.pagination a', 'click', function (e) {
         e.preventDefault();
 
@@ -887,7 +893,6 @@
         });
     } else {
         $('.fancybox').fancybox({});
-    }
-    ;
+    };
     //--></script>
 <?php echo $footer; ?>

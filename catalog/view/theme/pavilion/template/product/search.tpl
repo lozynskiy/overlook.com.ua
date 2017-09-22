@@ -1,26 +1,18 @@
 <?php echo $header; ?>
     <div class="master-wrapper-content"">
     <div class="breadcrumb">
-        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <ul>
             <?php foreach ($breadcrumbs as $cnt => $breadcrumb) { ?>
-                <?php if ($cnt == 0) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
+                <?php if ($cnt + 1 < count($breadcrumbs)) { ?>
+                    <li>
+                        <a href="<?php echo $breadcrumb['href']; ?>">
+                            <span><?php echo $breadcrumb['text']; ?></span>
+                        </a>
                         <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
                     </li>
-                <?php } elseif ($cnt + 1 < count($breadcrumbs)) { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="url" href="<?php echo $breadcrumb['href']; ?>">
-                            <span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                        <span class="delimiter">/</span>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
-                    </li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <?php } else { ?>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <strong itemprop="name" class="current-item"><?php echo $breadcrumb['text']; ?></strong>
-                        <meta itemprop="position" content="<?php echo $cnt + 1; ?>"/>
+                    <li>
+                        <strong class="current-item"><?php echo $breadcrumb['text']; ?></strong>
                     </li>
                 <?php } ?>
             <?php } ?>
@@ -128,11 +120,6 @@
                                 <a type="button" id="grid-view" class="viewmode-icon grid" data-toggle="tooltip"
                                    title="<?php echo $button_grid; ?>"></a>
                             </div>
-                            <!--div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                      <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
-                    </div>
-                  </div!-->
                             <div class="product-sorting">
                                 <span><?php echo $text_sort; ?></span>
                                 <select id="input-sort" class="sortOptionsDropDown" onchange="location = this.value;">
@@ -163,10 +150,22 @@
                         </div>
                         <div class="product-grid">
                             <div class="item-grid">
-                                <?php foreach ($products as $product) { ?>
+                                <?php foreach ($products as  $p => $product) { ?>
                                     <div class="item-box">
                                         <div class="product-item">
-                                            <div class="picture"><a href="<?php echo $product['href']; ?>"><img
+                                            <script>
+                                                var search<?php echo $product['product_id']; ?> = {
+                                                    id:'<?php echo $product['product_id']; ?>',
+                                                    name:'<?php echo $product['name']; ?>',
+                                                    model: '<?php echo $product['model']; ?>',
+                                                    sku: '<?php echo $product['sku']; ?>',
+                                                    category: '<?php echo $product['category']; ?>',
+                                                    brand: '<?php echo $product['manufacturer']; ?>',
+                                                    position: <?php echo $p; ?>
+                                                }
+                                            </script>
+                                            <div class="picture"><a onclick="GaListLink(search<?php echo $product['product_id']; ?>, GaList.SearchResult); return false;"
+                                                            href="<?php echo $product['href']; ?>"><img
                                                             src="<?php echo $product['thumb']; ?>"
                                                             alt="<?php echo $product['name']; ?>"
                                                             title="<?php echo $product['name']; ?>"
@@ -186,7 +185,7 @@
                                                         <?php } ?>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a
+                                                <h2 class="product-title"><a onclick="GaListLink(search<?php echo $product['product_id']; ?>, GaList.SearchResult); return false;"
                                                             href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                                                 </h2>
                                                 <div class="add-info">
@@ -208,11 +207,11 @@
                                                         <input class="button-2 add-to-wishlist-button" type="button"
                                                                data-toggle="tooltip"
                                                                title="<?php echo $button_wishlist; ?>"
-                                                               onclick="wishlist.add('<?php echo $product['product_id']; ?>');"></input>
+                                                               onclick="GaListAddToWishlist(search<?php echo $product['product_id']; ?>, GaList.SearchResult)"/>
                                                         <input class="button-2 add-to-compare-list-button" type="button"
                                                                data-toggle="tooltip"
                                                                title="<?php echo $button_compare; ?>"
-                                                               onclick="compare.add('<?php echo $product['product_id']; ?>');"></input>
+                                                               onclick="GaListAddToCompare(search<?php echo $product['product_id']; ?>, GaList.SearchResult);"/>
                                                     </div>
                                                     <div class="buttons-lower">
                                                         <div class="ajax-cart-button-wrapper">
@@ -221,7 +220,7 @@
                                                                    value="<?php echo $product['minimum']; ?>">
                                                             <button class="button-2 product-box-add-to-cart-button"
                                                                     type="button"
-                                                                    onclick="cart.add('<?php echo $product['product_id']; ?>', $('#productQuantity<?php echo $product['product_id']; ?>').val());">
+                                                                    onclick="GaListAddToCart(search<?php echo $product['product_id']; ?>, GaList.SearchResult, $('#productQuantity<?php echo $product['product_id']; ?>').val());">
                                                                 <span><?php echo $button_cart; ?></span></button>
                                                         </div>
                                                     </div>
@@ -235,6 +234,25 @@
                                 <?php echo $pagination; ?>
                                 <p><?php echo $results; ?></p>
                             </div>
+                            <?php if ($products) { ?>
+                                <script>
+                                    if (typeof ga != 'undefined') {
+                                        <?php foreach ($products as $p => $product) { ?>
+                                        ga('ec:addImpression', {
+                                            'id': '<?php echo $product['product_id']; ?>',
+                                            'name': '<?php echo $product['name']; ?>',
+                                            'model': '<?php echo $product['model']; ?>',
+                                            'sku': '<?php echo $product['sku']; ?>',
+                                            'category': '<?php echo $product['category']; ?>',
+                                            'brand': '<?php echo $product['manufacturer']; ?>',
+                                            'list': GaList.SearchResult,
+                                            'position': <?php echo $p; ?>
+                                        });
+                                        <?php } ?>
+                                        ga('send', 'event', 'Ecommerce', 'Impression', GaList.SearchResult, {'nonInteraction': 1});
+                                    }
+                                </script>
+                            <?php } ?>
                         </div>
                     <?php } else { ?>
                         <p><?php echo $text_empty; ?></p>

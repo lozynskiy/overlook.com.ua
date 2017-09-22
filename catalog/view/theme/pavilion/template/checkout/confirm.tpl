@@ -1,6 +1,6 @@
 <div class="order-summary-content">
     <div class="section order-summary">
-    <?php if (!isset($redirect)) { ?>
+        <?php if (!isset($redirect)) { ?>
         <div class="table-wrapper">
             <table class="cart footable">
                 <thead>
@@ -87,12 +87,7 @@
                 </div>
             </div>
         </div>
-        <script>
-            function foot(){
-                $("table.cart").footable()
-            }
-            setTimeout(foot, 10);
-        </script>
+    </div>
     <?php echo $payment; ?>
     <?php } else { ?>
         <script type="text/javascript"><!--
@@ -100,4 +95,9 @@
             //--></script>
     <?php } ?>
 </div>
-</div>
+<script>
+    function foot() {
+        $("table.cart").footable()
+    }
+    setTimeout(foot, 10);
+</script>

@@ -417,3 +417,6 @@
 
     $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
     //--></script>
+<script>
+    //ga('send', 'pageview', '/checkout/contact-information');
+</script>

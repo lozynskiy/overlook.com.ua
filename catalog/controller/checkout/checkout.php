@@ -103,6 +103,75 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
+        $data['products'] = array();
+
+        foreach ($this->cart->getProducts() as $product) {
+            $option_data = array();
+
+            foreach ($product['option'] as $option) {
+                if ($option['type'] != 'file') {
+                    $value = $option['value'];
+                } else {
+                    $upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
+
+                    if ($upload_info) {
+                        $value = $upload_info['name'];
+                    } else {
+                        $value = '';
+                    }
+                }
+
+                $option_data[] = array(
+                    'name'  => $option['name'],
+                    'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
+                );
+            }
+
+            $recurring = '';
+
+            if ($product['recurring']) {
+                $frequencies = array(
+                    'day'        => $this->language->get('text_day'),
+                    'week'       => $this->language->get('text_week'),
+                    'semi_month' => $this->language->get('text_semi_month'),
+                    'month'      => $this->language->get('text_month'),
+                    'year'       => $this->language->get('text_year'),
+                );
+
+                if ($product['recurring']['trial']) {
+                    $recurring = sprintf($this->language->get('text_trial_description'), $this->currency->format($this->tax->calculate($product['recurring']['trial_price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['trial_cycle'], $frequencies[$product['recurring']['trial_frequency']], $product['recurring']['trial_duration']) . ' ';
+                }
+
+                if ($product['recurring']['duration']) {
+                    $recurring .= sprintf($this->language->get('text_payment_description'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
+                } else {
+                    $recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
+                }
+            }
+            if ($product['image']) {
+                $image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
+            } else {
+                $image = '';
+            }
+            $data['products'][] = array(
+                'cart_id'    => $product['cart_id'],
+                'product_id' => $product['product_id'],
+                'name'       => $product['name'],
+                'category'   => $product['category'],
+                'manufacturer'=> $product['manufacturer'],
+                'thumb'      => $image,
+                'model'      => $product['model'],
+                'sku'        => $product['sku'],
+                'option'     => $option_data,
+                'recurring'  => $recurring,
+                'quantity'   => $product['quantity'],
+                'subtract'   => $product['subtract'],
+                'price'      => $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')),
+                'total'      => $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'],
+                'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+            );
+        }
+
 		$this->response->setOutput($this->load->view('checkout/checkout', $data));
 	}
 
@@ -152,6 +221,7 @@ class ControllerCheckoutCheckout extends Controller {
 				'required'        => $custom_field['required']
 			);
 		}
+
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
