@@ -36,7 +36,7 @@
                     <div class="price">
                         <label><?php echo $product['quantity']; ?></label>
                         <span>x</span>
-                        <strong><?php echo $product['total']; ?></strong>
+                        <strong><?php echo $product['price']; ?></strong>
                     </div>
                 </div>
                 <div class="product-delete">
