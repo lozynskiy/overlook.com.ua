@@ -1496,8 +1496,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  /* padding-right: 15px; */
+  /* padding-left: 15px; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -4784,7 +4784,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   /* font-weight: bold; */
   /* line-height: 1; */
   /* color: #fff; */
-  ff; */
   /* text-align: center; */
   /* white-space: nowrap; */
   /* vertical-align: baseline; */
@@ -6316,9 +6315,6 @@ button.close {
 }
 .affix {
   position: fixed;
-}
-@-ms-viewport {
-  width: device-width;
 }
 .visible-xs,
 .visible-sm,
