@@ -351,7 +351,8 @@ margin-top: 53px;
 	padding: 15px;
 }
 #header-links-wrapper.language-selector {
-	padding:0
+	padding:0;
+	border: 0;
 }
 
 /* SEARCH BOX */
