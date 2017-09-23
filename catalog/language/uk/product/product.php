@@ -2,7 +2,7 @@
 
 //Update for OpenCart 2.3.x by OpenCart Ukrainian Community http://opencart.ua
 //info@marketplus.if.ua
-// nkjbfkjrgn
+// nkjbf
 
 // Text
 $_['text_search']                             = 'Пошук';
