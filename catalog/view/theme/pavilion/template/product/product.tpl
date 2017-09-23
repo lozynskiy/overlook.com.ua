@@ -372,13 +372,13 @@
                                         <input type="button" data-toggle="tooltip"
                                                class="button-2 add-to-wishlist-button"
                                                title="<?php echo $button_wishlist; ?>"
-                                               onclick="ga_product_send_event('<?php echo $product_id; ?>', '<?php echo $heading_title; ?>', 1, 'click', GaEvent.AddToWishList, GaList.ProductDetail); wishlist.add('<?php echo $product_id; ?>');"/>
+                                               onclick="GaListAddToWishlist(product, GaList.ProductDetail)"/>
                                     </div>
                                     <div class="compare-products">
                                         <input type="button" data-toggle="tooltip"
                                                class="button-2 add-to-compare-list-button"
                                                title="<?php echo $button_compare; ?>"
-                                               onclick="ga_product_send_event('<?php echo $product_id; ?>', '<?php echo $heading_title; ?>', 1, 'click', GaEvent.AddToCompare, GaList.ProductDetail); compare.add('<?php echo $product_id; ?>');"/>
+                                               onclick="GaListAddToCompare(product, GaList.ProductDetail)"/>
                                     </div>
                                 </div>
                                 <?php if ($minimum > 1) { ?>
