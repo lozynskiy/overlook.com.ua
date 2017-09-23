@@ -36,6 +36,7 @@ $_['text_semi_month']                         = 'половина місяця';
 $_['text_month']                              = 'місяць';
 $_['text_year']                               = 'рік';
 
+
 // Entry
 $_['entry_qty']                               = 'Кількість';
 $_['entry_name']                              = 'Ваше Ім`я';
