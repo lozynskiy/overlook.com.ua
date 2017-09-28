@@ -16,43 +16,43 @@
                                 title="<?php echo $text_subscribe_email; ?>" type="submit"></button>
                     </form>
                 </div>
-                <script type="text/javascript">
+                <!--script type="text/javascript">
                     function masked(element, status) {
                         if (status == true) {
-                            $('<div/>')
-                                .attr({'class': 'masked'})
-                                .prependTo(element);
+                            $('<div/>').attr({'class': 'masked'}).prependTo(element);
                             $('<div class="masked_loading" />').insertAfter($('.masked'));
-                        } else {
+                        }
+                        else {
                             $('.masked').remove();
                             $('.masked_loading').remove();
                         }
                     }
                     $('#static-subscribe-button-footer').on('click', function (e) {
                         e.preventDefault();
-
                         masked('#static-subscribe-form-footer', true);
-
-                        $.ajax({
-                            type: 'post',
-                            url: 'index.php?route=extension/module/static_subscribe/make_subscribe',
-                            dataType: 'json',
-                            data: $('#static-subscribe-form-footer').serialize(),
-                            success: function (json) {
-                                if (json['error']) {
-                                    masked('#static-subscribe-form-footer', false);
-                                    $('#static-subscribe-form-footer .alert-danger').remove();
-                                    $('#static-subscribe-form-footer').after('<div class="alert alert-danger"><i class="fa fa-check-circle"></i> ' + json['error'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                        $.ajax(
+                            {
+                                type: 'post',
+                                url: 'index.php?route=extension/module/static_subscribe/make_subscribe',
+                                dataType: 'json',
+                                data: $('#static-subscribe-form-footer').serialize(),
+                                success: function (json) {
+                                    if (json['error']) {
+                                        masked('#static-subscribe-form-footer', false);
+                                        $('#static-subscribe-form-footer .alert-danger').remove();
+                                        $('#static-subscribe-form-footer').after('<div class="alert alert-danger"><i class="fa fa-check-circle"></i> ' +
+                                            json['error'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                                    }
+                                    if (json['output']) {
+                                        masked('#static-subscribe-form-footer', false);
+                                        $('#static-subscribe-form-footer').html('<div class="output-message" style="color: #fff;">' + json['output'] +
+                                            '</div>');
+                                    }
                                 }
-                                if (json['output']) {
-                                    masked('#static-subscribe-form-footer', false);
-                                    $('#static-subscribe-form-footer').html('<div class="output-message" style="color: #fff;">' + json['output'] + '</div>');
-                                }
-                            }
-                        });
+                            });
                         return false;
                     });
-                </script>
+                </script!-->
             </div>
             <ul class="social-sharing">
                 <li class="facebook"><a href="" target="_blank"></a></li>

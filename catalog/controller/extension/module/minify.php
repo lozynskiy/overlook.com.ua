@@ -7,16 +7,9 @@ class ControllerExtensionModuleMinify extends Controller
 
     // Exclude JS-files
     private $exclude_js = [
-        'jquery-2.1.1.min.js',
-        'bootstrap.min.js',
-        'bootstrap-datetimepicker.min.js',
-        'moment.js',
-        'ru-ru.js',
-        'common.js',
     ];
     // Exclude CSS-files
     private $exclude_css = [
-        'font-awesome.min.css',
     ];
 
     private $js_array = [];
@@ -49,7 +42,8 @@ class ControllerExtensionModuleMinify extends Controller
 
         $this->checkPath($this->out_folder);
 
-        $scripts = $this->dom->getElementsByTagName('script');
+        $header = $this->dom->getElementsByTagName('head')[0];
+        $scripts = $header->getElementsByTagName('script');
 
         $delete_js = [];
 

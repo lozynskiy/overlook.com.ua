@@ -759,8 +759,17 @@
 
         $('#review').fadeIn('slow');
     });
+    $.ajax({
+        url: 'index.php?route=product/product/review&product_id=<?php echo $product_id; ?>',
+        type: 'post',
+        dataType: 'html',
+        async: true,
+        success: function (html) {
+            $('#review').html(html);
+        }
+    })
 
-    $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+    //$('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
     $('#button-review').on('click', function () {
         $.ajax({

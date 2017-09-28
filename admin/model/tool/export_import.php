@@ -815,6 +815,7 @@ class ModelToolExportImport extends Model {
 		$shipping = $product['shipping'];
 		$shipping = ((strtoupper($shipping)=="YES") || (strtoupper($shipping)=="Y") || (strtoupper($shipping)=="TRUE")) ? 1 : 0;
 		$price = trim($product['price']);
+        $cost = trim($product['cost']);
 		$points = $product['points'];
 		$date_added = $product['date_added'];
 		$date_modified = $product['date_modified'];
@@ -876,14 +877,14 @@ class ModelToolExportImport extends Model {
 		$sql .= in_array('jan',$product_fields) ? "`jan`," : "";
 		$sql .= in_array('isbn',$product_fields) ? "`isbn`," : "";
 		$sql .= in_array('mpn',$product_fields) ? "`mpn`," : "";
-		$sql .= "`location`,`stock_status_id`,`model`,`manufacturer_id`,`image`,`shipping`,`price`,`points`,`date_added`,`date_modified`,`date_available`,`weight`,`weight_class_id`,`status`,";
+		$sql .= "`location`,`stock_status_id`,`model`,`manufacturer_id`,`image`,`shipping`,`price`,`cost`,`points`,`date_added`,`date_modified`,`date_available`,`weight`,`weight_class_id`,`status`,";
 		$sql .= "`tax_class_id`,`viewed`,`length`,`width`,`height`,`length_class_id`,`sort_order`,`subtract`,`minimum`) VALUES ";
 		$sql .= "($product_id,$quantity,'$sku','$upc',";
 		$sql .= in_array('ean',$product_fields) ? "'$ean'," : "";
 		$sql .= in_array('jan',$product_fields) ? "'$jan'," : "";
 		$sql .= in_array('isbn',$product_fields) ? "'$isbn'," : "";
 		$sql .= in_array('mpn',$product_fields) ? "'$mpn'," : "";
-		$sql .= "'$location',$stock_status_id,'$model',$manufacturer_id,'$image',$shipping,$price,$points,";
+		$sql .= "'$location',$stock_status_id,'$model',$manufacturer_id,'$image',$shipping,$price,$cost,$points,";
 		$sql .= ($date_added=='NOW()') ? "$date_added," : "'$date_added',";
 		$sql .= ($date_modified=='NOW()') ? "$date_modified," : "'$date_modified',";
 		$sql .= ($date_available=='NOW()') ? "$date_available," : "'$date_available',";
@@ -1157,6 +1158,7 @@ class ModelToolExportImport extends Model {
 			$image_name = $this->getCell($data,$i,$j++);
 			$shipping = $this->getCell($data,$i,$j++,'yes');
 			$price = $this->getCell($data,$i,$j++,'0.00');
+            $cost = $this->getCell($data,$i,$j++,'0.00');
 			$points = $this->getCell($data,$i,$j++,'0');
 			$date_added = $this->getCell($data,$i,$j++);
 			$date_added = ((is_string($date_added)) && (strlen($date_added)>0)) ? $date_added : "NOW()";
@@ -1241,6 +1243,7 @@ class ModelToolExportImport extends Model {
 			$product['image'] = $image_name;
 			$product['shipping'] = $shipping;
 			$product['price'] = $price;
+            $product['cost'] = $cost;
 			$product['points'] = $points;
 			$product['date_added'] = $date_added;
 			$product['date_modified'] = $date_modified;
@@ -3687,7 +3690,7 @@ class ModelToolExportImport extends Model {
 		if (in_array("mpn",$product_fields)) {
 			$expected_heading[] = "mpn";
 		}
-		$expected_heading = array_merge( $expected_heading, array( "location", "quantity", "model", "manufacturer", "image_name", "shipping", "price", "points", "date_added", "date_modified", "date_available", "weight", "weight_unit", "length", "width", "height", "length_unit", "status", "tax_class_id", "seo_keyword", "description") );
+		$expected_heading = array_merge( $expected_heading, array( "location", "quantity", "model", "manufacturer", "image_name", "shipping", "price", "cost", "points", "date_added", "date_modified", "date_available", "weight", "weight_unit", "length", "width", "height", "length_unit", "status", "tax_class_id", "seo_keyword", "description") );
 		if ($exist_meta_title) {
 			$expected_heading[] = "meta_title";
 		}
@@ -6057,6 +6060,7 @@ class ModelToolExportImport extends Model {
 		$sql .= "  p.image AS image_name,";
 		$sql .= "  p.shipping,";
 		$sql .= "  p.price,";
+        $sql .= "  p.cost,";
 		$sql .= "  p.points,";
 		$sql .= "  p.date_added,";
 		$sql .= "  p.date_modified,";
@@ -6168,6 +6172,7 @@ class ModelToolExportImport extends Model {
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('image_name'),12)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('shipping'),5)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('price'),10)+1);
+        $worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('cost'),10)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('points'),5)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('date_added'),19)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('date_modified'),19)+1);
@@ -6254,6 +6259,7 @@ class ModelToolExportImport extends Model {
 		$data[$j++] = 'shipping';
 		$styles[$j] = &$price_format;
 		$data[$j++] = 'price';
+        $data[$j++] = 'cost';
 		$data[$j++] = 'points';
 		$data[$j++] = 'date_added';
 		$data[$j++] = 'date_modified';
@@ -6348,6 +6354,7 @@ class ModelToolExportImport extends Model {
 			$data[$j++] = $row['image_name'];
 			$data[$j++] = ($row['shipping']==0) ? 'no' : 'yes';
 			$data[$j++] = $row['price'];
+            $data[$j++] = $row['cost'];
 			$data[$j++] = $row['points'];
 			$data[$j++] = $row['date_added'];
 			$data[$j++] = $row['date_modified'];

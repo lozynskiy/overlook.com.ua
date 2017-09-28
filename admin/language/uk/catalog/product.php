@@ -56,6 +56,7 @@ $_['entry_quantity']         = 'Кількість';
 $_['entry_minimum']          = 'Мінімальна кількість, яку можна замовити';
 $_['entry_stock_status']     = 'Статус, коли товар закінчився (Немає на складі)';
 $_['entry_price']            = 'Ціна';
+$_['entry_cost']             = 'Собівартість';
 $_['entry_tax_class']        = 'Податок';
 $_['entry_points']           = 'Бали';
 $_['entry_option_points']    = 'Бали';

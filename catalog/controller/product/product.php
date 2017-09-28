@@ -225,10 +225,10 @@ class ControllerProductProduct extends Controller {
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
 			//$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
 			//$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
-			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
-			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
-			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
-			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+			$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/moment.js');
+			$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/locale/'.$this->session->data['language'].'.js');
+			$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/bootstrap-datetimepicker.min.js');
+			$this->document->addStyle('catalog/view/theme/pavilion/scripts/datetimepicker/bootstrap-datetimepicker.min.css');
 			$this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.elevatezoom.min.js');
 			$this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.fancybox.min.js');
 			$this->document->addStyle('catalog/view/theme/pavilion/style/jquery.fancybox.css');
@@ -509,8 +509,8 @@ class ControllerProductProduct extends Controller {
 
 			$this->response->setOutput($this->load->view('product/product', $data));
 
-			//$this->event->register('catalog/controller/product/product/after', new Action('extension/module/minify/minify'));
-			//$this->event->trigger('catalog/controller/product/product/after');
+			$this->event->register('catalog/controller/product/product/after', new Action('extension/module/minify/minify'));
+			$this->event->trigger('catalog/controller/product/product/after');
 			
 		} else {
 			$url = '';

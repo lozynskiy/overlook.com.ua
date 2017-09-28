@@ -50,6 +50,7 @@ $_['entry_quantity']          	= 'Количество:';
 $_['entry_minimum']          	= 'Минимальное количество:';
 $_['entry_stock_status']        = 'Отсутствие на складе:';
 $_['entry_price']          		= 'Цена:';
+$_['entry_cost']          		= 'Себестоимость:';
 $_['entry_tax_class']          	= 'Налог:';
 $_['entry_points']          	= 'Баллы:';
 $_['entry_option_points']       = 'Баллы:';

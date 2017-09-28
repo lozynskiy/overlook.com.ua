@@ -30,30 +30,6 @@ class ControllerStartupSeoPro extends Controller {
 		}
 
 		// Decode URL
-
-        // Nikita_Sp Language MOD
-        if(isset($this->request->get['_route_'])){
-            $urllanguage = explode('/', trim(utf8_strtolower($this->request->get['_route_']), '/'));
-            $this->load->model('localisation/language');
-            $languages = $this->model_localisation_language->getLanguages();
-            $lang = array();
-            foreach($languages as $language){
-                $lang[] = $language['code'];
-            }
-            if(isset($urllanguage[0]) && in_array($urllanguage[0], $lang)){
-                if(count($urllanguage) > 1){
-                    $replace_lang = $urllanguage[0]."/";
-                }else{
-                    $replace_lang = $urllanguage[0];
-                }
-                $this->request->get['_route_'] = str_replace($replace_lang, '', $this->request->get['_route_']);
-                if($this->request->get['_route_'] == '' || $this->request->get['_route_'] == '/'){
-                    unset($this->request->get['_route_']);
-                }
-            }
-        }
-		// End Nikita_Sp Language MOD
-
 		if (!isset($this->request->get['_route_'])) {
 			$this->validate();
 		} else {
@@ -323,14 +299,6 @@ class ControllerStartupSeoPro extends Controller {
 		if ($seo_url == '') return $link;
 
 		$seo_url = trim($seo_url, '/');
-        // Language Mod by Nikita_Sp
-        $this->load->model('setting/setting');
-        $store_settings_config = $this->model_setting_setting->getSetting("config", $this->config->get('config_store_id'));
-
-        if(isset($this->session->data['language']) && $this->session->data['language'] != $store_settings_config['config_language']){
-            $seo_url = $this->session->data['language']."/".$seo_url;
-        }
-        // End Language Mob by Nikita_Sp
 
 		if ($component['scheme'] == 'https') {
 			$seo_url = $this->config->get('config_ssl') . $seo_url;
@@ -512,5 +480,4 @@ class ControllerStartupSeoPro extends Controller {
 		return urldecode(http_build_query(array_diff_key($this->request->get, array_flip($exclude))));
 		}
 	}
-
 ?>

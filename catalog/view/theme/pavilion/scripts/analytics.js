@@ -1,12 +1,8 @@
 var GaEvent = {
-    AddToCart: 'Add to Cart',
-    AddToCompare: 'Add to Compare',
-    AddToWishList: 'Add to Wishlist',
-    RemoveFromCart: 'Remove from Cart',
-    Link: 'Link'
-}
-
-var GaList = {
+    AddToCart: 'Add to Cart', AddToCompare: 'Add to Compare', AddToWishList: 'Add to Wishlist',
+    RemoveFromCart: 'Remove from Cart', Link: 'Link'
+},
+    GaList = {
     Featured: 'Featured',
     Special: 'Special',
     Latest: 'Latest',
@@ -16,9 +12,8 @@ var GaList = {
     CategoryPage: 'Category Page',
     SearchResult: 'Search Result',
     SpecialPage: 'Special Page'
-}
-
-var GaAction = {
+},
+    GaAction = {
     detail: 'detail',
     click: 'click',
     add: 'add',
@@ -28,7 +23,7 @@ var GaAction = {
     purchase: 'purchase',
     refund: 'refund',
     promo_click: 'promo_click'
-}
+};
 
 function createFunctionWithTimeout(callback, opt_timeout) {
     var called = false;
@@ -47,15 +42,9 @@ function createFunctionWithTimeout(callback, opt_timeout) {
 function GaProductAddToCart(product, quantity) {
     if (typeof ga != 'undefined') {
         ga('ec:addProduct', {
-            'id': product.id,
-            'name': product.name,
-            'model': product.model,
-            'sku': product.sku,
-            'category': product.category,
-            'brand': product.brand,
-            //'variant': product.variant,
-            'price': product.price,
-            'quantity': quantity
+            'id': product.id, 'name': product.name, 'model': product.model, 'sku': product.sku,
+            'category': product.category, 'brand': product.brand, //'variant': product.variant,
+            'price': product.price, 'quantity': quantity
         });
         ga('ec:setAction', 'add');
         ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToCart);
@@ -73,7 +62,6 @@ function GaProductDetail(product) {
             'brand': product.brand,
         });
         ga('ec:setAction', 'detail');
-
         ga('send', 'event', 'Ecommerce', 'detail', GaEvent.ProductDetail);
     }
 }
@@ -81,22 +69,18 @@ function GaProductDetail(product) {
 function GaListLink(product, list) {
     if (typeof ga != 'undefined') {
         ga('ec:addProduct', {
-            'id': product.id,
-            'name': product.name,
-            'model': product.model,
-            'sku': product.sku,
-            'category': product.category,
-            'brand': product.brand,
-            'position': product.position
+            'id': product.id, 'name': product.name, 'model': product.model, 'sku': product.sku,
+            'category': product.category, 'brand': product.brand, 'position': product.position
         });
         ga('ec:setAction', 'click', {list: list});
-
         ga('send', 'event', 'Ecommerce', 'click', GaEvent.Link, {
             hitCallback: createFunctionWithTimeout(function () {
-                document.location = '/index.php?route=product/product&product_id=' + product.id;
-            })
+                    document.location = '/index.php?route=product/product&product_id=' + product.id;
+                }
+            )
         });
-    } else {
+    }
+    else {
         document.location = '/index.php?route=product/product&product_id=' + product.id;
     }
 }
@@ -113,13 +97,14 @@ function GaListAddToCart(product, list, quantity) {
             'position': product.position
         });
         ga('ec:setAction', 'click', {list: list});
-
         ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToCart, {
             hitCallback: createFunctionWithTimeout(function () {
-                cart.add(product.id, quantity);
-            })
+                    cart.add(product.id, quantity);
+                }
+            )
         });
-    } else {
+    }
+    else {
         cart.add(product.id, quantity);
     }
 }
@@ -127,20 +112,14 @@ function GaListAddToCart(product, list, quantity) {
 function GaListAddToCompare(product, list) {
     if (typeof ga != 'undefined') {
         ga('ec:addProduct', {
-            'id': product.id,
-            'name': product.name,
-            'model': product.model,
-            'sku': product.sku,
-            'category': product.category,
-            'brand': product.brand,
-            'position': product.position
+            'id': product.id, 'name': product.name, 'model': product.model, 'sku': product.sku,
+            'category': product.category, 'brand': product.brand, 'position': product.position
         });
         ga('ec:setAction', 'click', {list: list});
-
-        ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToCompare)
+        ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToCompare);
         compare.add(product.id);
-
-    } else {
+    }
+    else {
         compare.add(product.id);
     }
 }
@@ -157,10 +136,10 @@ function GaListAddToWishlist(product, list) {
             'position': product.position
         });
         ga('ec:setAction', 'click', {list: list});
-
-        ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToWishList)
+        ga('send', 'event', 'Ecommerce', 'click', GaEvent.AddToWishList);
         wishlist.add(product.id);
-    } else {
+    }
+    else {
         wishlist.add(product.id);
     }
 }

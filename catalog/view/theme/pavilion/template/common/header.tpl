@@ -53,7 +53,7 @@
 
 
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/common.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/barrating.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/perfect-scrollbar.jquery.min.js"></script>
@@ -80,18 +80,13 @@
         <!-- End Cookie Consent -->
     <?php } ?>
     <?php if ($ga_status && (!$user_logged || $ga_exclude_admin != 1 && $user_logged))  { ?>
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '<?php echo $ua_tracking; ?>', 'auto');
-      //ga('set', 'transport', 'beacon');
-      <?php if ($ga_remarketing == 1) { echo "ga('require', 'displayfeatures');"; } ?>
-      ga('require', 'ec');
-      ga('send', 'pageview');
-    </script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', '<?php echo $ua_tracking; ?>', 'auto');
+            <?php if ($ga_remarketing == 1) { echo "ga('require', 'displayfeatures');"; } ?>
+            ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
     <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">

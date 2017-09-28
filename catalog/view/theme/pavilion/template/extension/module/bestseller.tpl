@@ -47,7 +47,6 @@
                                         <span class="price-tax"><?php echo $text_tax; ?><?php echo $product['tax']; ?></span>
                                     <?php } ?>
                                 </div>
-
                             <?php } ?>
                             <div class="description"><?php echo $product['description']; ?></div>
                             <div class="buttons-upper">

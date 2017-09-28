@@ -160,6 +160,12 @@
                 </div>
               </div>
               <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-cost"><?php echo $entry_cost; ?></label>
+                  <div class="col-sm-10">
+                      <input type="text" name="cost" value="<?php echo $cost; ?>" placeholder="<?php echo $entry_cost; ?>" id="input-cost" class="form-control" />
+                  </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-tax-class"><?php echo $entry_tax_class; ?></label>
                 <div class="col-sm-10">
                   <select name="tax_class_id" id="input-tax-class" class="form-control">

@@ -52,14 +52,14 @@
                             <div class="buttons-upper">
                                 <input class="button-2 add-to-wishlist-button" type="button" data-toggle="tooltip"
                                        title="<?php echo $button_wishlist; ?>"
-                                       onclick="GaListAddToWishlist(bestseller<?php echo $product['product_id']; ?>, GaList.Special)">
+                                       onclick="GaListAddToWishlist(special<?php echo $product['product_id']; ?>, GaList.Special)">
                                 <input class="button-2 add-to-compare-list-button" type="button" data-toggle="tooltip"
                                        title="<?php echo $button_compare; ?>"
-                                       onclick="GaListAddToCompare(bestseller<?php echo $product['product_id']; ?>, GaList.Special)">
+                                       onclick="GaListAddToCompare(special<?php echo $product['product_id']; ?>, GaList.Special)">
                             </div>
                             <div class="buttons-lower">
                                 <button class="button-2 product-box-add-to-cart-button" type="button"
-                                        onclick="GaListAddToCart(bestseller<?php echo $product['product_id']; ?>, GaList.Special, 1)">
+                                        onclick="GaListAddToCart(special<?php echo $product['product_id']; ?>, GaList.Special, 1)">
                                     <span><?php echo $button_cart; ?></span></button>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ class ControllerExtensionModuleLastview extends Controller {
             }
 
             if ($this->config->get('config_tax')) {
-                $tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
+                $tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
             } else {
                 $tax = false;
             }

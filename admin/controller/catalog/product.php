@@ -446,6 +446,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_price'] = $this->language->get('entry_price');
+        $data['entry_cost'] = $this->language->get('entry_cost');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_image'] = $this->language->get('entry_image');
@@ -643,6 +644,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_stock_status'] = $this->language->get('entry_stock_status');
 		$data['entry_price'] = $this->language->get('entry_price');
+        $data['entry_cost'] = $this->language->get('entry_cost');
 		$data['entry_tax_class'] = $this->language->get('entry_tax_class');
 		$data['entry_points'] = $this->language->get('entry_points');
 		$data['entry_option_points'] = $this->language->get('entry_option_points');
@@ -949,12 +951,20 @@ class ControllerCatalogProduct extends Controller {
 		}
 
 		if (isset($this->request->post['price'])) {
-			$data['price'] = $this->request->post['price'];
-		} elseif (!empty($product_info)) {
-			$data['price'] = $product_info['price'];
-		} else {
-			$data['price'] = '';
-		}
+            $data['price'] = $this->request->post['price'];
+        } elseif (!empty($product_info)) {
+            $data['price'] = $product_info['price'];
+        } else {
+            $data['price'] = '';
+        }
+
+        if (isset($this->request->post['cost'])) {
+            $data['cost'] = $this->request->post['cost'];
+        } elseif (!empty($product_info)) {
+            $data['cost'] = $product_info['cost'];
+        } else {
+            $data['cost'] = '';
+        }
 
 		$this->load->model('catalog/recurring');
 
