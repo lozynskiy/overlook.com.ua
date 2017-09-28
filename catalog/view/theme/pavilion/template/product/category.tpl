@@ -106,18 +106,19 @@
                                 <?php foreach ($products as $p => $product) { ?>
                                     <div class="item-box">
                                         <div class="product-item">
-                                            <script>
-                                                var category<?php echo $product['product_id']; ?> = {
-                                                    id:'<?php echo $product['product_id']; ?>',
-                                                    name:'<?php echo $product['name']; ?>',
-                                                    model: '<?php echo $product['model']; ?>',
-                                                    sku: '<?php echo $product['sku']; ?>',
-                                                    category: '<?php echo $product['category']; ?>',
-                                                    brand: '<?php echo $product['manufacturer']; ?>',
-                                                    position: <?php echo $p; ?>
-                                                }
-                                            </script>
-                                            <div class="picture"><a onclick="GaListLink(category<?php echo $product['product_id']; ?>, GaList.CategoryPage); return false;"
+                                            <div class="picture">
+                                                <script>
+                                                    var category<?php echo $product['product_id']; ?> = {
+                                                        id:'<?php echo $product['product_id']; ?>',
+                                                        name:'<?php echo $product['name']; ?>',
+                                                        model: '<?php echo $product['model']; ?>',
+                                                        sku: '<?php echo $product['sku']; ?>',
+                                                        category: '<?php echo $product['category']; ?>',
+                                                        brand: '<?php echo $product['manufacturer']; ?>',
+                                                        position: <?php echo $p; ?>
+                                                    }
+                                                </script>
+                                                <a onclick="GaListLink(category<?php echo $product['product_id']; ?>, GaList.CategoryPage); return false;"
                                                             href="<?php echo $product['href']; ?>"><img
                                                             src="<?php echo $product['thumb']; ?>"
                                                             alt="<?php echo $product['name']; ?>"

@@ -7,6 +7,8 @@ class ControllerExtensionModuleMinify extends Controller
 
     // Exclude JS-files
     private $exclude_js = [
+        'jquery-2.1.1.min.js',
+        'combined.js'
     ];
     // Exclude CSS-files
     private $exclude_css = [
@@ -84,6 +86,8 @@ class ControllerExtensionModuleMinify extends Controller
         if (!empty($this->js_array)) $this->appendJs();
 
         $styles = $this->dom->getElementsByTagName('link');
+
+        $delete_css = [];
 
         // Search CSS-elements
         foreach ($styles as $style) {
@@ -367,15 +371,15 @@ class ControllerExtensionModuleMinify extends Controller
         $script->appendChild($script_type);
         $script->appendChild($script_src);
 
-//        if (($this->dom->getElementsByTagName('script')->length == 0) ||
-//            !empty($this->dom->getElementsByTagName('script')->item(0)->nodeValue)
-//        ) {
+        if (($this->dom->getElementsByTagName('script')->length == 0) ||
+            !empty($this->dom->getElementsByTagName('script')->item(0)->nodeValue)
+        ) {
             $head = $this->dom->getElementsByTagName('head')->item(0);
             $head->appendChild($script);
-//        } else {
-//            $first_js = $this->dom->getElementsByTagName('script')->item(0);
-//            $first_js->parentNode->insertBefore($script, $first_js);
-//        }
+        } else {
+            $first_js = $this->dom->getElementsByTagName('script')->item(0)->nextSibling;
+            $first_js->parentNode->insertBefore($script, $first_js);
+        }
     }
 
     private function appendCss()
@@ -396,7 +400,18 @@ class ControllerExtensionModuleMinify extends Controller
         $style->appendChild($style_href);
         $style->appendChild($style_rel);
 
-        $head = $this->dom->getElementsByTagName('head')->item(0);
-        $head->appendChild($style);
+
+//        $head = $this->dom->getElementsByTagName('head')->item(0);
+//        $head->appendChild($style);
+
+        if (($this->dom->getElementsByTagName('link')->length == 0) ||
+            !empty($this->dom->getElementsByTagName('link')->item(0)->nodeValue)
+        ) {
+            $head = $this->dom->getElementsByTagName('link')->item(0);
+            $head->appendChild($style);
+        } else {
+            $first_cs = $this->dom->getElementsByTagName('link')->item(0);
+            $first_cs->parentNode->insertBefore($style, $first_cs);
+        }
     }
 }

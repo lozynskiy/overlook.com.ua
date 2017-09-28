@@ -84,6 +84,7 @@
             window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
             ga('create', '<?php echo $ua_tracking; ?>', 'auto');
             <?php if ($ga_remarketing == 1) { echo "ga('require', 'displayfeatures');"; } ?>
+            ga('require', 'ec');
             ga('send', 'pageview');
         </script>
         <script async src='https://www.google-analytics.com/analytics.js'></script>
