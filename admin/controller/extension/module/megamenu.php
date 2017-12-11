@@ -363,13 +363,15 @@ class ControllerExtensionModuleMegamenu extends Controller {
 
 		//categories list
 		$data['categories_list'] = array();
-		$results = $this->model_catalog_category->getCategories(array('start'=>0,'limit'=>2999,'sort'=>'name'));
+		$results = $this->model_catalog_category->getCategories(array('start'=>0,'limit'=>2999,'sort'=>'name', 'status'=> '1'));
 		foreach ($results as $result) {
-				$data['categories_list'][] = array(
-					'category_id' => $result['category_id'],
-					'name'        => ($result['name'])
-				);
-			}
+		    if ($result['status'] == '1'){
+		    	$data['categories_list'][] = array(
+		    		'category_id' => $result['category_id'],
+		    		'name'        => ($result['name'])
+		    	);
+		    }
+		}
 
 		##category end
 

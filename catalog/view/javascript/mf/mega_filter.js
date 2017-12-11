@@ -2438,12 +2438,16 @@ MegaFilter.prototype =
         {return;
         }
         self._changed = true;
-        jQuery.ajax( {'type': 'GET',
+        jQuery.ajax( {
+        	'type': 'GET',
             'url': self._ajaxUrl(url),
             'timeout': 60 * 1000,
             'cache': false,
             'data':
-                {'mfilterAjax': '1', 'mfilterIdx': self._options.idx, 'mfilterBTypes': self.baseTypes().join(','), 'mfilterPath': self._path(),
+                {'mfilterAjax': '1',
+					'mfilterIdx': self._options.idx,
+					'mfilterBTypes': self.baseTypes().join(','),
+					'mfilterPath': self._path(),
                     'mfilterLPath': self.locationPath()},
             'success': function(response)
             {self.eachInstances(function(self)

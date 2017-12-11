@@ -60,6 +60,9 @@
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/owl.carousel.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/analytics.js"></script>
 
+    <!--script type="text/javascript" src="">
+        < ?php $jq = file_get_contents($minifyed_js); echo $jq;?>
+    </script!-->
 
     <?php foreach ($scripts as $script) { ?>
         <script type="text/javascript" src="<?php echo $script; ?>"></script>

@@ -509,9 +509,12 @@ class ControllerProductProduct extends Controller {
 
 			$this->response->setOutput($this->load->view('product/product', $data));
 
-			$this->event->register('catalog/controller/product/product/after', new Action('extension/module/minify/minify'));
-			$this->event->trigger('catalog/controller/product/product/after');
-			
+            //$minify = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension` WHERE `code` = 'minify'");
+            //if($minify->num_rows) {
+                //$this->event->register('catalog/controller/product/product/after', new Action('extension/module/minify/minify'));
+                //$this->event->trigger('catalog/controller/product/product/after');
+            //}
+
 		} else {
 			$url = '';
 

@@ -295,7 +295,7 @@ class ModelExtensionModuleMegamenu extends Model {
 
 					$children_data = array();
 					if ($item['options']['category_show_subcategory']) {
-						$children = $this->model_catalog_category->getCategories($category['category_id']);
+						$children = $this->model_catalog_category->getCategoriesTopMenu($category['category_id']);
 
 						$sort_order = array();
 

@@ -288,6 +288,8 @@
                 $('#button-payment-address').button('reset');
             },
             success: function (json) {
+                //save_shipping_address();
+
                 $('.alert, .text-danger').remove();
 
                 if (json['redirect']) {
@@ -500,5 +502,31 @@
             }
         });
     });
+
+    // Shipping Address
+    function save_shipping_address(){
+        $.ajax({
+            url: 'index.php?route=checkout/shipping_address/save',
+            type: 'post',
+            data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+            dataType: 'json',
+            beforeSend: function() {
+                $('#button-shipping-address').button('loading');
+            },
+            success: function(json) {
+                $('.alert, .text-danger').remove();
+
+                if (json['redirect']) {
+                    location = json['redirect'];
+                } else if (json['error']) {
+
+                } else {
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    };
     //--></script>
 <?php echo $footer; ?>

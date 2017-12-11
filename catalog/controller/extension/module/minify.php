@@ -7,7 +7,6 @@ class ControllerExtensionModuleMinify extends Controller
 
     // Exclude JS-files
     private $exclude_js = [
-        'jquery-2.1.1.min.js',
         'combined.js'
     ];
     // Exclude CSS-files
@@ -81,6 +80,7 @@ class ControllerExtensionModuleMinify extends Controller
 
             $this->concatFiles('js');
             $this->cache->set($_js_file, $this->output_js);
+            //$this->cache->set('minifyed_js', $this->output_js);
         }
 
         if (!empty($this->js_array)) $this->appendJs();
@@ -176,6 +176,7 @@ class ControllerExtensionModuleMinify extends Controller
                     switch ($type) {
                         case 'js':
                             $content .= (!substr_count($file['filename'], '.min.')) ? $this->minifyJS($_content) : $_content;
+                            $this->js = $content;
                             break;
                         case 'css':
                             $content .= (!substr_count($file['filename'], '.min.')) ? $this->minifyCSS($_content) : $_content;
@@ -287,28 +288,28 @@ class ControllerExtensionModuleMinify extends Controller
         return preg_replace(
             array(
                 // Remove comment(s)
-                '#\s*("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')\s*|\s*\/\*(?!\!|@cc_on)(?>[\s\S]*?\*\/)\s*|\s*(?<![\:\=])\/\/.*(?=[\n\r]|$)|^\s*|\s*$#',
+                '#\s*("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')\s*|\s*\/\*(?!\!|@cc_on)(?>[\s\S]*?\*\/)\s*|\s*(?<![\:\=])\/\/.*(?=[\n\r]|$)|^\s*|\s*$#'
 
                 // Remove white-space(s) outside the string and regex
-                '#("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\'|\/\*(?>.*?\*\/)|\/(?!\/)[^\n\r]*?\/(?=[\s.,;]|[gimuy]|$))|\s*([!%&*\(\)\-=+\[\]\{\}|;:,.<>?\/])\s*#s',
+                /*'#("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\'|\/\*(?>.*?\*\/)|\/(?!\/)[^\n\r]*?\/(?=[\s.,;]|[gimuy]|$))|\s*([!%&*\(\)\-=+\[\]\{\}|;:,.<>?\/])\s*#s',*/
 
                 // Remove the last semicolon
-                '#;+\}#',
+                //'#;+\}#',
 
                 // Minify object attribute(s) except JSON attribute(s). From `{'foo':'bar'}` to `{foo:'bar'}`
-                '#([\{,])([\'])(\d+|[a-z_]\w*)\2(?=\:)#i',
+                //'#([\{,])([\'])(\d+|[a-z_]\w*)\2(?=\:)#i',
 
                 // --ibid. From `foo['bar']` to `foo.bar`
-                '#([\w\)\]])\[([\'"])([a-z_]\w*)\2\]#i',
+                //'#([\w\)\]])\[([\'"])([a-z_]\w*)\2\]#i',
 
                 // Replace `true` with `!0`
-                '#(?<=return |[=:,\(\[])true\b#',
+                //'#(?<=return |[=:,\(\[])true\b#',
 
                 // Replace `false` with `!1`
-                '#(?<=return |[=:,\(\[])false\b#',
+                //'#(?<=return |[=:,\(\[])false\b#',
 
                 // Clean up ...
-                '#\s*(\/\*|\*\/)\s*#'
+                //'#\s*(\/\*|\*\/)\s*#'
             ),
             array(
                 '$1',
@@ -362,14 +363,20 @@ class ControllerExtensionModuleMinify extends Controller
     {
         $script = $this->dom->createElement('script');
 
+        //$js = file_get_contents($this->output_js);
+        //$script = $this->dom->createElement('script', $js);
+
         $script_type = $this->dom->createAttribute('type');
         $script_type->value = 'text/javascript';
 
         $script_src = $this->dom->createAttribute('src');
         $script_src->value = '/' . $this->output_js;
 
+
         $script->appendChild($script_type);
         $script->appendChild($script_src);
+
+        //$script->appendChild($this->dom->importNode($js->documentElement, true));
 
         if (($this->dom->getElementsByTagName('script')->length == 0) ||
             !empty($this->dom->getElementsByTagName('script')->item(0)->nodeValue)

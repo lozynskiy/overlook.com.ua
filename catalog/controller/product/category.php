@@ -185,6 +185,7 @@ class ControllerProductCategory extends Controller {
 
 			$filter_data = array(
 				'filter_category_id' => $category_id,
+                'filter_sub_category' => ($this->config->get('filter_sub_category') === 'true'? true: false),
 				'filter_filter'      => $filter,
 				'sort'               => $sort,
 				'order'              => $order,
@@ -396,9 +397,12 @@ class ControllerProductCategory extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('product/category', $data));
-			
-			//$this->event->register('catalog/controller/product/category/after', new Action('extension/module/minify/minify'));
-			//$this->event->trigger('catalog/controller/product/category/after');
+
+//            $minify = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension` WHERE `code` = 'minify'");
+//            if($minify->num_rows) {
+//                $this->event->register('catalog/controller/product/category/after', new Action('extension/module/minify/minify'));
+//                $this->event->trigger('catalog/controller/product/category/after');
+//            }
 			
 		} else {
 			$url = '';

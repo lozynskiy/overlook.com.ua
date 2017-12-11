@@ -107,6 +107,8 @@ class ControllerCommonHeader extends Controller {
 		$data['user_logged'] = $this->user->isLogged();
 		$data['template'] = $this->config->get('config_template');
 
+        //$data['minifyed_js'] = $this->cache->get('minifyed_js');
+
 		// Menu
 		$this->load->model('catalog/category');
 
@@ -176,7 +178,7 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
-	$data['register'] = $this->url->link('account/register', '', 'SSL');
+	    $data['register'] = $this->url->link('account/register', '', 'SSL');
         $data['forgotten'] = $this->url->link('account/forgotten', '', 'SSL');    
         $data['text_forgotten'] = $this->language->get('text_forgotten'); 
       
