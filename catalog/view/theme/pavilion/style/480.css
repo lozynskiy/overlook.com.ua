@@ -112,10 +112,14 @@
 /* CATEGORY PAGE & GRIDS */
 
 .item-box {
-	width: 49%; /*two per row*/
+	width: 32%; /*two per row*/
 	margin-left: 2%;
 }
 .item-box:nth-child(2n+1) {
+    clear: none;
+    margin-left: 2%;
+}
+.item-box:nth-child(3n+1) {
 	clear: both;
 	margin-left: 0;
 }
