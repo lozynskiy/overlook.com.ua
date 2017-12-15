@@ -291,7 +291,8 @@ margin-top: 53px;
 	display: none;
 }
 .mini-shopping-cart .attributes {
-	display: none;
+	/* display: none; */
+	margin: 5px 0;
 }
 
 /* LINKS & SELECTORS */
