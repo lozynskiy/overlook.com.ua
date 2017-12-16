@@ -313,7 +313,7 @@ class ControllerAccountRegister extends Controller {
 		if (isset($this->request->post['newsletter'])) {
 			$data['newsletter'] = $this->request->post['newsletter'];
 		} else {
-			$data['newsletter'] = '';
+			$data['newsletter'] = ' ';
 		}
 
 		// Captcha

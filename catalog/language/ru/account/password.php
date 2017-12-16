@@ -8,7 +8,7 @@ $_['text_password']  = 'Ваш пароль';
 $_['text_success']   = 'Ваш пароль успешно изменен!';
 
 // Entry
-$_['entry_password'] = 'Пароль';
+$_['entry_password'] = 'Новый пароль';
 $_['entry_confirm']  = 'Подтвердить';
 
 // Error
