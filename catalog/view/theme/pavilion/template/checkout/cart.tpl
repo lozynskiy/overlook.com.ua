@@ -183,7 +183,9 @@
                         </form>
 
                         <?php if ($modules) { ?>
-                            <h2><?php echo $text_next; ?></h2>
+                            <div class="page-title">
+                                <h1><?php echo $text_next; ?></h1>
+                            </div>
                             <p><?php echo $text_next_choice; ?></p>
                         <?php } ?>
                         <div class="cart-footer">

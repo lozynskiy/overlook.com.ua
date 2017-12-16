@@ -216,7 +216,7 @@
                         <?php } ?>
                         <?php if ($histories) { ?>
                             <div class="page-title">
-                                <h3><?php echo $text_history; ?></h3>
+                                <h1><?php echo $text_history; ?></h1>
                             </div>
                             <div class="section history">
                                 <div class="table-wrapper">

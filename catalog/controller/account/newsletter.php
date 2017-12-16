@@ -42,9 +42,7 @@ class ControllerAccountNewsletter extends Controller {
 
 		$data['text_yes'] = $this->language->get('text_yes');
 		$data['text_no'] = $this->language->get('text_no');
-
 		$data['entry_newsletter'] = $this->language->get('entry_newsletter');
-
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 

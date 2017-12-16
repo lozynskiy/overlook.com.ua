@@ -19,13 +19,13 @@
             <li><a href="<?php echo $voucher; ?>" class="inactive fa fa-gift"><span><?php echo $text_voucher; ?></span></a></li>
             <?php if ($logged) { ?>
             <li><a href="<?php echo $order; ?>" class="inactive fa fa-shopping-basket"><span><?php echo $text_order; ?></span></a></li>
-            <li><a href="<?php echo $download; ?>" class="inactive fa fa-download"><span><?php echo $text_download; ?></span></a></li>
-            <li><a href="<?php echo $recurring; ?>" class="inactive fa fa-credit-card"><span><?php echo $text_recurring; ?></span></a></li>
+<!--            <li><a href="--><?php //echo $download; ?><!--" class="inactive fa fa-download"><span>--><?php //echo $text_download; ?><!--</span></a></li>-->
+<!--            <li><a href="--><?php //echo $recurring; ?><!--" class="inactive fa fa-credit-card"><span>--><?php //echo $text_recurring; ?><!--</span></a></li>-->
             <li><a href="<?php echo $reward; ?>" class="inactive fa fa-star"><span><?php echo $text_reward; ?></span></a></li>
             <li><a href="<?php echo $return; ?>" class="inactive fa fa-retweet"><span><?php echo $text_return; ?></span></a></li>
-            <li><a href="<?php echo $transaction; ?>" class="inactive fa fa-credit-card"><span><?php echo $text_transaction; ?></span></a></li>
-            <li><a href="<?php echo $newsletter; ?>" class="inactive fa fa-envelope"><span><?php echo $text_newsletter; ?></span></a></li>
-            <li><a href="<?php echo $logout; ?>" class="inactive fa fa-lock"><span><?php echo $text_logout; ?></span></a></li>
+<!--            <li><a href="--><?php //echo $transaction; ?><!--" class="inactive fa fa-credit-card"><span>--><?php //echo $text_transaction; ?><!--</span></a></li>-->
+<!--            <li><a href="--><?php //echo $newsletter; ?><!--" class="inactive fa fa-envelope"><span>--><?php //echo $text_newsletter; ?><!--</span></a></li>-->
+<!--            <li><a href="--><?php //echo $logout; ?><!--" class="inactive fa fa-lock"><span>--><?php //echo $text_logout; ?><!--</span></a></li>-->
             <?php } ?>
         </ul>
     </div>

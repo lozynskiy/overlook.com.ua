@@ -23,6 +23,8 @@ class ControllerAccountEdit extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_account_customer->editCustomer($this->request->post);
 
+            $this->model_account_customer->editNewsletter($this->request->post['newsletter']);
+
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			// Add to activity log
@@ -73,6 +75,14 @@ class ControllerAccountEdit extends Controller {
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
+
+        $data['newsletter_title'] = $this->language->get('newsletter_title');
+        $data['text_yes'] = $this->language->get('text_yes');
+        $data['text_no'] = $this->language->get('text_no');
+        $data['entry_newsletter'] = $this->language->get('entry_newsletter');
+
+        $data['button_continue'] = $this->language->get('button_continue');
+        $data['button_back'] = $this->language->get('button_back');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -155,6 +165,8 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$data['fax'] = '';
 		}
+
+        $data['newsletter'] = $this->customer->getNewsletter();
 
 		// Custom Fields
 		$this->load->model('account/custom_field');

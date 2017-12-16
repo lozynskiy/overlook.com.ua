@@ -523,6 +523,7 @@
         padding: 0 0 5px;
         font-weight: bold;
         text-transform: uppercase;
+        height: 44px;
     }
     .category-navigation-list>li>.sublist-wrap>.sublist .box .picture,.header-menu>ul>li>.sublist-wrap>.sublist .box .picture {
         height: 100px;

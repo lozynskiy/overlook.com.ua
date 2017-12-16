@@ -301,6 +301,41 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <div class="fieldset">
+                            <div class="title">
+                                <strong><?php echo $newsletter_title; ?></strong>
+                            </div>
+                            <div class="form-fields">
+                                <div class="inputs">
+                                    <label><?php echo $entry_newsletter; ?></label>
+                                    <?php if ($newsletter) { ?>
+                                        <ul class="option-list">
+                                            <li>
+                                                <input id="newsletter_1" type="radio" name="newsletter" value="1"
+                                                       checked="checked"/>
+                                                <label for="newsletter_1"><?php echo $text_yes; ?></label>
+                                            </li>
+                                            <li>
+                                                <input id="newsletter_0" type="radio" name="newsletter" value="0"/>
+                                                <label for="newsletter_0"><?php echo $text_no; ?></label>
+                                            </li>
+                                        </ul>
+                                    <?php } else { ?>
+                                        <ul class="option-list">
+                                            <li>
+                                                <input id="newsletter_1" type="radio" name="newsletter" value="1"/>
+                                                <label for="newsletter_1"><?php echo $text_yes; ?></label>
+                                            </li>
+                                            <li>
+                                                <input id="newsletter_0" type="radio" name="newsletter" value="0"
+                                                       checked="checked"/>
+                                                <label for="newsletter_0"><?php echo $text_no; ?></label>
+                                            </li>
+                                        </ul>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
                         <div class="buttons">
                             <input type="submit" value="<?php echo $button_continue; ?>"
                                    class="button-1 save-customer-info-button"/>
