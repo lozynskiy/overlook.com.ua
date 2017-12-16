@@ -119,6 +119,7 @@ select {
 	min-width: 50px;
 	height: 32px; /*safari padding fix*/
 	padding: 0 6px;
+	background: #fff
 }
 input[type="text"]:focus,
 input[type="password"]:focus,
