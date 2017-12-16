@@ -2,15 +2,23 @@
 class ControllerCheckoutSuccess extends Controller {
 	public function index() {
 		$this->load->language('checkout/success');
+        $this->load->model('checkout/order');
 
+        if (isset($this->session->data['order_id'])) {
+            $this->session->data['temp_order_id'] = $this->session->data['order_id'];
+        }
+
+        if (isset($this->session->data['temp_order_id'])){
+            $this->user = new Cart\User($this->registry);
+            $data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['temp_order_id']);
+            $data['orderDetails']['shipping_total'] = (isset($this->session->data['shipping_method']['cost'])) ? $this->session->data['shipping_method']['cost'] : 0;
+            $data['orderDetails']['order_total'] = $this->currency->format($data['orderDetails']['total'], $this->session->data['currency']);
+
+        }
 		if (isset($this->session->data['order_id'])) {
-			
-			$this->user = new Cart\User($this->registry);
-            $this->load->model('checkout/order');
-			$data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 			$data['orderProduct'] = $this->model_checkout_order->getOrderProduct($this->session->data['order_id']);
-			$data['orderDetails']['shipping_total'] = (isset($this->session->data['shipping_method']['cost'])) ? $this->session->data['shipping_method']['cost'] : 0;
-			$data['ga_exclude_admin'] = $this->config->get('google_analytics_exclude_admin');
+
+            $data['ga_exclude_admin'] = $this->config->get('google_analytics_exclude_admin');
 			$data['ga_cookie'] = $this->config->get('google_analytics_cookie');
 			$data['ga_conversion_id'] = $this->config->get('google_analytics_conversion_id');
 			$data['ga_label'] = $this->config->get('google_analytics_label');
@@ -19,8 +27,7 @@ class ControllerCheckoutSuccess extends Controller {
 			$data['currency'] = $this->session->data['currency'];
 			$data['user_logged'] = $this->user->isLogged();
 			$data['route'] = $this->request->get['route'];
-			
-			
+
 			$this->cart->clear();
 
 			// Add to activity log
@@ -90,6 +97,12 @@ class ControllerCheckoutSuccess extends Controller {
 		} else {
 			$data['text_message'] = sprintf($this->language->get('text_guest'), $this->url->link('information/contact'));
 		}
+
+        $data['text_order_id'] = $this->language->get('text_order_id');
+        $data['text_order_total'] = $this->language->get('text_order_total');
+        $data['text_order_shipping_method'] = $this->language->get('text_order_shipping_method');
+        $data['text_order_payment_method'] = $this->language->get('text_order_payment_method');
+        $data['text_order_address'] = $this->language->get('text_order_address');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 

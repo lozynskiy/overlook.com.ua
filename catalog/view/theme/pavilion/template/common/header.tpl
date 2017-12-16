@@ -105,7 +105,7 @@
                         <?php echo $language; ?>
                     </div>
                 </div>
-                <div id="header-links-wrapper" class="header-links-wrapper"><label><?php if ($logged) echo $text_logged; else echo $text_account; ?></label>
+                <div id="header-links-wrapper" class="header-links-wrapper"><label><?php if (!$logged) { ?><a href="<?php echo $login; ?>"><?php echo $text_please_login; ?></a> <?php } else echo $text_logged; ?></label>
                     <div class="header-links">
                         <ul id="header-links">
                             <?php if ($logged) { ?>

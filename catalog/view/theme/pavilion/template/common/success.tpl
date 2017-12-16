@@ -36,14 +36,42 @@
             <?php } ?>
             <div id="content" class="<?php echo $class; ?>">
                 <?php echo $content_top; ?>
-                <div class="checkout-page">
+                <div class="page checkout-page">
                     <div class="page-title">
                         <h1><?php echo $heading_title; ?></h1>
                     </div>
                     <div class="page-body checkout-data">
                         <div class="section order-completed">
+                            <?php if (isset($orderDetails)) { ?>
                             <div class="details">
-                                <?php echo $text_message; ?>
+                                <table class="order-completed-info">
+                                    <tbody>
+                                    <tr>
+                                        <td><strong><?php echo $text_order_id; ?></strong></td>
+                                        <td><strong><?php echo $orderDetails['order_id']; ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><?php echo $text_order_total; ?></strong></td>
+                                        <td><?php echo $orderDetails['order_total']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><?php echo $text_order_shipping_method; ?></strong></td>
+                                        <td><?php echo $orderDetails['shipping_method']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><?php echo $text_order_payment_method; ?></strong></td>
+                                        <td><?php echo $orderDetails['payment_method']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><?php echo $text_order_address; ?></strong></td>
+                                        <td><?php echo $orderDetails['payment_city']; ?>, <?php echo $orderDetails['payment_address_1']; ?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
+                            <div class="details">
+                            <?php echo $text_message; ?>
                             </div>
                             <div class="buttons">
                                 <a href="<?php echo $continue; ?>"
@@ -57,35 +85,37 @@
             <?php echo $column_right; ?>
         </div>
     </div>
-<?php if (isset($orderDetails) && (isset($route) && $route == 'checkout/success' || $route == 'checkout/success/index' || $route == 'quickcheckout/success') && (!$user_logged || $ga_exclude_admin != 1 && $user_logged)) { ?>
+<?php if (isset($orderDetails) && isset($data['order_id']) && (isset($route) && $route == 'checkout/success' || $route == 'checkout/success/index' || $route == 'quickcheckout/success') && (!$user_logged || $ga_exclude_admin != 1 && $user_logged)) { ?>
     <script type="text/javascript">
-        ga('set', 'currencyCode', '<?php echo $currency; ?>');
+        if (typeof ga != 'undefined') {
+            ga('set', 'currencyCode', '<?php echo $currency; ?>');
 
-        <?php foreach($orderProduct as $product) { ?>
-        ga('ec:addProduct', {
-            'id': '<?php echo $product['product_id']; ?>',
-            'name': '<?php echo $product['name']; ?>',
-            'model': '<?php echo $product['model']; ?>',
-            'sku': '<?php echo $product['sku']; ?>',
-            'category': '<?php echo $product['category']; ?>',
-            'brand': '<?php echo $product['manufacturer']; ?>',
-            'price': '<?php echo $product['price']; ?>',
-            'quantity': '<?php echo $product['quantity']; ?>'
-        });
-        <?php } ?>
+            <?php foreach($orderProduct as $product) { ?>
+            ga('ec:addProduct', {
+                'id': '<?php echo $product['product_id']; ?>',
+                'name': '<?php echo $product['name']; ?>',
+                'model': '<?php echo $product['model']; ?>',
+                'sku': '<?php echo $product['sku']; ?>',
+                'category': '<?php echo $product['category']; ?>',
+                'brand': '<?php echo $product['manufacturer']; ?>',
+                'price': '<?php echo $product['price']; ?>',
+                'quantity': '<?php echo $product['quantity']; ?>'
+            });
+            <?php } ?>
 
-        ga('ec:setAction', 'purchase', {
-            'id': '<?php echo $orderDetails['order_id']; ?>',
-            'affiliation': '<?php echo $orderDetails['store_name']; ?>',
-            'revenue': '<?php echo $orderDetails['total']; ?>',
-            'tax': '<?php if ($orderDetails['order_tax'] == '') {
-                echo 0;
-            } else {
-                echo $orderDetails['order_tax'];
-            } ?>',
-            'shipping': '<?php echo $orderDetails['shipping_total']; ?>'
-        });
-        ga('send', 'event', 'Ecommerce', 'Purchase', 'Checkout');
+            ga('ec:setAction', 'purchase', {
+                'id': '<?php echo $orderDetails['order_id']; ?>',
+                'affiliation': '<?php echo $orderDetails['store_name']; ?>',
+                'revenue': '<?php echo $orderDetails['total']; ?>',
+                'tax': '<?php if ($orderDetails['order_tax'] == '') {
+                    echo 0;
+                } else {
+                    echo $orderDetails['order_tax'];
+                } ?>',
+                'shipping': '<?php echo $orderDetails['shipping_total']; ?>'
+            });
+            ga('send', 'event', 'Ecommerce', 'Purchase', 'Checkout');
+        }
     </script>
     <?php if ($ga_adwords == 1) { ?>
         <script type="text/javascript">

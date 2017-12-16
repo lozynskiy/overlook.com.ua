@@ -1,7 +1,6 @@
 @media all and (max-width: 1000px) {
 body{
-	
-margin-top: 53px;
+	margin-top: 53px;
 }
 .admin-header-links {
 	position: fixed;
@@ -455,6 +454,11 @@ margin-top: 53px;
 .sublist-wrap .slider-wrapper{
 	display:none;
 }
+.order-completed-info,
+.method-list textarea {
+    margin: 0 auto;
+}
+
 }
 
 @media all and (min-width: 769px) and (max-width: 1000px) {

@@ -65,6 +65,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->customer->getFirstName());
         $data['text_customer'] = $this->customer->getFirstName();
 		$data['text_account'] = $this->language->get('text_account');
+        $data['text_please_login'] = $this->language->get('text_please_login');
 		$data['text_register'] = $this->language->get('text_register');
 		$data['text_login'] = $this->language->get('text_login');
 		$data['text_order'] = $this->language->get('text_order');

@@ -4009,6 +4009,9 @@ margin: 10px 0;
 	color: #00a1b1;
 	text-transform: uppercase;
 }
+.order-completed .cart-total{
+	max-width: 500px
+}
 .terms-of-service {
 	margin: 40px 0 0;
 	background-color: #f9f9f9;
@@ -6048,7 +6051,7 @@ color: #333;
     margin: 0 0 0 20px;
     transition: all 0.2s ease;
 }
-.method-list textarea{max-width: 480px;width: 100%; display:block}
+.method-list textarea{max-width: 480px;width: 100%;display:block;}
 
 #image-gallery .owl-nav{
 	display:none;
@@ -6278,9 +6281,8 @@ text-decoration: line-through;
   margin-top: 5px;
 }
 .has-error select,
-.has-error input{
-	
-border: 1px solid #ff9aa6;
+.has-error input{	
+	border: 1px solid #ff9aa6;
 }
 .column-2{
 	display:block;
@@ -6298,16 +6300,22 @@ border: 1px solid #ff9aa6;
 	/* margin: 0; */
 }
 .date .input-group-btn{
-	
-display: inline-block;
-	
-vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
-
 .no-data{
 	margin-bottom:10px;
 }
-
 .buttons a{
 	display:inline-block;
+}
+.order-completed-info{
+	max-width: 400px;
+	text-align: left;
+}
+.order-completed-info td {
+    padding: 5px 0;
+}
+.order-completed-info td:nth-child(2) {
+    padding-left: 10px;
 }
