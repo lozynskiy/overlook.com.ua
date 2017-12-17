@@ -17,7 +17,7 @@ class Session {
 		}
 			
 		if ($this->adaptor && !session_id()) {
-			ini_set('session.use_only_cookies', 'On');
+			ini_set('session.use_only_cookies', 'Off');
 			ini_set('session.use_cookies', 'On');
 			ini_set('session.use_trans_sid', 'Off');
 			ini_set('session.cookie_httponly', 'On');
@@ -26,7 +26,7 @@ class Session {
 				exit('Error: Invalid session ID!');
 			}
 			
-			session_set_cookie_params(86000, '/');
+			session_set_cookie_params(0, '/');
 			session_start();
 		}			
 	}
