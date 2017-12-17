@@ -354,6 +354,7 @@
                                     </div>
                                 <?php } ?>
                                 <div class="add-to-cart">
+                                    <?php if($allow_checkout) { ?>
                                     <div class="add-to-cart-panel">
                                         <label class="qty-label" for="input-quantity"><?php echo $entry_qty; ?></label>
                                         <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2"
@@ -366,6 +367,15 @@
                                                    value="<?php echo $button_cart; ?>"/>
                                         </div>
                                     </div>
+                                    <?php } else { ?>
+                                        <div class="add-to-cart-panel">
+                                            <div class="ajax-cart-button-wrapper">
+                                                <input type="button"
+                                                       class="button-1 out-of-stock-button"
+                                                       value="<?php echo $button_out_of_stock; ?>"/>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                                 <div class="overview-buttons">
                                     <div class="add-to-wishlist">

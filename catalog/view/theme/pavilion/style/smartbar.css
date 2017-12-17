@@ -51,3 +51,9 @@
 .smartbar_wrapper:after{
 	content:" ";
 }
+
+@media all and (max-width: 1000px) {
+	.smartbar_wrapper{
+		display:none;
+	}
+}

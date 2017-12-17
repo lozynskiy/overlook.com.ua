@@ -1596,6 +1596,13 @@ line-height: 20px;
 	font-size: 0;
 	transition: all 0.2s ease;
 }
+.product-grid .item-box .buttons-lower button.product-box-out-of-stock-button,
+.product-grid .item-box .buttons-lower button.product-box-out-of-stock-button span{
+	
+color: #777 !important;
+	
+background-color: #ddd !important;
+}
 .item-box .buttons-lower button span {
 	display: inline-block;
 	position: relative;
@@ -1616,6 +1623,16 @@ line-height: 20px;
 	width: 15px;
 	height: 18px;
 	background: #f74258 url('../image/cart-button-1.png') left top no-repeat;
+	transition: all 0.2s ease;
+}
+.item-box .buttons-lower button.product-box-out-of-stock-button span:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 18px;
+	background: url(../image/cart-button-2.png) center no-repeat;
 	transition: all 0.2s ease;
 }
 .item-box .buttons-lower button span:after {
@@ -2090,6 +2107,7 @@ margin: 10px 0;
 .variant-overview .qty-dropdown {
 	width: 55px;
 }
+.overview .out-of-stock-button,
 .overview .add-to-cart-button,
 .variant-overview .add-to-cart-button {
 	height: 45px;
@@ -2102,6 +2120,12 @@ margin: 10px 0;
 	text-transform: uppercase;
 	outline: 1px solid transparent;
 	transition: all 0.2s ease;
+}
+.overview .out-of-stock-button{
+	
+color: #777;
+	
+background-color: #ddd;
 }
 .overview .add-to-cart-button:hover,
 .variant-overview .add-to-cart-button:hover {

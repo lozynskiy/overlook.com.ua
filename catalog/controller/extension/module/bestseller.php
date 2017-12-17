@@ -56,7 +56,7 @@ class ControllerExtensionModuleBestSeller extends Controller {
 				$array = explode("_", $filename);
 				$data['page'] = ucfirst(end($array));
             	$data['product'] = isset($product_info['name']) ? $product_info['name'] : $result['name'];
-				
+
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],

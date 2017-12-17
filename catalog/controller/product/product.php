@@ -256,7 +256,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
-			
+
 			
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -265,6 +265,7 @@ class ControllerProductProduct extends Controller {
 			$data['entry_good'] = $this->language->get('entry_good');
 			$data['entry_bad'] = $this->language->get('entry_bad');
 
+            $data['button_out_of_stock'] = $this->language->get('button_out_of_stock');
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
 			$data['button_compare'] = $this->language->get('button_compare');
@@ -295,6 +296,12 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$data['stock'] = $this->language->get('text_instock');
 			}
+
+			if ($this->config->get('config_stock_checkout') == '0' && $product_info['quantity'] <= 0) {
+                $data['allow_checkout'] = false;
+            } else {
+                $data['allow_checkout'] = true;
+            }
 
 			$this->load->model('tool/image');
 

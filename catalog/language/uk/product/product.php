@@ -36,6 +36,8 @@ $_['text_semi_month']                         = 'половина місяця';
 $_['text_month']                              = 'місяць';
 $_['text_year']                               = 'рік';
 
+$_['text_out_of_stock_button']                = 'Нема в наявності';
+
 // Entry
 $_['entry_qty']                               = 'Кількість';
 $_['entry_name']                              = 'Ваше Ім`я';

@@ -30,6 +30,7 @@ $_['button_address_add']    = 'Додати адресу';
 $_['button_back']           = 'Назад';
 $_['button_continue']       = 'Продовжити';
 $_['button_cart']           = 'В кошик';
+$_['button_out_of_stock']   = 'Продано';
 $_['button_cancel']         = 'Відмінити';
 $_['button_compare']        = 'Порівняти цей товар';
 $_['button_wishlist']       = 'Додати до списку бажань';

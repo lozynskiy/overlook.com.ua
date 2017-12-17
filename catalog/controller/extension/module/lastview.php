@@ -1,5 +1,7 @@
 <?php
-class ControllerExtensionModuleLastview extends Controller {
+
+class ControllerExtensionModuleLastview extends Controller
+{
     public function index($setting)
     {
         $this->load->language('extension/module/lastview');
@@ -44,54 +46,60 @@ class ControllerExtensionModuleLastview extends Controller {
                 unset($this->session->data['lastview'][$this->request->get['product_id']]);
             }
             $this->session->data['lastview'][$this->request->get['product_id']] = array(
-                'product_id'  => $result['product_id'],
-                'image'       => $result['image'],
-                'name'        => $result['name'],
-                'category'    => $result['category'],
-                'model'       => $result['model'],
-                'sku'         => $result['sku'],
-                'manufacturer'=> $result['manufacturer'],
+                'product_id' => $result['product_id'],
+                'image' => $result['image'],
+                'name' => $result['name'],
+                'category' => $result['category'],
+                'model' => $result['model'],
+                'sku' => $result['sku'],
+                'manufacturer' => $result['manufacturer'],
                 'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
-                'price'       => $price,
-                'special'     => $special,
-                'tax'         => $tax,
-                'rating'      => $rating,
-                'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
+                'price' => $price,
+                'special' => $special,
+                'tax' => $tax,
+                'rating' => $rating,
+                'quantity' => $result['quantity'],
+                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id']),
             );
         }
         $data['products'] = array();
         if (isset($this->session->data['lastview'])) {
+
             $results = $this->session->data['lastview'];
             $results = array_reverse($results);
             $i = 0;
+
             foreach ($results as $result) {
-                if ($result['image']) {
-                    $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
-                } else {
-                    $image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
-                }
-                
-                $data['products'][] = array(
-                    'product_id'  => $result['product_id'],
-                    'thumb'       => $image,
-                    'name'        => $result['name'],
-                    'category'    => $result['category'],
-                    'model'       => $result['model'],
-                    'sku'         => $result['sku'],
-                    'manufacturer'=> $result['manufacturer'],
-                    'description' => $result['description'],
-                    'price'       => $result['price'],
-                    'special'     => $result['special'],
-                    'tax'         => $result['tax'],
-                    'rating'      => $result['rating'],
-                    'href'        => $result['href'],
-                );
-                $i++;
-                if ($i == $setting['limit']) {
-                    break;
+                if (!($this->config->get('config_stock_checkout') == 0 and $result['quantity'] <= 0)) {
+                    if ($result['image']) {
+                        $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+                    } else {
+                        $image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+                    }
+                    $data['products'][] = array(
+                        'product_id' => $result['product_id'],
+                        'thumb' => $image,
+                        'name' => $result['name'],
+                        'category' => $result['category'],
+                        'model' => $result['model'],
+                        'sku' => $result['sku'],
+                        'manufacturer' => $result['manufacturer'],
+                        'description' => $result['description'],
+                        'price' => $result['price'],
+                        'special' => $result['special'],
+                        'tax' => $result['tax'],
+                        'rating' => $result['rating'],
+                        'href' => $result['href'],
+                    );
+                    $i++;
+                    if ($i == $setting['limit']) {
+                        break;
+                    }
                 }
             }
-            return $this->load->view('extension/module/lastview.tpl', $data);
+            if (COUNT($data['products']) > 0){
+                return $this->load->view('extension/module/lastview.tpl', $data);
+            }
         }
     }
 }

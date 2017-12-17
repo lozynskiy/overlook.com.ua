@@ -987,6 +987,12 @@
 .product-grid .item-box:hover .buttons-lower button span:after {
 	opacity: 1;
 }
+.product-grid .item-box:hover .buttons-lower button.product-box-out-of-stock-button span:before {
+	opacity: 1;
+}
+.product-grid .item-box:hover .buttons-lower button.product-box-out-of-stock-button span:after{
+	opacity: 0;
+}
 
 .center-1 .product-grid .item-box {
 	width: 23.5%;

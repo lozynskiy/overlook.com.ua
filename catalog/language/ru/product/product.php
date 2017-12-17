@@ -31,6 +31,8 @@ $_['text_semi_month']                         = 'полмесяца';
 $_['text_month']                              = 'месяц';
 $_['text_year']                               = 'год';
 
+$_['text_out_of_stock_button']                = 'Нет в наличии';
+
 // Entry
 $_['entry_qty']                               = 'Кол-во';
 $_['entry_name']                              = 'Ваше имя:';
