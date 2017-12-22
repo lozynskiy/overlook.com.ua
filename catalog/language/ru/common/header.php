@@ -19,4 +19,4 @@ $_['text_compare']       = 'Сравнение товаров (%s)';
 $_['text_preferences']   = 'Настройки';
 
 $_['text_logged']        = 'Приветствуем Вас, <b>%s</b>!';
-$_['text_please_login']  = 'Пожалуйста, <b>Войдите</b>';
+$_['text_please_login']  = 'Пожалуйста, <b>войдите</b>';

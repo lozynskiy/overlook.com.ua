@@ -15,7 +15,7 @@ class Session {
 		if ($this->adaptor) {
 			session_set_save_handler($this->adaptor);
 		}
-			
+
 		if ($this->adaptor && !session_id()) {
 			ini_set('session.use_only_cookies', 'Off');
 			ini_set('session.use_cookies', 'On');
@@ -28,9 +28,9 @@ class Session {
 			
 			session_set_cookie_params(0, '/');
 			session_start();
-		}			
+		}
 	}
-		
+
 	public function start($key = 'default', $value = '') {
 		if ($value) {
 			$this->session_id = $value;

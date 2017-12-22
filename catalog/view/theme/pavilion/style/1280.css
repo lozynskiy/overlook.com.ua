@@ -62,7 +62,7 @@
 .header-selectors-wrapper {
 	margin: 0 0 0 30px;
 }
-#header-links-wrapper{
+.header-links-wrapper{
 	min-width: 180px;
 }
 .header-links,

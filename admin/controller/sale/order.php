@@ -805,6 +805,7 @@ class ControllerSaleOrder extends Controller {
 			$data['text_history'] = $this->language->get('text_history');
 			$data['text_history_add'] = $this->language->get('text_history_add');
 			$data['text_loading'] = $this->language->get('text_loading');
+            $data['text_order_id'] = $this->language->get('column_order_id');
 
 			$data['column_product'] = $this->language->get('column_product');
 			$data['column_model'] = $this->language->get('column_model');

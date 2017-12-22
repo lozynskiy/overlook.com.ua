@@ -60,9 +60,9 @@
                                             <?php } ?>
 
                                             <div class="post-body">
-                                                <div class="post-autor">
-                                                    <span><i class="fa fa-user"></i><?php echo $blog['author']; ?></span>
-                                                </div>
+<!--                                                <div class="post-autor">-->
+<!--                                                    <span><i class="fa fa-user"></i>--><?php //echo $blog['author']; ?><!--</span>-->
+<!--                                                </div>-->
                                                 <?php if ($date_added_status) { ?>
                                                     <span class="post-date"><i class="fa fa-clock-o"></i><?php echo $blog['date_added_full']; ?></span>
                                                 <?php } ?>
@@ -74,9 +74,7 @@
                                                     <a class="read-comments"><i class="fa fa-eye"></i><?php echo $blog['count_read']; ?>
                                                     </a>
                                                 <?php } ?>
-
                                                 <a class="post-title" href="<?php echo $blog['href']; ?>"><?php echo $blog['title']; ?></a>
-
                                                 <div class="post-preview">
                                                     <p><?php echo $blog['short_description']; ?></p>
                                                 </div>
@@ -115,9 +113,9 @@
                                                     <a class="read-comments"><i class="fa fa-eye"></i><?php echo $blog['count_read']; ?>
                                                     </a>
                                                 <?php } ?>
-                                                <div class="post-autor">
-                                                    <span><i class="fa fa-user"></i><?php echo $blog['author']; ?></span>
-                                                </div>
+<!--                                                <div class="post-autor">-->
+<!--                                                    <span><i class="fa fa-user"></i>--><?php //echo $blog['author']; ?><!--</span>-->
+<!--                                                </div>-->
                                                 <a class="post-title" href="<?php echo $blog['href']; ?>"><?php echo $blog['title']; ?></a>
                                                 <div class="post-preview">
                                                     <p><?php echo $blog['short_description']; ?></p>

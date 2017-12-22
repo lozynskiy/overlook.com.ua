@@ -82,8 +82,8 @@
                                 <div class="manufacturers">
                                     <span class="label"><?php echo $text_manufacturer; ?></span>
                                     <span class="value">
-					<a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a>
-				</span>
+                                        <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a>
+                                    </span>
                                 </div>
                             <?php } ?>
                             <div class="product-name">
@@ -109,7 +109,6 @@
                                     </div>
                                 </div>
                             <?php } ?>
-
 
                             <?php if ($price) { ?>
                                 <div class="prices" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
@@ -187,13 +186,13 @@
                                                                        data-toggle="tooltip" data-trigger="hover"
                                                                        title="<?php echo $option['name']; ?> <?php echo $option_value['name'] . " ";
                                                                        if ($option_value['price']) { ?><?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?><?php } ?>">
-                    <span class="attribute-square-container">
-						<span class="attribute-square">
-                    		<img src="<?php echo $option_value['image']; ?>"
-                                 alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>"
-                                 class="img-thumbnail"/>
-						</span>
-					</span>
+                                                                    <span class="attribute-square-container">
+                                                                        <span class="attribute-square">
+                                                                            <img src="<?php echo $option_value['image']; ?>"
+                                                                                 alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>"
+                                                                                 class="img-thumbnail"/>
+                                                                        </span>
+                                                                    </span>
                                                                     <input id="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
                                                                            type="radio"
                                                                            name="option[<?php echo $option['product_option_id']; ?>]"
@@ -204,14 +203,14 @@
                                                                        data-toggle="tooltip" data-trigger="hover"
                                                                        title="<?php echo $option['name']; ?> <?php echo $option_value['name'] . " ";
                                                                        if ($option_value['price']) { ?><?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?><?php } ?>">
-                    <span class="attribute-square-container text">
-						<span class="attribute-square">
-                    		<?php echo $option_value['name']; ?>
-                            <?php if ($option_value['price']) { ?>
-                                (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                            <?php } ?>
-						</span>
-					</span>
+                                                                    <span class="attribute-square-container text">
+                                                                        <span class="attribute-square">
+                                                                            <?php echo $option_value['name']; ?>
+                                                                            <?php if ($option_value['price']) { ?>
+                                                                                (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                                                                            <?php } ?>
+                                                                        </span>
+                                                                    </span>
                                                                     <input id="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
                                                                            type="radio"
                                                                            name="option[<?php echo $option['product_option_id']; ?>]"
@@ -302,8 +301,9 @@
                                                            data-date-format="YYYY-MM-DD"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                <button class="button-1" type="button"><i class="fa fa-calendar"></i></button>
-                </span></div>
+                                                        <button class="button-1" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         <?php } ?>
                                         <?php if ($option['type'] == 'datetime') { ?>
@@ -317,8 +317,9 @@
                                                            data-date-format="YYYY-MM-DD HH:mm"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
-                </span></div>
+                                                        <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         <?php } ?>
                                         <?php if ($option['type'] == 'time') { ?>
@@ -332,8 +333,9 @@
                                                            data-date-format="HH:mm"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
-                </span></div>
+                                                        <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         <?php } ?>
                                     <?php } ?>
@@ -401,7 +403,6 @@
                             <!--div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script!-->
                             <!-- AddThis Button END -->
-
 
                         </div>
                     </div>
