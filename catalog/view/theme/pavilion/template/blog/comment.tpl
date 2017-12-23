@@ -8,7 +8,7 @@
             </div>
             <div class="comment-content">
                 <div class="comment-time">
-                    <label>Created on:</label>
+                    <label><?php echo $text_comment_created_on; ?></label>
                     <span class="stat-value"><?php echo $comment['date_added']; ?></span>
                 </div>
                 <div class="comment-body">
