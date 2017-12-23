@@ -314,7 +314,6 @@ class ControllerBlogBlog extends Controller {
 			$data['text_related_products'] = $this->language->get('text_related_products');
       		$data['text_read_more'] = $this->language->get('text_read_more');
       		$data['text_write_comment'] = $this->language->get('text_write_comment');
-            $data['text_comment_created_on'] = $this->language->get('text_comment_created_on');
       		$data['entry_name'] = $this->language->get('entry_name');
       		$data['entry_email'] = $this->language->get('entry_email');
 			$data['entry_comment'] = $this->language->get('entry_comment');
@@ -403,6 +402,8 @@ class ControllerBlogBlog extends Controller {
 		$data['text_comments'] = $this->language->get('text_comments');
 
 		$data['text_no_comment'] = $this->language->get('text_no_comment');
+
+		$data['text_comment_created_on'] = $this->language->get('text_comment_created_on');
 
 		if (isset($this->request->get['page'])) {
 				$page = $this->request->get['page'];
