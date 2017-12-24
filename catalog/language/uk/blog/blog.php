@@ -5,7 +5,7 @@ $_['heading_title_category'] = 	'Категории';
 $_['text_show_all'] = 			'Смотреть все';
 
 // Blog
-$_['text_blog'] = 				'Статьи';
+$_['text_blog'] = 				'Блог';
 $_['text_filter_by'] = 			'Теги:';
 $_['text_posted_on'] = 			'Дата:';
 $_['text_posted_by'] = 			'Автор:';
