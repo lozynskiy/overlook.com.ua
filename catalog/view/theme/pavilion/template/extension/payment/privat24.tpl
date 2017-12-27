@@ -9,6 +9,6 @@
             <input type="hidden" name="return_url" value="<?php echo $return_url; ?>" />
             <input type="hidden" name="server_url" value="<?php echo $server_url; ?>" />
     <div class="buttons">
-        <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button-1 confirm-order-next-step-button" data-loading-text="<?php echo $text_loading; ?>" />
+        <button type="submit" id="button-confirm" class="button-1 confirm-order-next-step-button" data-loading-text="<?php echo $text_loading; ?>"><?php echo $button_confirm; ?></button>
     </div>
 </form>
