@@ -6346,3 +6346,8 @@ text-decoration: line-through;
 .order-completed-info td:nth-child(2) {
     padding-left: 10px;
 }
+
+.shipping-method .method-list,
+.opc .section.shipping-method{
+	margin: 0;
+}
