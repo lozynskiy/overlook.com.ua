@@ -33,12 +33,12 @@
                                         <input id="shipping_method_<?php echo $quote['code']; ?>" type="radio"
                                                name="shipping_method" value="<?php echo $quote['code']; ?>"/>
                                     <?php } ?>
-                                    <label for="shipping_method_<?php echo $quote['code']; ?>">
-                                        <?php echo $quote['title']; ?>
-                                    </label>
                                     <!--label for="shipping_method_<?php echo $quote['code']; ?>">
-                                    <?php echo $shipping_method['title']; ?> (<?php echo $quote['text']; ?>)
+                                        <?php echo $quote['title']; ?>
                                     </label!-->
+                                    <label for="shipping_method_<?php echo $quote['code']; ?>">
+                                    <?php echo $shipping_method['title']; ?> (<?php echo $quote['text']; ?>)
+                                    </label>
                                     <?php if (isset($quote['description'])) { ?>
                                         <div class="method-description"><?php echo $quote['description']; ?></div>
                                     <?php } ?>
