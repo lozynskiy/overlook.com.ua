@@ -434,4 +434,15 @@
         pickDate: false
     });
     //--></script>
+<script>
+    $(document).ready(function(){
+        $("#input-telephone").inputmask(
+            "+38 (999) 999 99 99",{
+                placeholder:"+38 (___) ___ __ __",
+                clearMaskOnLostFocus: true,
+                showMaskOnHover: false }
+        );
+    });
+</script>
 <?php echo $footer; ?>
+

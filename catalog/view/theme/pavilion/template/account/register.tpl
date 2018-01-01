@@ -45,7 +45,6 @@
                 </div>
                 <p class="alert"><?php echo $text_account_already; ?></p>
                 <div class="page-body">
-
                     <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data"
                           class="form-horizontal">
                         <fieldset id="account">
@@ -55,7 +54,7 @@
                                 </div>
                                 <div class="form-fields">
                                     <div class="inputs"
-                                         style="display: <?php echo(count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
+                                         style="display: <?php echo(count($customer_groups) > 1 ? 'none' : 'none'); ?>;">
                                         <label><?php echo $entry_customer_group; ?>
                                             <span class="required">*</span>
                                         </label>
@@ -923,4 +922,14 @@
 
     $('select[name=\'country_id\']').trigger('change');
     //--></script>
+<script>
+    $(document).ready(function(){
+        $("#input-telephone").inputmask(
+            "+38 (999) 999 99 99",{
+                placeholder:"+38 (___) ___ __ __",
+                clearMaskOnLostFocus: true,
+                showMaskOnHover: false }
+        );
+    });
+</script>
 <?php echo $footer; ?>

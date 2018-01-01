@@ -7,6 +7,7 @@ class ControllerCheckoutCheckout extends Controller {
 		}
 
         $this->document->addScript('catalog/view/theme/pavilion/scripts/footable.js');
+        $this->document->addScript('catalog/view/theme/pavilion/scripts/jquery.inputmask.bundle.min.js');
 
 		// Validate minimum quantity requirements.
 		$products = $this->cart->getProducts();

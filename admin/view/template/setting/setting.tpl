@@ -860,6 +860,24 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="input-register-customer-group"><span
+                                                data-toggle="tooltip"
+                                                title="<?php echo $help_register_customer_group; ?>"><?php echo $entry_register_customer_group; ?></span></label>
+                                    <div class="col-sm-10">
+                                        <select name="config_register_customer_group_id" id="input-register-customer-group"
+                                                class="form-control">
+                                            <?php foreach ($customer_groups as $customer_group) { ?>
+                                                <?php if ($customer_group['customer_group_id'] == $config_register_customer_group_id) { ?>
+                                                    <option value="<?php echo $customer_group['customer_group_id']; ?>"
+                                                            selected="selected"><?php echo $customer_group['name']; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></option>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label"><span data-toggle="tooltip"
                                                                                 title="<?php echo $help_customer_group_display; ?>"><?php echo $entry_customer_group_display; ?></span></label>
                                     <div class="col-sm-10">

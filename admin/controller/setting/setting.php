@@ -116,6 +116,7 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_customer_activity'] = $this->language->get('entry_customer_activity');
 		$data['entry_customer_search'] = $this->language->get('entry_customer_search');
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
+        $data['entry_register_customer_group'] = $this->language->get('entry_register_customer_group');
 		$data['entry_customer_group_display'] = $this->language->get('entry_customer_group_display');
 		$data['entry_customer_price'] = $this->language->get('entry_customer_price');
 		$data['entry_login_attempts'] = $this->language->get('entry_login_attempts');
@@ -217,6 +218,7 @@ class ControllerSettingSetting extends Controller {
 		$data['help_customer_online'] = $this->language->get('help_customer_online');
 		$data['help_customer_activity'] = $this->language->get('help_customer_activity');
 		$data['help_customer_group'] = $this->language->get('help_customer_group');
+        $data['help_register_customer_group'] = $this->language->get('help_register_customer_group');
 		$data['help_customer_group_display'] = $this->language->get('help_customer_group_display');
 		$data['help_customer_price'] = $this->language->get('help_customer_price');
 		$data['help_login_attempts'] = $this->language->get('help_login_attempts');
@@ -782,6 +784,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_customer_group_id'] = $this->config->get('config_customer_group_id');
 		}
+
+        if (isset($this->request->post['config_register_customer_group_id'])) {
+            $data['config_register_customer_group_id'] = $this->request->post['config_register_customer_group_id'];
+        } else {
+            $data['config_register_customer_group_id'] = $this->config->get('config_register_customer_group_id');
+        }
 
 		$this->load->model('customer/customer_group');
 

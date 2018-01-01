@@ -41,7 +41,7 @@
                             <?php if ($thumb || $images) { ?>
                                 <div class="picture-wrapper">
                                     <?php if ($thumb) { ?>
-                                        <a class="fancybox" rel="gallery" href="<?php echo $popup; ?>"
+                                        <a class="fancybox" rel="gallery"
                                            title="<?php echo $heading_title; ?>">
                                             <img class="main-thumbnail" data-zoom-image="<?php echo $popup; ?>"
                                                  itemprop="image" src="<?php echo $thumb; ?>"
@@ -54,7 +54,7 @@
                                 <?php if ($images) { ?>
                                     <div id="image-gallery" class="picture-thumbs in-carousel owl-carousel owl-theme">
                                         <?php if ($thumb) { ?>
-                                            <a class="fancybox" href="<?php echo $popup; ?>"
+                                            <a class="fancybox"
                                                data-image="<?php echo $thumb; ?>"
                                                data-zoom-image="<?php echo $popup; ?>"
                                                title="<?php echo $heading_title; ?>">
@@ -64,7 +64,7 @@
                                             </a>
                                         <?php } ?>
                                         <?php foreach ($images as $image) { ?>
-                                            <a class="fancybox" rel="gallery" href="<?php echo $image['popup']; ?>"
+                                            <a class="fancybox" rel="gallery"
                                                data-image="<?php echo $image['image']; ?>"
                                                data-zoom-image="<?php echo $image['popup']; ?>"
                                                title="<?php echo $heading_title; ?>">
@@ -77,7 +77,7 @@
                                 <?php } ?>
                             <?php } ?>
                         </div>
-                        <div class="overview">
+                        <div class="overview" id="product">
                             <?php if ($manufacturer) { ?>
                                 <div class="manufacturers">
                                     <span class="label"><?php echo $text_manufacturer; ?></span>
@@ -93,7 +93,6 @@
                                 <div class="product-reviews-overview">
                                     <div class="product-review-box">
                                         <div class="rating">
-                                            <p>
                                                 <?php for ($i = 1; $i <= 5; $i++) { ?>
                                                     <?php if ($rating < $i) { ?>
                                                         <span class="fa fa-stack"><i
@@ -103,9 +102,8 @@
                                                                     class="fa fa-star-o fa-stack-1x"></i></span>
                                                     <?php } ?>
                                                 <?php } ?>
-                                                <a onclick="$('a[href=\'#tab-review\']').trigger('click'); $('html, body').animate({scrollTop: $('.scrolled').offset().top - 50}, 800);"><?php echo $reviews; ?></a>
-                                            </p>
                                         </div>
+                                        <a onclick="$('a[href=\'#tab-review\']').trigger('click'); $('html, body').animate({scrollTop: $('.scrolled').offset().top - 50}, 800);"><?php echo $reviews; ?></a>
                                     </div>
                                 </div>
                             <?php } ?>
@@ -127,7 +125,7 @@
                                     <meta itemprop="priceCurrency" content="UAH">
                                 </div>
                             <?php } ?>
-                            <div class="short-description">
+                            <div class="additional-details">
                                 <?php if ($tax) { ?>
                                     <p><?php echo $text_tax; ?><?php echo $tax; ?></p>
                                 <?php } ?>
@@ -148,11 +146,9 @@
                                     <span class="label"><?php echo $text_reward; ?></span><span
                                             class="value"><?php echo $reward; ?></span><br/>
                                 <?php } ?>
-                                <span class="label"><?php echo $text_stock; ?></span><span
-                                        class="value"><?php echo $stock; ?></span>
                             </div>
 
-                            <div id="product" class="attributes">
+                            <div class="attributes">
                                 <?php if ($options) { ?>
                                     <?php foreach ($options as $option) { ?>
                                         <?php if ($option['type'] == 'select') { ?>
@@ -340,6 +336,15 @@
                                         <?php } ?>
                                     <?php } ?>
                                 <?php } ?>
+                            </div>
+                            <?php if ($config_stock_display) { ?>
+                            <div class="availability">
+                                <div class="stock">
+                                    <span class="label"><?php echo $text_stock; ?></span>
+                                    <span class="value"><?php echo $stock; ?></span>
+                                </div>
+                            </div>
+                            <?php } ?>
                                 <?php if ($recurrings) { ?>
                                     <hr>
                                     <div class="form-group">
@@ -397,12 +402,20 @@
                                     <div class="alert alert-info"><i
                                                 class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
                                 <?php } ?>
-                            </div>
+                            <!--div class="overview-bottom">
+                                <div class="product-social-buttons">
+                                    <label>Share:</label>
+                                    <div class="social-sharing addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>">
+                                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                                        <a class="addthis_button_tweet"></a>
+                                        <a class="addthis_button_pinterest_pinit"></a>
+                                        <a class="addthis_counter addthis_pill_style"></a>
+                                    </div>
+                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+                                </div>
+                            </div!-->
 
-                            <!-- AddThis Button BEGIN -->
-                            <!--div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script!-->
-                            <!-- AddThis Button END -->
+
 
                         </div>
                     </div>

@@ -5,7 +5,7 @@
       <h4><?php echo $text_your_details; ?></h4>
       </div>
       <div class="form-fields">
-      <div class="inputs" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
+      <div class="inputs" style="display: <?php echo (count($customer_groups) > 1 ? 'none' : 'none'); ?>;">
         <label class="control-label"><?php echo $entry_customer_group; ?></label>
         <?php foreach ($customer_groups as $customer_group) { ?>
         <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
@@ -522,9 +522,18 @@ $('#collapse-payment-address select[name=\'country_id\']').on('change', function
 });
 
 $('#collapse-payment-address select[name=\'country_id\']').trigger('change');
-//--></script>
+//-->
+</script>
 <script>
     $(document).on('change', '#collapse-payment-address input[name=\'agree\']', function () {
         $('#enter-password .column-2').slideToggle()
+    });
+    $(document).ready(function(){
+        $("#input-payment-telephone").inputmask(
+            "+38 (999) 999 99 99",{
+                placeholder:"+38 (___) ___ __ __",
+                clearMaskOnLostFocus: true,
+                showMaskOnHover: false }
+        );
     });
 </script>
