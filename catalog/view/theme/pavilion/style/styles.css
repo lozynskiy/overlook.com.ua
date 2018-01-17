@@ -752,7 +752,7 @@ line-height: 20px;
 }
 .header-logo a img {
 	max-width: 100%;
-	background-color: #f74258;
+	/* background-color: #f74258; */
 }
 
 .mini-shopping-cart {
