@@ -65,6 +65,8 @@ class ControllerCheckoutGuest extends Controller {
 			$data['customer_group_id'] = $this->config->get('config_customer_group_id');
 		}
 
+		$data['customer_register_group_id'] = $this->config->get('config_register_customer_group_id');
+
 		if (isset($this->session->data['guest']['firstname'])) {
 			$data['firstname'] = $this->session->data['guest']['firstname'];
 		} else {

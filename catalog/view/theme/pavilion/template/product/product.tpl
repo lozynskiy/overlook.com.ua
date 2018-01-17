@@ -93,15 +93,15 @@
                                 <div class="product-reviews-overview">
                                     <div class="product-review-box">
                                         <div class="rating">
-                                                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                                                    <?php if ($rating < $i) { ?>
-                                                        <span class="fa fa-stack"><i
-                                                                    class="fa fa-star-o fa-stack-1x"></i></span>
-                                                    <?php } else { ?>
-                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
-                                                                    class="fa fa-star-o fa-stack-1x"></i></span>
-                                                    <?php } ?>
+                                            <?php for ($i = 1; $i <= 5; $i++) { ?>
+                                                <?php if ($rating < $i) { ?>
+                                                    <span class="fa fa-stack"><i
+                                                                class="fa fa-star-o fa-stack-1x"></i></span>
+                                                <?php } else { ?>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
+                                                                class="fa fa-star-o fa-stack-1x"></i></span>
                                                 <?php } ?>
+                                            <?php } ?>
                                         </div>
                                         <a onclick="$('a[href=\'#tab-review\']').trigger('click'); $('html, body').animate({scrollTop: $('.scrolled').offset().top - 50}, 800);"><?php echo $reviews; ?></a>
                                     </div>
@@ -133,9 +133,7 @@
                                     <p><?php echo $text_points; ?><?php echo $points; ?></p>
                                 <?php } ?>
                                 <?php if ($discounts) { ?>
-                                    <p>
-                                    <hr>
-                                    </p>
+                                    <p><hr></p>
                                     <?php foreach ($discounts as $discount) { ?>
                                         <p><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></p>
                                     <?php } ?>
@@ -297,7 +295,8 @@
                                                            data-date-format="YYYY-MM-DD"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                                                        <button class="button-1" type="button"><i class="fa fa-calendar"></i></button>
+                                                        <button class="button-1" type="button"><i
+                                                                    class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
@@ -313,7 +312,8 @@
                                                            data-date-format="YYYY-MM-DD HH:mm"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                                                        <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
+                                                        <button type="button" class="button-1"><i
+                                                                    class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
@@ -329,7 +329,8 @@
                                                            data-date-format="HH:mm"
                                                            id="input-option<?php echo $option['product_option_id']; ?>"/>
                                                     <span class="input-group-btn">
-                                                        <button type="button" class="button-1"><i class="fa fa-calendar"></i></button>
+                                                        <button type="button" class="button-1"><i
+                                                                    class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
@@ -338,30 +339,30 @@
                                 <?php } ?>
                             </div>
                             <?php if ($config_stock_display) { ?>
-                            <div class="availability">
-                                <div class="stock">
-                                    <span class="label"><?php echo $text_stock; ?></span>
-                                    <span class="value"><?php echo $stock; ?></span>
-                                </div>
-                            </div>
-                            <?php } ?>
-                                <?php if ($recurrings) { ?>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="text-prompt"><?php echo $text_payment_recurring; ?><span
-                                                    class="required">*</span>
-                                        </label>
-                                        <select name="recurring_id">
-                                            <option value=""><?php echo $text_select; ?></option>
-                                            <?php foreach ($recurrings as $recurring) { ?>
-                                                <option value="<?php echo $recurring['recurring_id']; ?>"><?php echo $recurring['name']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <div class="help-block" id="recurring-description"></div>
+                                <div class="availability">
+                                    <div class="stock">
+                                        <span class="label"><?php echo $text_stock; ?></span>
+                                        <span class="value"><?php echo $stock; ?></span>
                                     </div>
-                                <?php } ?>
-                                <div class="add-to-cart">
-                                    <?php if($allow_checkout) { ?>
+                                </div>
+                            <?php } ?>
+                            <?php if ($recurrings) { ?>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="text-prompt"><?php echo $text_payment_recurring; ?><span
+                                                class="required">*</span>
+                                    </label>
+                                    <select name="recurring_id">
+                                        <option value=""><?php echo $text_select; ?></option>
+                                        <?php foreach ($recurrings as $recurring) { ?>
+                                            <option value="<?php echo $recurring['recurring_id']; ?>"><?php echo $recurring['name']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="help-block" id="recurring-description"></div>
+                                </div>
+                            <?php } ?>
+                            <div class="add-to-cart">
+                                <?php if ($allow_checkout) { ?>
                                     <div class="add-to-cart-panel">
                                         <label class="qty-label" for="input-quantity"><?php echo $entry_qty; ?></label>
                                         <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2"
@@ -374,34 +375,34 @@
                                                    value="<?php echo $button_cart; ?>"/>
                                         </div>
                                     </div>
-                                    <?php } else { ?>
-                                        <div class="add-to-cart-panel">
-                                            <div class="ajax-cart-button-wrapper">
-                                                <input type="button"
-                                                       class="button-1 out-of-stock-button"
-                                                       value="<?php echo $button_out_of_stock; ?>"/>
-                                            </div>
+                                <?php } else { ?>
+                                    <div class="add-to-cart-panel">
+                                        <div class="ajax-cart-button-wrapper">
+                                            <input type="button"
+                                                   class="button-1 out-of-stock-button"
+                                                   value="<?php echo $button_out_of_stock; ?>"/>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="overview-buttons">
-                                    <div class="add-to-wishlist">
-                                        <input type="button" data-toggle="tooltip"
-                                               class="button-2 add-to-wishlist-button"
-                                               title="<?php echo $button_wishlist; ?>"
-                                               onclick="GaListAddToWishlist(product, GaList.ProductDetail)"/>
                                     </div>
-                                    <div class="compare-products">
-                                        <input type="button" data-toggle="tooltip"
-                                               class="button-2 add-to-compare-list-button"
-                                               title="<?php echo $button_compare; ?>"
-                                               onclick="GaListAddToCompare(product, GaList.ProductDetail)"/>
-                                    </div>
-                                </div>
-                                <?php if ($minimum > 1) { ?>
-                                    <div class="alert alert-info"><i
-                                                class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
                                 <?php } ?>
+                            </div>
+                            <div class="overview-buttons">
+                                <div class="add-to-wishlist">
+                                    <input type="button" data-toggle="tooltip"
+                                           class="button-2 add-to-wishlist-button"
+                                           title="<?php echo $button_wishlist; ?>"
+                                           onclick="GaListAddToWishlist(product, GaList.ProductDetail)"/>
+                                </div>
+                                <div class="compare-products">
+                                    <input type="button" data-toggle="tooltip"
+                                           class="button-2 add-to-compare-list-button"
+                                           title="<?php echo $button_compare; ?>"
+                                           onclick="GaListAddToCompare(product, GaList.ProductDetail)"/>
+                                </div>
+                            </div>
+                            <?php if ($minimum > 1) { ?>
+                                <div class="alert alert-info"><i
+                                            class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
+                            <?php } ?>
                             <!--div class="overview-bottom">
                                 <div class="product-social-buttons">
                                     <label>Share:</label>
@@ -414,7 +415,6 @@
                                     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
                                 </div>
                             </div!-->
-
 
 
                         </div>
@@ -641,13 +641,13 @@
     //--></script>
 <script type="text/javascript"><!--
     var product = {
-        id:'<?php echo $product_id; ?>',
-        name:'<?php echo $heading_title; ?>',
+        id: '<?php echo $product_id; ?>',
+        name: '<?php echo $heading_title; ?>',
         model: '<?php echo $model; ?>',
         sku: '<?php echo $sku; ?>',
         category: '<?php echo $category; ?>',
         brand: '<?php echo $manufacturer; ?>',
-        price:'<?php if (!$special) { ?><?php echo $price_0; ?><?php } else { ?><?php echo $special_0; ?><?php } ?>',
+        price: '<?php if (!$special) { ?><?php echo $price_0; ?><?php } else { ?><?php echo $special_0; ?><?php } ?>',
         //qty: $('#input-quantity').val()
     }
     GaProductDetail(product);
@@ -783,15 +783,15 @@
 
         $('#review').fadeIn('slow');
     });
-//    $.ajax({
-//        url: 'index.php?route=product/product/review&product_id=<?php //echo $product_id; ?>//',
-//        type: 'post',
-//        dataType: 'html',
-//        async: true,
-//        success: function (html) {
-//            $('#review').html(html);
-//        }
-//    })
+    //    $.ajax({
+    //        url: 'index.php?route=product/product/review&product_id=<?php //echo $product_id; ?>//',
+    //        type: 'post',
+    //        dataType: 'html',
+    //        async: true,
+    //        success: function (html) {
+    //            $('#review').html(html);
+    //        }
+    //    })
 
     $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
@@ -826,25 +826,25 @@
         grecaptcha.reset();
     });
 
-//    $(document).ready(function () {
-//        $('.thumbnails').magnificPopup({
-//            type: 'image',
-//            delegate: 'a',
-//            gallery: {
-//                enabled: true
-//            }
-//        });
-//    });
+    //    $(document).ready(function () {
+    //        $('.thumbnails').magnificPopup({
+    //            type: 'image',
+    //            delegate: 'a',
+    //            gallery: {
+    //                enabled: true
+    //            }
+    //        });
+    //    });
 
     $(document).ready(function () {
         var hash = window.location.hash;
         if (hash) {
             var hashpart = hash.split('#');
             var vals = hashpart[1].split('-');
-            for (i=0; i<vals.length; i++) {
-                $('#product').find('select option[value="'+vals[i]+'"]').attr('selected', true).trigger('select');
-                $('#product').find('input[type="radio"][value="'+vals[i]+'"]').attr('checked', true).trigger('click');
-                $('#product').find('input[type="checkbox"][value="'+vals[i]+'"]').attr('checked', true).trigger('click');
+            for (i = 0; i < vals.length; i++) {
+                $('#product').find('select option[value="' + vals[i] + '"]').attr('selected', true).trigger('select');
+                $('#product').find('input[type="radio"][value="' + vals[i] + '"]').attr('checked', true).trigger('click');
+                $('#product').find('input[type="checkbox"][value="' + vals[i] + '"]').attr('checked', true).trigger('click');
             }
         }
     })
@@ -921,6 +921,7 @@
         });
     } else {
         $('.fancybox').fancybox({});
-    };
+    }
+    ;
     //--></script>
 <?php echo $footer; ?>

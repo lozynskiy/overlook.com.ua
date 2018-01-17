@@ -285,7 +285,18 @@
                                                 </div>
                                             <?php } ?>
                                         </li>
-                                    <?php } else { ?>
+                                    <?php } elseif ($item['type'] != "link") { ?>
+                                        <li class="root-category-items">
+                                            <a href="<?php echo $item['href']; ?>">
+                                                <?php if ($item['thumb']) { ?>
+                                                    <img class="megamenu-thumb" src="<?php echo $item['thumb']; ?>"
+                                                         alt="<?php echo $item['name']; ?>"
+                                                         title="<?php echo $item['name']; ?>"/>
+                                                <?php } ?>
+                                                <?php echo $item['name']; ?>
+                                            </a>
+                                        </li>
+                                    <?php } else {?>
                                         <li>
                                             <a href="<?php echo $item['href']; ?>">
                                                 <?php if ($item['thumb']) { ?>
