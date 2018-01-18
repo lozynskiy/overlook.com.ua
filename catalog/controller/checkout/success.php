@@ -5,12 +5,13 @@ class ControllerCheckoutSuccess extends Controller {
         $this->load->model('checkout/order');
 
         if (isset($this->session->data['order_id'])) {
-            $this->session->data['temp_order_id'] = $this->session->data['order_id'];
+            $this->session->data['last_order_id'] = $this->session->data['order_id'];
+            $this->session->data['pixel_order_id'] = $this->session->data['order_id'];
         }
 
-        if (isset($this->session->data['temp_order_id'])){
+        if (isset($this->session->data['last_order_id'])){
             $this->user = new Cart\User($this->registry);
-            $data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['temp_order_id']);
+            $data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['last_order_id']);
             $data['orderDetails']['shipping_total'] = (isset($this->session->data['shipping_method']['cost'])) ? $this->session->data['shipping_method']['cost'] : 0;
             $data['orderDetails']['order_total'] = $this->currency->format($data['orderDetails']['total'], $this->session->data['currency']);
             $this->session->data['order_total'] = $data['orderDetails']['total'];
