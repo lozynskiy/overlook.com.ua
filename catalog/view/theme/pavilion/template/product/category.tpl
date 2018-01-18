@@ -208,7 +208,7 @@
                                     }
                                 </script>
                         </div>
-                        <?php if ($thumb || $description) { ?>
+                        <?php if ($description) { ?>
                             <div class="category-description">
                                 <?php if ($thumb) { ?>
                                     <div class="col-sm-2"><img src="<?php echo $thumb; ?>"
