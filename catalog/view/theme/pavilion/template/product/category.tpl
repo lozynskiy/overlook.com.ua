@@ -119,8 +119,8 @@
                                                     }
                                                 </script>
                                                 <a onclick="GaListLink(category<?php echo $product['product_id']; ?>, GaList.CategoryPage); return false;"
-                                                            href="<?php echo $product['href']; ?>"><img
-                                                            src="<?php echo $product['thumb']; ?>"
+                                                            href="<?php echo $product['href']; ?>">
+                                                    <img src="<?php echo $product['thumb']; ?>"
                                                             alt="<?php echo $product['name']; ?>"
                                                             title="<?php echo $product['name']; ?>"
                                                             class="img-responsive"/></a>
