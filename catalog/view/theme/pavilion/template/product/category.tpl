@@ -194,7 +194,7 @@
                                         <?php foreach ($products as $p => $product) { ?>
                                         ga('ec:addImpression', {
                                             'id': '<?php echo $product['product_id']; ?>',
-                                            'name': '<?php echo $product['name']; ?>',
+                                            'name': '<?php echo str_replace('\'', '', $product['name']); ?>',
                                             'model': '<?php echo $product['model']; ?>',
                                             'sku': '<?php echo $product['sku']; ?>',
                                             'category': '<?php echo $product['category']; ?>',
