@@ -36,7 +36,7 @@
                     <?php } else { ?>
                         <?php $class = 'col-sm-8'; ?>
                     <?php } ?>
-                    <div class="product-essential" itemscope="" itemtype="http://schema.org/Product">
+                    <div class="product-essential">
                         <div class="gallery sevenspikes-cloudzoom-gallery">
                             <?php if ($thumb || $images) { ?>
                                 <div class="picture-wrapper">
@@ -109,20 +109,19 @@
                             <?php } ?>
 
                             <?php if ($price) { ?>
-                                <div class="prices" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                <div class="prices">
                                     <?php if (!$special) { ?>
-                                        <div class="product-price" itemprop="price" content="<?php echo $price_0; ?>">
+                                        <div class="product-price">
                                             <?php echo $price; ?>
                                         </div>
                                     <?php } else { ?>
-                                        <div class="product-price" itemprop="price" content="<?php echo $special_0; ?>">
+                                        <div class="product-price">
                                             <?php echo $special; ?>
                                         </div>
                                         <div class="old-product-price">
                                             <?php echo $price; ?>
                                         </div>
                                     <?php } ?>
-                                    <meta itemprop="priceCurrency" content="UAH">
                                 </div>
                             <?php } ?>
                             <div class="additional-details">
