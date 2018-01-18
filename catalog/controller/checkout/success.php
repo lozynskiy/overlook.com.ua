@@ -13,7 +13,7 @@ class ControllerCheckoutSuccess extends Controller {
             $data['orderDetails'] = $this->model_checkout_order->getOrder($this->session->data['temp_order_id']);
             $data['orderDetails']['shipping_total'] = (isset($this->session->data['shipping_method']['cost'])) ? $this->session->data['shipping_method']['cost'] : 0;
             $data['orderDetails']['order_total'] = $this->currency->format($data['orderDetails']['total'], $this->session->data['currency']);
-
+            $this->session->data['order_total'] = $data['orderDetails']['total'];
         }
 		if (isset($this->session->data['order_id'])) {
 			$data['orderProduct'] = $this->model_checkout_order->getOrderProduct($this->session->data['order_id']);

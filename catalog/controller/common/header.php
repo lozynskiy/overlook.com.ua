@@ -128,7 +128,7 @@ class ControllerCommonHeader extends Controller {
 
 				foreach ($children as $child) {
 
-                    // Menu3rdLevel>>>
+                    // 3rdLevel>>>
                     $children_lv3_data = array();
 
                     $children_lv3 = $this->model_catalog_category->getCategoriesTopMenu($child['category_id']);
@@ -144,7 +144,7 @@ class ControllerCommonHeader extends Controller {
                             'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'] . '_' . $child_lv3['category_id'])
                         );
                     }
-                    // <<<Menu3rdLevel
+                    // <<<3rdLevel
 
 					$filter_data = array(
 						'filter_category_id'  => $child['category_id'],
@@ -160,10 +160,10 @@ class ControllerCommonHeader extends Controller {
 					$children_data[] = array(
                         'thumb'    => $cat_image,
 						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-                        // Menu3rdLevel>>>
+                        // 3rdLevel>>>
                         'children_lv3' => $children_lv3_data,
                         'column'   => $child['column'] ? $child['column'] : 1,
-                        // <<<Menu3rdLevel
+                        // <<<3rdLevel
 						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
 					);
 				}
