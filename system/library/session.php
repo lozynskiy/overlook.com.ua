@@ -26,7 +26,7 @@ class Session {
 				exit('Error: Invalid session ID!');
 			}
 			
-			session_set_cookie_params(2592000, '/');
+			session_set_cookie_params(0, '/');
 			session_start();
 		}
 	}
@@ -47,8 +47,8 @@ class Session {
 		$this->data = &$_SESSION[$this->session_id];
 		
 		if ($key != 'PHPSESSID') {
-            setcookie($key, $this->session_id, time() + ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
-			//setcookie($key, $this->session_id, ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
+            //setcookie($key, $this->session_id, time() + ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
+			setcookie($key, $this->session_id, ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
 		}
 		
 		return $this->session_id;
