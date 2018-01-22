@@ -23,6 +23,7 @@ $_['text_new_payment_address']  = 'Адреса оплати';
 $_['text_new_shipping_address'] = 'Адреса доставки';
 $_['text_new_products']         = 'Товари';
 $_['text_new_product']          = 'Товар';
+$_['text_new_image']            = 'Зображення';
 $_['text_new_model']            = 'Модель';
 $_['text_new_quantity']         = 'Кількість';
 $_['text_new_price']            = 'Ціна';

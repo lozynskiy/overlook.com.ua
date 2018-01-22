@@ -18,6 +18,7 @@ $_['text_new_payment_address']  = 'Адрес платежа';
 $_['text_new_shipping_address'] = 'Адрес доставки';
 $_['text_new_products']         = 'Товары';
 $_['text_new_product']          = 'Товар';
+$_['text_new_image']            = 'Изрбражение';
 $_['text_new_model']            = 'Модель';
 $_['text_new_quantity']         = 'Кол-во';
 $_['text_new_price']            = 'Цена';
