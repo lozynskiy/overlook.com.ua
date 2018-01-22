@@ -12,9 +12,9 @@ class ControllerExtensionModuleSmartbar extends Controller {
 		$this->document->addStyle('view/stylesheet/smartbar.css');
 		$this->document->addStyle('view/javascript/summernote/summernote.css');
 		$this->document->addStyle('view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
-		$this->document->addStyle('view/javascript/smartbar/colorpicker/css/colorpicker.css');
+		$this->document->addStyle('view/javascript/colorpicker/css/colorpicker.css');
 
-		$this->document->addScript('view/javascript/smartbar/colorpicker/js/colorpicker.js');
+		$this->document->addScript('view/javascript/colorpicker/js/colorpicker.js');
 		$this->document->addScript('view/javascript/summernote/summernote.js');
 		$this->document->addScript('view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 
