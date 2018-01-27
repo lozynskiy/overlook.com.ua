@@ -660,6 +660,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_additional_image'] = $this->language->get('entry_additional_image');
 		$data['entry_store'] = $this->language->get('entry_store');
 		$data['entry_manufacturer'] = $this->language->get('entry_manufacturer');
+        $data['entry_sizechart'] = $this->language->get('entry_sizechart');
 		$data['entry_download'] = $this->language->get('entry_download');
 		$data['entry_category'] = $this->language->get('entry_category');
 		$data['entry_filter'] = $this->language->get('entry_filter');
@@ -1131,6 +1132,18 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['manufacturer'] = '';
 		}
+
+        $this->load->model('catalog/sizechart');
+
+        $data['sizecharts'] = $this->model_catalog_sizechart->getSizecharts();
+
+        $sizechart_id = $this->model_catalog_sizechart->getSizechartByProductId($this->request->get['product_id']);
+
+        if (isset($sizechart_id['sizechart_id'])) {
+            $data['sizechart_id'] = $sizechart_id['sizechart_id'];
+        } else {
+            $data['sizechart_id'] = 0;
+        }
 
 		// Categories
 		$this->load->model('catalog/category');

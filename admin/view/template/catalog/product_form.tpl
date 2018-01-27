@@ -458,6 +458,21 @@
                   </div>
                 </div>
               </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-sizechart"><?php echo $entry_sizechart; ?></label>
+                    <div class="col-sm-10">
+                        <select id="input-sizechart" name="sizechart_id" class="form-control">
+                            <option value="0" selected="selected"><?php echo $text_none; ?></option>
+                            <?php foreach ($sizecharts as $sizechart) { ?>
+                                <?php if ($sizechart['sizechart_id'] == $sizechart_id) { ?>
+                                    <option value="<?php echo $sizechart['sizechart_id']; ?>" selected="selected"><?php echo $sizechart['name']; ?></option>
+                                <?php } else { ?>
+                                    <option value="<?php echo $sizechart['sizechart_id']; ?>"><?php echo $sizechart['name']; ?></option>
+                                <?php } ?>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane" id="tab-attribute">
               <div class="table-responsive">

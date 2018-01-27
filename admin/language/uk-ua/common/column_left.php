@@ -40,6 +40,7 @@ $_['text_menu']                        = 'Menu Manager';
 $_['text_modification']                = 'Модифікації';
 $_['text_manufacturer']                = 'Виробники';
 $_['text_option']                      = 'Опції';
+$_['text_sizechart']                   = 'Таблицы размеров';
 $_['text_order']                       = 'Замовлення';
 $_['text_order_status']                = 'Статус замовлень';
 $_['text_product']                     = 'Товари';

@@ -559,4 +559,11 @@ class ModelCatalogProduct extends Model {
 			return 0;
 		}
 	}
+
+    public function getSizeChart($product_id){
+
+        $query = $this->db->query("SELECT DISTINCT *, sd.name AS name FROM " . DB_PREFIX . "sizechart s JOIN " . DB_PREFIX . "sizechart_to_product s2p ON (s.sizechart_id = s2p.sizechart_id) LEFT JOIN " . DB_PREFIX . "sizechart_description sd ON (s.sizechart_id = sd.sizechart_id) LEFT JOIN " . DB_PREFIX . "sizechart_to_store s2s ON (s.sizechart_id = s2s.sizechart_id) WHERE sd.language_id = '" . (int)$this->config->get('config_language_id') . "' && s2p.product_id = '" . (int)$product_id . "' AND s2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+
+        return $query->row;
+    }
 }

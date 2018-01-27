@@ -119,6 +119,14 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
+			if ($this->user->hasPermission('access', 'catalog/sizechart')) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_sizechart'),
+					'href'     => $this->url->link('catalog/sizechart', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
 			if ($this->user->hasPermission('access', 'catalog/download')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_download'),

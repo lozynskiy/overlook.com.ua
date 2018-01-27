@@ -1903,6 +1903,7 @@ margin: 10px 0;
 	color: #f74258;
 	text-transform: uppercase;
 }
+.overview .sizechart,
 .overview .manufacturers {
 	margin: 0 0 20px; /*not present in variant-overview*/
 }
@@ -1987,14 +1988,21 @@ margin: 10px 0;
 .variant-overview .value {
 	/* color: #333; */
 }
+
 .overview .value a,
 .variant-overview .value a {
 	color: #f74258;
 }
+
+.overview .sizechart .value a:hover {
+	text-decoration:none;
+}
+
 .overview .value a:hover,
 .variant-overview .value a:hover {
 	text-decoration: underline;
 }
+
 .overview .additional-details,
 .variant-overview .additional-details {
 	margin: 0 0 30px;
@@ -2039,6 +2047,11 @@ margin: 10px 0;
 	font-weight: normal;
 	color: #333;
 	margin-left: 5px;
+}
+.overview .sizechart .value{
+	font-weight:normal;
+	margin-left: 0;
+	border-bottom: 1px dashed #f74258;
 }
 .back-in-stock-subscription {
 	margin: 0 0 30px;

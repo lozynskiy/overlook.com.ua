@@ -78,6 +78,7 @@
                             <?php } ?>
                         </div>
                         <div class="overview" id="product">
+
                             <?php if ($manufacturer) { ?>
                                 <div class="manufacturers">
                                     <span class="label"><?php echo $text_manufacturer; ?></span>
@@ -144,7 +145,13 @@
                                             class="value"><?php echo $reward; ?></span><br/>
                                 <?php } ?>
                             </div>
-
+                            <?php if(isset($sizechart) && !empty($sizechart)){ ?>
+                                <div class="sizechart">
+                                    <span class="value">
+                                        <a href="#" data-toggle="modal" data-target="#sizeChartModal"><?php echo $text_sizechart; ?></a>
+                                    </span>
+                                </div>
+                            <?php } ?>
                             <div class="attributes">
                                 <?php if ($options) { ?>
                                     <?php foreach ($options as $option) { ?>
@@ -923,4 +930,19 @@
     }
     ;
     //--></script>
+<?php if(isset($sizechart) && !empty($sizechart)){ ?>
+<div id="sizeChartModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <span class="modal-title"><?php echo $text_sizechart; ?></span>
+            </div>
+            <div class="modal-body">
+                <?php echo html_entity_decode($sizechart['description'], ENT_QUOTES, 'UTF-8'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 <?php echo $footer; ?>

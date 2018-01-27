@@ -256,6 +256,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
+            $data['text_sizechart'] = $this->language->get('text_sizechart');
 
 			
 			$data['entry_qty'] = $this->language->get('entry_qty');
@@ -514,6 +515,8 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+            $data['sizechart'] = $this->model_catalog_product->getSizeChart($product_info['product_id']);
 
 			$this->response->setOutput($this->load->view('product/product', $data));
 

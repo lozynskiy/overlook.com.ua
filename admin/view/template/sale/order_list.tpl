@@ -43,6 +43,10 @@
                 <label class="control-label" for="input-customer"><?php echo $entry_customer; ?></label>
                 <input type="text" name="filter_customer" value="<?php echo $filter_customer; ?>" placeholder="<?php echo $entry_customer; ?>" id="input-customer" class="form-control" />
               </div>
+              <div class="form-group">
+                <label class="control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
+                <input type="text" name="filter_telephone" value="<?php echo $filter_telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+              </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -178,6 +182,12 @@ $('#button-filter').on('click', function() {
 	if (filter_customer) {
 		url += '&filter_customer=' + encodeURIComponent(filter_customer);
 	}
+
+    var filter_customer = $('input[name=\'filter_telephone\']').val();
+
+    if (filter_customer) {
+        url += '&filter_telephone=' + encodeURIComponent(filter_customer);
+    }
 
 	var filter_order_status = $('select[name=\'filter_order_status\']').val();
 

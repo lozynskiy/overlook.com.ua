@@ -196,6 +196,10 @@ class ModelSaleOrder extends Model {
 			$sql .= " AND CONCAT(o.firstname, ' ', o.lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%'";
 		}
 
+        if (!empty($data['filter_telephone'])) {
+            $sql .= " AND o.telephone LIKE '%" . $this->db->escape($data['filter_telephone']) . "%'";
+        }
+
 		if (!empty($data['filter_date_added'])) {
 			$sql .= " AND DATE(o.date_added) = DATE('" . $this->db->escape($data['filter_date_added']) . "')";
 		}
@@ -302,6 +306,10 @@ class ModelSaleOrder extends Model {
 		if (!empty($data['filter_customer'])) {
 			$sql .= " AND CONCAT(firstname, ' ', lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%'";
 		}
+
+        if (!empty($data['filter_telephone'])) {
+            $sql .= " AND telephone LIKE '%" . $this->db->escape($data['filter_telephone']) . "%'";
+        }
 
 		if (!empty($data['filter_date_added'])) {
 			$sql .= " AND DATE(date_added) = DATE('" . $this->db->escape($data['filter_date_added']) . "')";
