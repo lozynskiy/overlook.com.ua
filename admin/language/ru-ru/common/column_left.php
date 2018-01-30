@@ -38,6 +38,7 @@ $_['text_sizechart']          			    = 'Таблицы размеров';
 $_['text_order']          					= 'Заказы';
 $_['text_order_status']          			= 'Статусы заказов';
 $_['text_product']          				= 'Товары';
+$_['text_product_option_group']          	= 'Группы товаров по опциях';
 $_['text_reports']          				= 'Отчеты';
 $_['text_report_sale']                      = 'Продажи';
 $_['text_report_sale_order']          		= 'Заказы';

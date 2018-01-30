@@ -44,6 +44,7 @@ $_['text_sizechart']                   = 'Таблицы размеров';
 $_['text_order']                       = 'Замовлення';
 $_['text_order_status']                = 'Статус замовлень';
 $_['text_product']                     = 'Товари';
+$_['text_product_option_group']        = 'Групи товарів за опціями';
 $_['text_reports']                     = 'Звіти';
 $_['text_report_sale']                 = 'Sales';
 $_['text_report_sale_order']           = 'Замовлення';

@@ -393,7 +393,9 @@ class ControllerProductProduct extends Controller {
 							'name'                    => $option_value['name'],
 							'image'                   => $option_value['image'] ? $this->model_tool_image->resize($option_value['image'], 50, 50) : '',
 							'price'                   => $price,
-							'price_prefix'            => $option_value['price_prefix']
+							'price_prefix'            => $option_value['price_prefix'],
+                            'selected'                => $option_value['product_id'] == $this->request->get['product_id'] && $option_value['grouped_option'] == 1 ? true : false,
+                            'href'                    => $option_value['product_id'] != $this->request->get['product_id'] && $option_value['grouped_option'] == 1 ? $this->url->link('product/product', 'product_id=' . $option_value['product_id']) : false
 						);
 					}
 				}

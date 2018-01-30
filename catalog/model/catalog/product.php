@@ -361,10 +361,12 @@ class ModelCatalogProduct extends Model {
 		foreach ($product_option_query->rows as $product_option) {
 			$product_option_value_data = array();
 
-			$product_option_value_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_option_value pov LEFT JOIN " . DB_PREFIX . "option_value ov ON (pov.option_value_id = ov.option_value_id) LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE pov.product_id = '" . (int)$product_id . "' AND pov.product_option_id = '" . (int)$product_option['product_option_id'] . "' AND ovd.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY ov.sort_order");
+			$product_option_value_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_option_value pov LEFT JOIN (SELECT p.product_id, 1 grouped_option FROM " . DB_PREFIX . "product_option_group pog JOIN " . DB_PREFIX . "product_option_group_to_product pog2p on pog.product_option_group_id = pog2p.product_option_group_id JOIN " . DB_PREFIX . "product_option_group_to_product p on p.product_option_group_id = pog2p.product_option_group_id WHERE pog2p.product_id = '" . (int)$product_id . "'  AND pog.option_id = '" . (int)$product_option['option_id'] . "'  AND pog.status = 1 ) p on p.product_id = pov.product_id LEFT JOIN " . DB_PREFIX . "option_value ov ON (pov.option_value_id = ov.option_value_id) LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE (pov.product_id = '" . (int)$product_id . "' or p.product_id = pov.product_id) AND pov.option_id = '" . (int)$product_option['option_id'] . "' AND ovd.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY ov.sort_order");
 
 			foreach ($product_option_value_query->rows as $product_option_value) {
 				$product_option_value_data[] = array(
+                    'product_id'              => $product_option_value['product_id'],
+                    'grouped_option'          => $product_option_value['grouped_option'],
 					'product_option_value_id' => $product_option_value['product_option_value_id'],
 					'option_value_id'         => $product_option_value['option_value_id'],
 					'name'                    => $product_option_value['name'],

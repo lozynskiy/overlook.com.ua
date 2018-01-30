@@ -165,7 +165,10 @@
                                                         id="input-option<?php echo $option['product_option_id']; ?>">
                                                     <option value=""><?php echo $text_select; ?></option>
                                                     <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                                                        <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                                                        <option value="<?php echo $option_value['product_option_value_id']; ?>"
+                                                            <?php if ($option_value['selected']) { echo 'selected'; } ?>
+                                                            href="<?php if ($option_value['href']) echo $option_value['href']; ?>">
+                                                            <?php echo $option_value['name']; ?>
                                                             <?php if ($option_value['price']) { ?>
                                                                 (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
                                                             <?php } ?>
@@ -180,54 +183,30 @@
                                                 <ul class="option-list attribute-squares color-squares"
                                                     id="input-option<?php echo $option['product_option_id']; ?>">
                                                     <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                                                        <li>
-                                                            <?php if ($option_value['image']) { ?>
-                                                                <label for="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
-                                                                       data-toggle="tooltip" data-trigger="hover"
-                                                                       title="<?php echo $option['name']; ?> <?php echo $option_value['name'] . " ";
-                                                                       if ($option_value['price']) { ?><?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?><?php } ?>">
-                                                                    <span class="attribute-square-container">
-                                                                        <span class="attribute-square">
-                                                                            <img src="<?php echo $option_value['image']; ?>"
-                                                                                 alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>"
-                                                                                 class="img-thumbnail"/>
-                                                                        </span>
-                                                                    </span>
-                                                                    <input id="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
-                                                                           type="radio"
-                                                                           name="option[<?php echo $option['product_option_id']; ?>]"
-                                                                           value="<?php echo $option_value['product_option_value_id']; ?>"/>
-                                                                </label>
-                                                            <?php } else { ?>
-                                                                <label for="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
-                                                                       data-toggle="tooltip" data-trigger="hover"
-                                                                       title="<?php echo $option['name']; ?> <?php echo $option_value['name'] . " ";
-                                                                       if ($option_value['price']) { ?><?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?><?php } ?>">
+                                                        <li <?php echo ($option_value['selected'] ? 'class="selected-value"' : '' ); ?>>
+                                                                <label>
                                                                     <span class="attribute-square-container text">
-                                                                        <span class="attribute-square">
-                                                                            <?php echo $option_value['name']; ?>
-                                                                            <?php if ($option_value['price']) { ?>
-                                                                                (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                                                                            <?php } ?>
-                                                                        </span>
+                                                                        <?php if ($option_value['href']) { ?><a href="<?php echo $option_value['href']; ?>"><?php } ?>
+                                                                            <span class="attribute-square">
+                                                                                <?php if ($option_value['image']) { ?>
+                                                                                    <img src="<?php echo $option_value['image']; ?>"
+                                                                                         alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>"
+                                                                                         class="img-thumbnail"/>
+                                                                                <?php }  else { ?>
+                                                                                    <?php echo $option_value['name']; ?>
+                                                                                    <?php if ($option_value['price']) { ?>(<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)<?php } ?>
+                                                                                <?php } ?>
+                                                                            </span>
+                                                                        <?php echo ($option_value['href'] ? '</a>' : ''); ?>
                                                                     </span>
-                                                                    <input id="option-<?php echo $option['product_option_id']; ?>-<?php echo $option_value['product_option_value_id']; ?>"
-                                                                           type="radio"
+                                                                    <input type="radio"
                                                                            name="option[<?php echo $option['product_option_id']; ?>]"
-                                                                           value="<?php echo $option_value['product_option_value_id']; ?>"/>
+                                                                           value="<?php echo $option_value['product_option_value_id']; ?>"
+                                                                           <?php echo ($option_value['selected'] ? 'checked="true"' : ''); ?>/>
                                                                 </label>
-                                                            <?php } ?>
                                                         </li>
                                                     <?php } ?>
                                                 </ul>
-                                                <script type="text/javascript">
-                                                    $(document).ready(function () {
-                                                        $('.attributes #input-option<?php echo $option['product_option_id']; ?>').delegate('input', 'click', function (event) {
-                                                            $('.attributes #input-option<?php echo $option['product_option_id']; ?>').find('li').removeClass('selected-value');
-                                                            $(this).closest('li').addClass('selected-value');
-                                                        });
-                                                    });
-                                                </script>
                                             </div>
                                         <?php } ?>
                                         <?php if ($option['type'] == 'checkbox') { ?>
@@ -930,6 +909,20 @@
     }
     ;
     //--></script>
+<script type="text/javascript">
+    $('.attributes select').change(function(){
+        var link = $(this).find('option:selected').attr('href')
+        if (typeof link != 'undefined'){
+            if (link.length > 0) window.location = link;
+        }
+    })
+    $(document).ready(function () {
+        $('.attributes .option-list').delegate('input', 'click', function (event) {
+            $(this).closest('.option-list').find('li').removeClass('selected-value');
+            $(this).closest('li').addClass('selected-value');
+        });
+    });
+</script>
 <?php if(isset($sizechart) && !empty($sizechart)){ ?>
 <div id="sizeChartModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
