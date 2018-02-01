@@ -186,9 +186,10 @@ class ControllerCatalogProductOptionGroup extends Controller {
 			'limit'             => $this->config->get('config_limit_admin')
 		);
 
-		$product_option_group_total = $this->model_catalog_product_option_group->getTotalProductOptionGroups();
+		$product_option_group_total = $this->model_catalog_product_option_group->getTotalProductOptionGroups($filter_data);
 
 		$results = $this->model_catalog_product_option_group->getProductOptionGroups($filter_data);
+
 
 		foreach ($results as $result) {
 			$data['product_option_groups'][] = array(

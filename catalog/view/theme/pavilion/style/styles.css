@@ -6318,7 +6318,7 @@ text-decoration: line-through;
 .text-danger {
   color: #f74258;
   font-size: 13px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .has-error select,
 .has-error input{	

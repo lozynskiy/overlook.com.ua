@@ -126,9 +126,21 @@ class ModelCatalogProductOptionGroup extends Model {
 		return $query->rows;
 	}
 
-	public function getTotalProductOptionGroups() {
+	public function getTotalProductOptionGroups($data = array()) {
 
-		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "product_option_group");
+        $language_id = (int)$this->config->get('config_language_id');
+
+        $sql = "SELECT COUNT(*) as total FROM (SELECT pog.*, GROUP_CONCAT(CONCAT(pd.name, ' ', p.model)) products, od.name as option FROM " . DB_PREFIX . "product_option_group pog JOIN " . DB_PREFIX . "product_option_group_to_product pog2p on pog2p.product_option_group_id = pog.product_option_group_id JOIN " . DB_PREFIX . "product p on p.product_id = pog2p.product_id JOIN " . DB_PREFIX . "product_description pd on pd.product_id = pog2p.product_id JOIN " . DB_PREFIX . "option_description od on od.option_id = pog.option_id WHERE od.language_id = '" . $language_id . "' AND pd.language_id = '" . $language_id . "' GROUP BY pog.product_option_group_id ) g WHERE product_option_group_id > 0 ";
+
+        if (!empty($data['filter_product'])) {
+            $sql .= "AND products LIKE '%" . $this->db->escape($data['filter_product']) . "%'";
+        }
+
+        if (!empty($data['filter_option'])) {
+            $sql .= "AND option_id = '" . (int)$data['filter_option'] . "'";
+        }
+
+        $query = $this->db->query($sql);
 
 		return $query->row['total'];
 	}

@@ -130,7 +130,8 @@
         //--></script>
     <script type="text/javascript"><!--
         $('#language a:first').tab('show');
-        //--></script>
+        //-->
+    </script>
 </div>
 </div>
 <?php echo $footer; ?>

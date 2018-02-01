@@ -157,16 +157,16 @@
                                     <?php foreach ($options as $option) { ?>
                                         <?php if ($option['type'] == 'select') { ?>
                                             <div class="form-group">
-                                                <label class="text-prompt"
-                                                       for="input-option<?php echo $option['product_option_id']; ?>">
+                                                <label class="text-prompt" for="input-option<?php echo $option['product_option_id']; ?>">
                                                     <?php echo $option['name']; ?><?php echo($option['required'] ? '<span class="required">*</span>' : ''); ?>
                                                 </label>
                                                 <select name="option[<?php echo $option['product_option_id']; ?>]"
                                                         id="input-option<?php echo $option['product_option_id']; ?>">
                                                     <option value=""><?php echo $text_select; ?></option>
+                                                    <?php $count = count($option['product_option_value']); ?>
                                                     <?php foreach ($option['product_option_value'] as $option_value) { ?>
                                                         <option value="<?php echo $option_value['product_option_value_id']; ?>"
-                                                            <?php if ($option_value['selected']) { echo 'selected'; } ?>
+                                                            <?php echo (($option_value['selected'] || $count == 1 ) ? 'selected' : ''); ?>
                                                             href="<?php if ($option_value['href']) echo $option_value['href']; ?>">
                                                             <?php echo $option_value['name']; ?>
                                                             <?php if ($option_value['price']) { ?>
@@ -182,8 +182,9 @@
                                                 <label class="text-prompt"><?php echo $option['name']; ?><?php echo($option['required'] ? '<span class="required">*</span>' : ''); ?></label>
                                                 <ul class="option-list attribute-squares color-squares"
                                                     id="input-option<?php echo $option['product_option_id']; ?>">
+                                                    <?php $count = count($option['product_option_value']); ?>
                                                     <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                                                        <li <?php echo ($option_value['selected'] ? 'class="selected-value"' : '' ); ?>>
+                                                        <li <?php echo (($option_value['selected'] || $count == 1 ) ? 'class="selected-value"' : '' ); ?>>
                                                                 <label>
                                                                     <span class="attribute-square-container text">
                                                                         <?php if ($option_value['href']) { ?><a href="<?php echo $option_value['href']; ?>"><?php } ?>
@@ -202,7 +203,7 @@
                                                                     <input type="radio"
                                                                            name="option[<?php echo $option['product_option_id']; ?>]"
                                                                            value="<?php echo $option_value['product_option_value_id']; ?>"
-                                                                           <?php echo ($option_value['selected'] ? 'checked="true"' : ''); ?>/>
+                                                                           <?php echo (($option_value['selected'] || $count == 1 ) ? 'checked="true"' : ''); ?>/>
                                                                 </label>
                                                         </li>
                                                     <?php } ?>
@@ -408,8 +409,10 @@
                 <div class="ui-tabs scrolled">
                     <div class="productTabs-header">
                         <ul class="ui-tabs-nav">
-                            <li class="active"><a href="#tab-description"
+                            <?php if (strlen($description) > 0) { ?>
+                            <li><a href="#tab-description"
                                                   data-toggle="tab"><?php echo $tab_description; ?></a></li>
+                            <?php } ?>
                             <?php if ($attribute_groups) { ?>
                                 <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a>
                                 </li>
@@ -420,11 +423,13 @@
                         </ul>
                     </div>
                     <div class="productTabs-body tab-content">
-                        <div class="tab-pane ui-tabs-panel active" id="tab-description">
+                        <?php if (strlen($description) > 0) { ?>
+                        <div class="tab-pane ui-tabs-panel" id="tab-description">
                             <div class="full-description">
                                 <?php echo $description; ?>
                             </div>
                         </div>
+                        <?php } ?>
                         <?php if ($attribute_groups) { ?>
                             <div class="tab-pane ui-tabs-panel" id="tab-specification">
                                 <div class="product-specs-box">
@@ -922,6 +927,8 @@
             $(this).closest('li').addClass('selected-value');
         });
     });
+    $('.ui-tabs ul li:first').addClass('active');
+    $('.tab-content .ui-tabs-panel:first').addClass('active');
 </script>
 <?php if(isset($sizechart) && !empty($sizechart)){ ?>
 <div id="sizeChartModal" class="modal fade" role="dialog">
