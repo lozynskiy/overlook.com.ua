@@ -22,5 +22,5 @@ $_['text_newsletter']   = 'Розсилання новин';
 $_['text_powered']      = '%s &copy; %s';
 $_['text_contactus']      = "Зв'язок з нами";
 $_['text_subscribe']      = 'Підпишись на наші новини';
-$_['text_subscribe_email']      = 'Введи свій email тут...';
+$_['text_subscribe_email']   = 'Введи свій email тут...';
 
