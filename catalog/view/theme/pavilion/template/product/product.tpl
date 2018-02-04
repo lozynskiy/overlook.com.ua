@@ -906,7 +906,6 @@
         return false;
     });
     $('#image-gallery a:first').addClass('active');
-
     //--></script>
 <script type="text/javascript">
     $('.attributes select').change(function(){
@@ -927,7 +926,7 @@
 <?php if(isset($sizechart) && !empty($sizechart)){ ?>
 <div id="sizeChartModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content post-body">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"></button>
                 <span class="modal-title"><?php echo $text_sizechart; ?></span>
