@@ -1485,7 +1485,7 @@ line-height: 20px;
 .product-grid .item-box .picture a:before {
 	content: "";
 	display: block;
-	padding-top: 132%;
+	padding-top: 147%;
 }
 .item-box .picture img {
 	position: absolute;
