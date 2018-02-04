@@ -905,7 +905,7 @@
         $.fancybox(ez.getGalleryList());
         return false;
     });
-    $('#image-gallery a').addClass('active');
+    $('#image-gallery a:first').addClass('active');
 
     //--></script>
 <script type="text/javascript">
