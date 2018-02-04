@@ -900,12 +900,13 @@
         zoomWindowHeight: $("#product").outerHeight(),
         borderSize: 2
     });
-    $("#zoom").bind("click", function(e) {
-        var ez =   $('#zoom').data('elevateZoom');
+    $("#zoom").on("click", function() {
+        var ez = $('#zoom').data('elevateZoom');
         $.fancybox(ez.getGalleryList());
         return false;
     });
     $('#image-gallery a:first').addClass('active');
+
     //--></script>
 <script type="text/javascript">
     $('.attributes select').change(function(){

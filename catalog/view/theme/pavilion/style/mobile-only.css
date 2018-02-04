@@ -456,9 +456,6 @@ body{
 .sublist-wrap .slider-wrapper{
 	display:none;
 }
-#zoom {
-	pointer-events: none;
-}
 .order-completed-info,
 .method-list textarea {
     margin: 0 auto;
