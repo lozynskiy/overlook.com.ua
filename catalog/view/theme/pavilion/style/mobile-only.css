@@ -451,6 +451,8 @@ body{
     .sublist-wrap .picture-title-wrap {
 	display:none;
 }
+.zoomContainer,
+.zoomWindowContainer,
 .sublist-wrap .slider-wrapper{
 	display:none;
 }

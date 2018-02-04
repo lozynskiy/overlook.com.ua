@@ -37,37 +37,32 @@
                         <?php $class = 'col-sm-8'; ?>
                     <?php } ?>
                     <div class="product-essential">
-                        <div class="gallery sevenspikes-cloudzoom-gallery">
+                        <div class="gallery">
                             <?php if ($thumb || $images) { ?>
                                 <div class="picture-wrapper">
                                     <?php if ($thumb) { ?>
-                                        <a class="fancybox" rel="gallery"
-                                           title="<?php echo $heading_title; ?>">
-                                            <img class="main-thumbnail" data-zoom-image="<?php echo $popup; ?>"
-                                                 itemprop="image" src="<?php echo $thumb; ?>"
+                                            <img id="zoom" class="main-thumbnail"
+                                                 data-zoom-image="<?php echo $popup; ?>"
+                                                 src="<?php echo $thumb; ?>"
                                                  title="<?php echo $heading_title; ?>"
                                                  alt="<?php echo $heading_title; ?>"/>
-                                        </a>
                                     <?php } ?>
                                 </div>
-
                                 <?php if ($images) { ?>
                                     <div id="image-gallery" class="picture-thumbs in-carousel owl-carousel owl-theme">
                                         <?php if ($thumb) { ?>
-                                            <a class="fancybox"
+                                            <a class="gallery-item"
                                                data-image="<?php echo $thumb; ?>"
-                                               data-zoom-image="<?php echo $popup; ?>"
-                                               title="<?php echo $heading_title; ?>">
+                                               data-zoom-image="<?php echo $popup; ?>">
                                                 <img src="<?php echo $mini_thumb; ?>"
                                                      title="<?php echo $heading_title; ?>"
                                                      alt="<?php echo $heading_title; ?>"/>
                                             </a>
                                         <?php } ?>
                                         <?php foreach ($images as $image) { ?>
-                                            <a class="fancybox" rel="gallery"
+                                            <a class="gallery-item"
                                                data-image="<?php echo $image['image']; ?>"
-                                               data-zoom-image="<?php echo $image['popup']; ?>"
-                                               title="<?php echo $heading_title; ?>">
+                                               data-zoom-image="<?php echo $image['popup']; ?>">
                                                 <img src="<?php echo $image['thumb']; ?>"
                                                      title="<?php echo $heading_title; ?>"
                                                      alt="<?php echo $heading_title; ?>"/>
@@ -895,24 +890,22 @@
             }
         });
     });
-    if (window.innerWidth > 992) {
-        $('.main-thumbnail').elevateZoom({
-            gallery: 'image-gallery',
-            zoomWindowWidth: $(".overview").outerWidth(),
-            zoomWindowHeight: $(".overview").outerHeight(),
-            cursor: 'pointer',
-            galleryActiveClass: 'active',
-            imageCrossfade: true
-        });
-        $('.main-thumbnail').bind("click", function (e) {
-            var ez = $('.main-thumbnail').data('elevateZoom');
-            $.fancybox(ez.getGalleryList());
-            return false;
-        });
-    } else {
-        $('.fancybox').fancybox({});
-    }
-    ;
+    $("#zoom").elevateZoom({
+        gallery:'image-gallery',
+        cursor: 'pointer',
+        galleryActiveClass: 'active',
+        imageCrossfade: true,
+        zoomWindowPosition: "product",
+        zoomWindowWidth: $("#product").outerWidth(),
+        zoomWindowHeight: $("#product").outerHeight(),
+        borderSize: 2
+    });
+    $("#zoom").bind("click", function(e) {
+        var ez =   $('#zoom').data('elevateZoom');
+        $.fancybox(ez.getGalleryList());
+        return false;
+    });
+
     //--></script>
 <script type="text/javascript">
     $('.attributes select').change(function(){
@@ -922,7 +915,7 @@
         }
     })
     $(document).ready(function () {
-        $('.attributes .option-list').delegate('input', 'click', function (event) {
+        $('.attributes .option-list').delegate('input', 'click', function () {
             $(this).closest('.option-list').find('li').removeClass('selected-value');
             $(this).closest('li').addClass('selected-value');
         });

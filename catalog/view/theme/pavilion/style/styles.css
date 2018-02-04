@@ -1878,6 +1878,12 @@ margin: 10px 0;
 	margin: 0 5px 10px;
 	overflow: hidden;
 }
+.gallery .gallery-item{
+	border: 2px solid #fff
+}
+.gallery .gallery-item.active{
+	border: 2px solid #888
+}
 .gallery .picture-thumbs img {
 	/* position: absolute; */
 	top: 0;
