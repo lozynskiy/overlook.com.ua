@@ -5856,7 +5856,8 @@ button.close {
 }
 .modal-title {
   margin: 0;
-  line-height: 1.42857143;
+  /* line-height: 1.42857143; */
+  font-size: 18px;
 }
 .modal-body {
   position: relative;
