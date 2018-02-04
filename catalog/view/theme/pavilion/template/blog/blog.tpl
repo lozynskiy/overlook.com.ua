@@ -190,9 +190,6 @@
                         </div>
                     <?php } ?>
                     <!-- Related Products End -->
-
-
-
                     <?php if ($related_blogs) { ?>
                         <div class="comment-list">
                             <div class="title">
@@ -259,28 +256,18 @@
                                 <div class="inputs">
                                     <label for="input-name"><?php echo $entry_name; ?><span
                                                 class="required">*</span></label>
-                                    <input type="text" name="name" value="" id="input-name"/>
+                                    <input type="text" name="name" value="<?php echo $customer_name; ?>" id="input-name"/>
                                 </div>
                                 <div class="inputs">
                                     <label for="input-email"><?php echo $entry_email; ?><span
                                                 class="required">*</span></label>
-                                    <input type="text" name="email" value="" id="input-email"/>
+                                    <input type="text" name="email" value="<?php echo $customer_email; ?>" id="input-email"/>
                                 </div>
 
                                 <div class="inputs">
                                     <label for="input-review"><?php echo $entry_comment; ?><span
                                                 class="required">*</span></label>
                                     <textarea name="comment" rows="5" id="input-comment"></textarea>
-                                </div>
-
-
-                                <div class="inputs">
-                                    <label for="input-captcha_comment"><?php echo $entry_captcha; ?><span
-                                                class="required">*</span></label>
-                                    <span class="captcha_wrap"><img src="index.php?route=blog/blog/captcha" alt=""
-                                                                    id="captcha_comment"/></span>
-                                    <input type="text" name="captcha_comment" value=""
-                                           id="input-captcha_comment"/>
                                 </div>
 
                                 <div class="buttons">
@@ -325,9 +312,8 @@
 
             complete: function () {
                 $('#button-comment').button('reset');
-                $('#captcha_comment').attr('src', 'index.php?route=blog/blog/captcha#' + new Date().getTime());
 
-                $('input[name=\'captcha_comment\']').val('');
+                $("html,body").animate({scrollTop: (($(".notifications").offset().top) - 50)}, 500);
             },
             success: function (json) {
                 $('.alert-success, .alert-danger').remove();
@@ -342,7 +328,6 @@
                     $('input[name=\'name\']').val('');
                     $('input[name=\'email\']').val('');
                     $('textarea[name=\'comment\']').val('');
-                    $('input[name=\'captcha_comment\']').val('');
                 }
                 $("html,body").animate({scrollTop: (($(".notifications").offset().top) - 50)}, 500);
             }
