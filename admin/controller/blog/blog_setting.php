@@ -126,6 +126,8 @@ class ControllerBlogBlogSetting extends Controller {
 		$this->load->model('localisation/language');
 		
 		$data['languages'] = $this->model_localisation_language->getLanguages();
+
+        $data['ckeditor'] = $this->config->get('config_editor_default');
 		
 		if (isset($this->request->post['blogsetting_home_title'])) {
 			$data['blogsetting_home_title'] = $this->request->post['blogsetting_home_title'];
