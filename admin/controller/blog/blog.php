@@ -290,6 +290,16 @@ class ControllerBlogBlog extends Controller {
 	}
 
 	private function getForm() {
+        //CKEditor
+        if ($this->config->get('config_editor_default')) {
+            $this->document->addScript('view/javascript/ckeditor/ckeditor.js');
+            $this->document->addScript('view/javascript/ckeditor/ckeditor_init.js');
+        } else {
+            $this->document->addScript('view/javascript/summernote/summernote.js');
+            $this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
+            $this->document->addScript('view/javascript/summernote/opencart.js');
+            $this->document->addStyle('view/javascript/summernote/summernote.css');
+        }
 		$data['heading_title'] = $this->language->get('heading_title');
 		$data['heading_form'] = $this->language->get('heading_form');
 
@@ -398,8 +408,11 @@ class ControllerBlogBlog extends Controller {
 		$this->load->model('localisation/language');
 		
 		$data['languages'] = $this->model_localisation_language->getLanguages();
-		
-		if (isset($this->request->post['blog_description'])) {
+
+        $data['ckeditor'] = $this->config->get('config_editor_default');
+
+
+        if (isset($this->request->post['blog_description'])) {
 			$data['blog_description'] = $this->request->post['blog_description'];
 		} elseif (isset($this->request->get['blog_id'])) {
 			$data['blog_description'] = $this->model_blog_blog->getBlogDescriptions($this->request->get['blog_id']);

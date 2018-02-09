@@ -1,62 +1,24 @@
-﻿/*
-Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
-
-CKEDITOR.editorConfig = function( config )
-{
-	// Define changes to default configuration here. For example:
-	// config.language = 'fr';
-	// config.uiColor = '#AADC6E';
-	/*
-	config.filebrowserBrowseUrl = 'index.php?route=common/filemanager';
-	config.filebrowserImageBrowseUrl = 'index.php?route=common/filemanager';
-	config.filebrowserFlashBrowseUrl = 'index.php?route=common/filemanager';
-	config.filebrowserUploadUrl = 'index.php?route=common/filemanager';
-	config.filebrowserImageUploadUrl = 'index.php?route=common/filemanager';
-	config.filebrowserFlashUploadUrl = 'index.php?route=common/filemanager';		
-	*/
+CKEDITOR.editorConfig = function( config ) {
+	config.height = '400'
 	
-	config.filebrowserWindowWidth = '800';
-	config.filebrowserWindowHeight = '500';
-
-	config.resize_enabled = false;
-	
-	config.htmlEncodeOutput = false;
-	config.entities = false;
-	
-	config.toolbar = 'Custom';
-
-	config.toolbar_Custom = [
-		['Source'],
-		['Maximize'],
-		['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-		['NumberedList','BulletedList','-','Outdent','Indent'],
-		['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
-		['SpecialChar'],
+	config.allowedContent=true;
+	config.toolbarGroups = [
+		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+		{ name: 'forms', groups: [ 'forms' ] },
+		{ name: 'insert', groups: [ 'insert' ] },
 		'/',
-		['Undo','Redo'],
-		['Font','FontSize'],
-		['TextColor','BGColor'],
-		['Link','Unlink','Anchor'],
-		['Image','Table','HorizontalRule']
-	];
-	
-	config.toolbar_Full = [
-		['Source','-','Save','NewPage','Preview','-','Templates'],
-		['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
-		['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-		['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+		{ name: 'links', groups: [ 'links' ] },
 		'/',
-		['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-		['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
-		['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-		['Link','Unlink','Anchor'],
-		['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
-		'/',
-		['Styles','Format','Font','FontSize'],
-		['TextColor','BGColor'],
-		['Maximize', 'ShowBlocks','-','About']
+		{ name: 'styles', groups: [ 'styles' ] },
+		{ name: 'colors', groups: [ 'colors' ] },
+		{ name: 'tools', groups: [ 'tools' ] },
+		{ name: 'others', groups: [ 'others' ] },
+		{ name: 'about', groups: [ 'about' ] }
 	];
 
+	config.removeButtons = 'Save,NewPage,Print,Templates,Paste,Copy,Cut,Undo,Redo,Form,Checkbox,Radio,TextField,Textarea,Button,ImageButton,HiddenField,Select,CreateDiv,BidiRtl,BidiLtr,Language,Flash,Iframe';
 };

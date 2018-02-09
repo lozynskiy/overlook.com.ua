@@ -36,6 +36,7 @@
 
 .fancybox-opened {
 	z-index: 8030;
+	max-width: 100%;
 }
 
 .fancybox-opened .fancybox-skin {
@@ -50,6 +51,7 @@
 
 .fancybox-inner {
 	overflow: hidden;
+	max-width: 100%;
 }
 
 .fancybox-type-iframe .fancybox-inner {
@@ -182,6 +184,7 @@
 	position: fixed;
 	bottom: 0;
 	right: 0;
+	max-width: 100% !important;
 }
 
 .fancybox-lock .fancybox-overlay {
