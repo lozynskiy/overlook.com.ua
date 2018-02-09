@@ -551,25 +551,6 @@
 <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script>
-<script type="text/javascript"><!--
-<?php foreach ($languages as $language) { ?>
-$('#block<?php echo $language['language_id']; ?>').summernote({
-	height: 250,
-	  toolbar: [
-    ['style', ['style']], // no style button
-    ['style', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-    ['fontsize', ['fontsize']],
-	['fontname', ['fontname']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['height', ['height']], 
-	['table', ['table']], // no table button
-    ['insert', ['picture', 'link', 'video', 'hr']], // no insert buttons
-	['codeview', ['fullscreen', 'codeview']] //no help button
-  ]
-});
-<?php } ?>
-//--></script>
 
 
 <?php echo $footer; ?>
