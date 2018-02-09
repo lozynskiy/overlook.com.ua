@@ -25,6 +25,17 @@ class ControllerBlogBlogSetting extends Controller {
 
 			$this->response->redirect($this->url->link('blog/blog_setting', 'token=' . $this->session->data['token'], 'SSL'));
 		}
+
+        //CKEditor
+        if ($this->config->get('config_editor_default')) {
+            $this->document->addScript('view/javascript/ckeditor/ckeditor.js');
+            $this->document->addScript('view/javascript/ckeditor/ckeditor_init.js');
+        } else {
+            $this->document->addScript('view/javascript/summernote/summernote.js');
+            $this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
+            $this->document->addScript('view/javascript/summernote/opencart.js');
+            $this->document->addStyle('view/javascript/summernote/summernote.css');
+        }
 	
 		$data['heading_title'] = $this->language->get('heading_title');
 		$data['heading_blog_home'] = $this->language->get('heading_blog_home');
