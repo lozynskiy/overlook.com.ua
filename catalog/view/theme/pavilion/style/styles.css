@@ -1512,7 +1512,7 @@ line-height: 20px;
     height: 13px;
 }
 .item-box .product-title {
-	height: 40px;
+	min-height: 40px;
 	overflow: hidden;
 	padding: 0 15px;
 	font-size: 14px;
