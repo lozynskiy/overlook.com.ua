@@ -73,7 +73,10 @@ class ControllerSettingSetting extends Controller {
 		$data['text_error'] = $this->language->get('text_error');
 		$data['text_summer_note'] = $this->language->get('text_summer_note');
 		$data['text_ckeditor'] = $this->language->get('text_ckeditor');
+        $data['text_stock_display_as_text'] = $this->language->get('text_stock_display_as_text');
+        $data['text_stock_display_as_count'] = $this->language->get('text_stock_display_as_count');
 
+        $data['entry_stock_display_as'] = $this->language->get('entry_stock_display_as');
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_owner'] = $this->language->get('entry_owner');
 		$data['entry_address'] = $this->language->get('entry_address');
@@ -896,10 +899,16 @@ class ControllerSettingSetting extends Controller {
 		$data['apis'] = $this->model_user_api->getApis();
 
 		if (isset($this->request->post['config_stock_display'])) {
-			$data['config_stock_display'] = $this->request->post['config_stock_display'];
-		} else {
-			$data['config_stock_display'] = $this->config->get('config_stock_display');
-		}
+            $data['config_stock_display'] = $this->request->post['config_stock_display'];
+        } else {
+            $data['config_stock_display'] = $this->config->get('config_stock_display');
+        }
+
+        if (isset($this->request->post['config_stock_display_as'])) {
+            $data['config_stock_display_as'] = $this->request->post['config_stock_display_as'];
+        } else {
+            $data['config_stock_display_as'] = $this->config->get('config_stock_display_as');
+        }
 
 		if (isset($this->request->post['config_stock_warning'])) {
 			$data['config_stock_warning'] = $this->request->post['config_stock_warning'];

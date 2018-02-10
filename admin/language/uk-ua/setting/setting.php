@@ -41,8 +41,11 @@ $_['text_general']                 = 'General';
 $_['text_security']                = 'Security';
 $_['text_upload']                  = 'Uploads';
 $_['text_error']                   = 'Error Handling';
+$_['text_stock_display_as_text']       = 'Як текст';
+$_['text_stock_display_as_count']      = 'Як кількість';
 
 // Entry
+$_['entry_stock_display_as']           = 'Відображати залишки як';
 $_['entry_meta_title']                 = 'Мета Тайтл';
 $_['entry_meta_description']           = 'Мета Тег Опис';
 $_['entry_meta_keyword']               = 'Мета Тег ключові слова';

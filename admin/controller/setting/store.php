@@ -205,7 +205,10 @@ class ControllerSettingStore extends Controller {
 		$data['text_stock'] = $this->language->get('text_stock');
 		$data['text_shipping'] = $this->language->get('text_shipping');
 		$data['text_payment'] = $this->language->get('text_payment');
+        $data['text_stock_display_as_text'] = $this->language->get('text_stock_display_as_text');
+        $data['text_stock_display_as_count'] = $this->language->get('text_stock_display_as_count');
 
+        $data['entry_stock_display_as'] = $this->language->get('entry_stock_display_as');
 		$data['entry_url'] = $this->language->get('entry_url');
 		$data['entry_ssl'] = $this->language->get('entry_ssl');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
@@ -717,6 +720,12 @@ class ControllerSettingStore extends Controller {
 		} else {
 			$data['config_stock_display'] = '';
 		}
+
+        if (isset($this->request->post['config_stock_display_as'])) {
+            $data['config_stock_display_as'] = $this->request->post['config_stock_display_as'];
+        } else {
+            $data['config_stock_display_as'] = $this->config->get('config_stock_display_as');
+        }
 
 		if (isset($this->request->post['config_stock_checkout'])) {
 			$data['config_stock_checkout'] = $this->request->post['config_stock_checkout'];

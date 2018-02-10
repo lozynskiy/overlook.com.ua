@@ -31,6 +31,7 @@ $_['text_semi_month']                         = 'полмесяца';
 $_['text_month']                              = 'месяц';
 $_['text_year']                               = 'год';
 $_['text_sizechart']                          = 'Таблица размеров';
+$_['text_instock_as_text']                    = 'В наличии';
 
 $_['text_out_of_stock_button']                = 'Нет в наличии';
 

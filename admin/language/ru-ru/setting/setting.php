@@ -35,7 +35,12 @@ $_['text_error']                       = 'Обработка ошибок';
 $_['text_summer_note']                 = 'Summer Note';
 $_['text_ckeditor']                    = 'CKEditor';
 
+$_['text_stock_display_as_text']       = 'Как текст';
+$_['text_stock_display_as_count']      = 'Как количество';
+
+
 // Entry
+$_['entry_stock_display_as']           = 'Отображать остатки как';
 $_['entry_name']                       = 'Название магазина:';
 $_['entry_owner']                      = 'Владелец магазина:';
 $_['entry_address']                    = 'Адрес магазина:';
