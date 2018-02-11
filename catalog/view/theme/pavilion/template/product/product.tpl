@@ -627,8 +627,8 @@
    "url":"<?php echo $breadcrumbs[count($breadcrumbs)-1]['href']; ?>",
         "category":"<?php echo $breadcrumbs[count($breadcrumbs)-2]['text']; ?>",
         "image":"<?php echo $popup; ?>",
-        "brand":"<?php echo replace($manufacturer, '"', ''); ?>",
-        "manufacturer":"<?php echo replace($manufacturer, '"', ''); ?>",
+        "brand":"<?php echo str_replace($manufacturer, '"', ''); ?>",
+        "manufacturer":"<?php echo str_replace($manufacturer, '"', ''); ?>",
         "model":"<?php echo $model; ?>",
     <?php if($reviews_count > 0)   {?>
         "aggregateRating":{
@@ -637,7 +637,7 @@
             "reviewCount":"<?php echo $reviews_count; ?>"
         },
       <?php } ?>
-        "description":"<?php echo replace(strip_tags($description), '"', ''); ?>",
+        "description":"<?php echo str_replace(strip_tags($description), '"', ''); ?>",
         "name":"<?php echo $heading_title; ?>",
         "offers":{
             "@type":"Offer",
@@ -668,8 +668,8 @@
                 <?php $ai = 1; foreach ($attribute_group['attribute'] as $attribute) {?>
                      {
                      "@type":"PropertyValue",
-                     "name":"<?php echo replace($attribute['name'], '"', ''); ?>",
-                     "value":"<?php echo replace($attribute['text'], '"', ''); ?>"
+                     "name":"<?php echo str_replace($attribute['name'], '"', ''); ?>",
+                     "value":"<?php echo str_replace($attribute['text'], '"', ''); ?>"
                   } <?php if($ai != count($attribute_group['attribute'] ) or $ag != count($attribute_groups)) { ?>,<?php } ?>
                     <?php $ai++; } ?>
                 <?php $ag++;} ?>
