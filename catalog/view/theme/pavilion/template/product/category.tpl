@@ -259,7 +259,12 @@
                                     "offers": {
                                         "@type": "Offer",
                                         "price": "<?php echo filter_var($product['price'], FILTER_SANITIZE_NUMBER_INT); ?>",
-                                        "priceCurrency": "<?php echo $price_currency; ?>"
+                                        "priceCurrency": "<?php echo $price_currency; ?>",
+                                        "itemCondition": "http://schema.org/NewCondition",
+                                        "seller": {
+                                            "@type": "Organization",
+                                            "name": "<?php echo str_replace('"', '', $breadcrumbs[0]['text']); ?>"
+                                        }
                                     }
                                 }<?php echo ($pi != count($products)) ? ',' : ''; ?>
                                 <?php $pi++; } ?>

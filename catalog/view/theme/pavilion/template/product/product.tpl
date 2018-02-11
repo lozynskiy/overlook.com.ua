@@ -643,7 +643,12 @@
             "@type":"Offer",
             "availability":"http://schema.org/<?php echo ($allow_checkout) ? "InStock" : "OutOfStock"; ?>",
             "price":"<?php echo filter_var($price, FILTER_SANITIZE_NUMBER_INT); ?>",
-            "priceCurrency":"<?php echo $price_currency; ?>"
+            "priceCurrency":"<?php echo $price_currency; ?>",
+            "itemCondition": "http://schema.org/NewCondition",
+            "seller": {
+                "@type": "Organization",
+                "name": "<?php echo str_replace('"', '', $breadcrumbs[0]['text']); ?>"
+            }
         }
         <?php if (isset($microdata_reviews) && $microdata_reviews && $config_product_reviews)  {?>,
             "review":[
