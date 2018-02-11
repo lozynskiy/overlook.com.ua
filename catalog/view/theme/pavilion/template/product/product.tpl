@@ -642,7 +642,7 @@
         "offers":{
             "@type":"Offer",
             "availability":"http://schema.org/<?php echo ($allow_checkout) ? "InStock" : "OutOfStock"; ?>",
-            "price":"<?php echo $price_unformated; ?>",
+            "price":"<?php echo ceil($price_unformated); ?>",
             "priceCurrency":"<?php echo $price_currency; ?>"
         }
         <?php if (isset($microdata_reviews) && $microdata_reviews && $config_product_reviews)  {?>,
