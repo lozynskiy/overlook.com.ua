@@ -914,7 +914,7 @@
         $('#image-gallery').owlCarousel({
             loop: false,
             nav: false,
-            dots: false,
+            dots: true,
             navText: ['<i class="fa fa-chevron-left fa-1x"></i>', '<i class="fa fa-chevron-right fa-1x"></i>'],
             responsiveClass: true,
             responsive: {
