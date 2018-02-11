@@ -974,7 +974,7 @@
         imageCrossfade: true,
         zoomWindowPosition: "product",
         zoomWindowWidth: $("#product").outerWidth(),
-        zoomWindowHeight: $("#product").outerHeight(),
+        zoomWindowHeight: $(".picture-wrapper").outerHeight(),
         borderSize: 2
     });
     $("#zoom").on("click", function() {
