@@ -135,6 +135,7 @@
 .admin-header-links a {
 	color: #444;
 }
+.header-telephone-wrapper,
 .header-links-wrapper,
 .header-selectors-wrapper {
 	position: relative;
@@ -143,6 +144,7 @@
 	margin: 0 0 0 20px;
 	transition: all 0.2s ease;
 }
+.header-telephone-wrapper label,
 .header-links-wrapper label,
 .header-selectors-wrapper label {
 	display: block;
@@ -150,6 +152,9 @@
 	background-image: url('../image/header-sprite-2.png');
 	background-repeat: no-repeat;
 	line-height: 42px;
+}
+.header-telephone-wrapper{
+	float:left;
 }
 .header-links-wrapper label {
 	background-position: left 0;
@@ -818,7 +823,7 @@
 	padding: 6px 0;
 }
 .footer-block.quick-contact li {
-	padding: 6px 0 16px;
+	padding: 6px 0 10px;
 }
 .footer-block.quick-contact span {
 	padding: 0 0 0 28px;

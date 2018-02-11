@@ -74,6 +74,16 @@
     <div class="header-upper" id="top">
         <div class="center">
             <div id="top-links">
+                <?php if ($telephone_lifecell) { ?>
+                <div class="header-telephone-wrapper lifecell">
+                    <label><?php echo $telephone_lifecell; ?></label>
+                </div>
+                <?php } ?>
+                <?php if ($telephone_kyivstar) { ?>
+                <div class="header-telephone-wrapper kyivstar">
+                    <label><?php echo $telephone_kyivstar; ?></label>
+                </div>
+                <?php } ?>
                 <div class="header-selectors-wrapper">
                     <label><?php echo $text_preferences; ?></label>
                     <div class="header-selectors">
@@ -89,7 +99,6 @@
                                        href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
                                 </li>
                                 <li><a class="ico-logout" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a>
-                                </li>
                                 </li>
                             <?php } else { ?>
                             <li><a class="ico-register"
@@ -287,9 +296,6 @@
                                 <?php } ?>
                             <?php } ?>
                         <?php } ?>
-                        <li>
-                            <span id="phone"><i class="fa fa-phone contacts-fa"></i><?php echo $telephone; ?></span>
-                        </li>
                         <li>
                             <span id="phone"><i class="fa fa-clock-o"></i><?php echo $open; ?></span>
                         </li>

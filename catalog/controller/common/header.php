@@ -98,6 +98,8 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+        $data['telephone_lifecell'] = $this->config->get('config_telephone_lifecell');
+        $data['telephone_kyivstar'] = $this->config->get('config_telephone_kyivstar');
 		$data['open'] = $this->config->get('config_open');
 		
 		$data['ga_exclude_admin'] = $this->config->get('google_analytics_exclude_admin');

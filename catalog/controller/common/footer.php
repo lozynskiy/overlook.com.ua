@@ -22,7 +22,9 @@ class ControllerCommonFooter extends Controller {
 		$data['text_contactus'] = $this->language->get('text_contactus');
 		$data['text_subscribe'] = $this->language->get('text_subscribe');
 		$data['text_subscribe_email'] = $this->language->get('text_subscribe_email');
-		
+
+        $data['telephone_lifecell'] = $this->config->get('config_telephone_lifecell');
+        $data['telephone_kyivstar'] = $this->config->get('config_telephone_kyivstar');
 		$data['telephone'] = $this->config->get('config_telephone');
         $data['fax'] = $this->config->get('config_fax');
         $data['email'] = $this->config->get('config_email');

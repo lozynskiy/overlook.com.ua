@@ -103,9 +103,11 @@
             <div class="footer-block quick-contact">
                 <strong class="title"><?php echo $text_contactus; ?></strong>
                 <ul class="list">
-                    <li class="address"><span><?php echo $address; ?></span></li>
+                    <!--li class="address"><span><?php echo $address; ?></span></li!-->
                     <li class="email"><span><?php echo $email; ?></span></li>
-                    <li class="phone"><span><?php echo $telephone; ?></span></li>
+                    <!--li class="phone"><span><?php echo $telephone; ?></span></li!-->
+                    <li class="phone_lifecell"><span><?php echo $telephone_lifecell; ?></span></li>
+                    <li class="phone_kyivstar"><span><?php echo $telephone_kyivstar; ?></span></li>
                     <!--li><span><?php echo $open; ?></span></li>
                                     <li><span> </span></li>
                                     <li><span> </span></li!-->

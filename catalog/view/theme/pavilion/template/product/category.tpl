@@ -252,6 +252,7 @@
                                 <?php $pi = 1; foreach($products as $product){ ?>
                                 {
                                     "@type": "Product",
+                                    "position": <?php echo $pi; ?>,
                                     "image": "<?php echo $product['thumb']; ?>",
                                     "url": "<?php echo $product['href']; ?>",
                                     "name": "<?php echo str_replace('"', '', $product['name']); ?>",

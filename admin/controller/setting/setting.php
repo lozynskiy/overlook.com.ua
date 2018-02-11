@@ -83,6 +83,8 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_geocode'] = $this->language->get('entry_geocode');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+        $data['entry_telephone_lifecell'] = $this->language->get('entry_telephone_lifecell');
+        $data['entry_telephone_kyivstar'] = $this->language->get('entry_telephone_kyivstar');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_open'] = $this->language->get('entry_open');
@@ -559,10 +561,22 @@ class ControllerSettingSetting extends Controller {
 		}
 
 		if (isset($this->request->post['config_telephone'])) {
-			$data['config_telephone'] = $this->request->post['config_telephone'];
-		} else {
-			$data['config_telephone'] = $this->config->get('config_telephone');
-		}
+            $data['config_telephone'] = $this->request->post['config_telephone'];
+        } else {
+            $data['config_telephone'] = $this->config->get('config_telephone');
+        }
+
+        if (isset($this->request->post['config_telephone_lifecell'])) {
+            $data['config_telephone_lifecell'] = $this->request->post['config_telephone_lifecell'];
+        } else {
+            $data['config_telephone_lifecell'] = $this->config->get('config_telephone_lifecell');
+        }
+
+        if (isset($this->request->post['config_telephone_kyivstar'])) {
+            $data['config_telephone_kyivstar'] = $this->request->post['config_telephone_kyivstar'];
+        } else {
+            $data['config_telephone_kyivstar'] = $this->config->get('config_telephone_kyivstar');
+        }
 
 		if (isset($this->request->post['config_fax'])) {
 			$data['config_fax'] = $this->request->post['config_fax'];

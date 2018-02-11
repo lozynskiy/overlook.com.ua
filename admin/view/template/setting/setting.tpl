@@ -256,6 +256,24 @@
                                     <?php } ?>
                                 </div>
                             </div>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label"
+                                       for="input-telephone"><?php echo $entry_telephone_lifecell; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="config_telephone_lifecell" value="<?php echo $config_telephone_lifecell; ?>"
+                                           placeholder="<?php echo $entry_telephone_lifecell; ?>" id="input-telephone_lifecell"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label"
+                                       for="input-telephone"><?php echo $entry_telephone_kyivstar; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="config_telephone_kyivstar" value="<?php echo $config_telephone_kyivstar; ?>"
+                                           placeholder="<?php echo $entry_telephone_kyivstar; ?>" id="input-telephone_kyivstar"
+                                           class="form-control"/>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
                                 <div class="col-sm-10">

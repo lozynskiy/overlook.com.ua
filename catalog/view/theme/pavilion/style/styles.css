@@ -1111,7 +1111,14 @@ line-height: 20px;
 .footer-block .phone span:before {
 	background-position: center -33px;
 }
-
+.footer-block .phone_lifecell span:before {
+	background-image: url(../image/lifecell_16.png);
+	background-color: transparent;
+}
+.footer-block .phone_kyivstar span:before {
+	background-image: url(../image/kyivstar_16.png);
+	background-color: transparent;
+}
 .footer-lower {
 	overflow: hidden;
 	background-color: #eee;
@@ -6090,12 +6097,32 @@ color: #333;
     color: #f93b54;
     font-size: 18px;
 }
-.header-links-wrapper, .header-selectors-wrapper {
+.header-telephone-wrapper,
+.header-links-wrapper,
+.header-selectors-wrapper {
     position: relative;
     float: right;
     height: 42px;
     margin: 0 0 0 20px;
     transition: all 0.2s ease;
+}
+.header-telephone-wrapper{
+	float:left;
+}
+.header-telephone-wrapper.lifecell label{
+	float:left;
+	background-image: url(../image/lifecell.png);
+	padding: 0 0 0 25px;
+	font-weight: bold;
+}
+.header-telephone-wrapper.kyivstar label{
+	float:left;
+	background-image: url(../image/kyivstar.png);
+	padding: 0 0 0 25px;
+	font-weight: bold;
+}
+.header-telephone-wrapper:first-child{
+	margin:0;
 }
 .method-list textarea{max-width: 480px;width: 100%;display:block;}
 
