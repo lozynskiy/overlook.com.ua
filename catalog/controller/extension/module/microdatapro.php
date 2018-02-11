@@ -18,7 +18,7 @@ class ControllerExtensionModuleMicrodataPro extends Controller
         } else {
             $route = "common/home";
         }
-        $this->data['echo'] = '';
+        $this->data['echo'] = ' ';
 
         $this->data['glob_route'] = $route;
 
