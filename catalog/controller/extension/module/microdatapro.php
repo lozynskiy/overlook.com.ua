@@ -240,7 +240,7 @@ class ControllerExtensionModuleMicrodataPro extends Controller
 
                 $this->data['breadcrumbs'] = $d ? $this->breadcrumbs('category') : false;
                 
-                if (!$category_info['description']) {
+                if (!isset($category_info['description'])) {
                     $category_info['description'] = ' ';
                 }
 
