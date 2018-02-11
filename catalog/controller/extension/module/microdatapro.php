@@ -239,8 +239,13 @@ class ControllerExtensionModuleMicrodataPro extends Controller
                 $this->data['category_info'] = $category_info = $this->category_info();
 
                 $this->data['breadcrumbs'] = $d ? $this->breadcrumbs('category') : false;
+                
+                if (!$category_info['description']) {
+                    $category_info['description'] = ' ';
+                }
 
                 $strp = strip_tags(html_entity_decode($category_info['description']));
+                
                 $this->data['microdata_description'] = @$this->microdatapro->clear((isset($category_info['description']) and !empty($strp)) ? $category_info['description'] : $this->config->get('config_microdata_category_description'), true);
 
                 $this->data['echo'] = '';
