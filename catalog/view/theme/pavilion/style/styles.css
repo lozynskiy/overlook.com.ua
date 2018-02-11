@@ -6397,3 +6397,50 @@ text-decoration: line-through;
 .opc .section.shipping-method{
 	margin: 0;
 }
+
+#sizeChartModal .table {
+  overflow: hidden;
+}
+
+#sizeChartModal .table tr:hover {
+  background-color: #f5f5f5;
+}
+
+#sizeChartModal .table td, 
+#sizeChartModal .table th {
+  position: relative;
+}
+#sizeChartModal .table td:hover::after,
+#sizeChartModal .table th:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #f5f5f5;
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+#sizeChartModal .table td:focus::after,
+#sizeChartModal .table th:focus::after { 
+  content: '';  
+  background-color: #f5f5f5;
+  position: absolute;  
+  left: 0;
+  height: 10000px;
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
+
+#sizeChartModal .table td:focus::before {
+  background-color: #f5f5f5;
+  content: '';  
+  height: 100%;
+  top: 0;
+  left: -5000px;
+  position: absolute;  
+  width: 10000px;
+  z-index: -1;
+}

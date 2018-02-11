@@ -1015,5 +1015,12 @@
         </div>
     </div>
 </div>
+    <script>
+        if (screen.width < 1000) {
+            $("#sizeChartModal .table td, #sizeChartModal .table th").attr("tabindex", "1").on("touchstart", function () {
+                $(this).focus();
+            });
+        }
+    </script>
 <?php } ?>
 <?php echo $footer; ?>

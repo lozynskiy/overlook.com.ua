@@ -5800,6 +5800,7 @@ button.close {
   max-width: 90%;
   display: inline-block;
   margin: 30px auto;
+  vertical-align: middle;
 }
 .modal-content {
   position: relative;
@@ -5887,7 +5888,8 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    min-width: 600px;
+    max-width: 90%;
     /* margin: 30px auto; */
     vertical-align: middle;
   }
