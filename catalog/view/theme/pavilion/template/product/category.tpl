@@ -18,6 +18,24 @@
                 <?php } ?>
             <?php } ?>
         </ul>
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                <?php $bi = 1; foreach ($breadcrumbs as $breadcrumb) { ?>
+                {
+                    "@type": "ListItem",
+                    "position": <?php echo $bi; ?>,
+                    "item": {
+                        "@id": "<?php echo $breadcrumb['href']; ?>",
+                        "name": "<?php echo $breadcrumb['text']; ?>"
+                    }
+                }<?php echo ($bi != count($breadcrumbs)) ? ',' : '' ?>
+                <?php $bi++; } ?>
+            ]
+        }
+    </script>
     </div>
     <div class="master-column-wrapper">
         <?php echo $column_left; ?>

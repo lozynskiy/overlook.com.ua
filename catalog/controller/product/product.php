@@ -8,7 +8,7 @@ class ControllerProductProduct extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
+			'text' => $this->config->get('config_name'),
 			'href' => $this->url->link('common/home')
 		);
 
@@ -315,19 +315,18 @@ class ControllerProductProduct extends Controller {
 
 			if ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
+                $this->document->setOgImage($data['popup']);
 			} else {
 				$data['popup'] = '';
 			}
 
 			if ($product_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
-				$this->document->setOgImage($data['thumb']);
 			} else {
 				$data['thumb'] = '';
 			}
 			if ($product_info['image']) {
 				$data['mini_thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'));
-				$this->document->setOgImage($data['mini_thumb']);
 			} else {
 				$data['mini_humb'] = '';
 			}
@@ -345,9 +344,12 @@ class ControllerProductProduct extends Controller {
 
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
 			} else {
 				$data['price'] = false;
 			}
+            $data['price_unformated'] = $product_info['price'];
+            $data['price_currency'] = $this->session->data['currency'];
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price_0'] = $product_info['price'];
 			} else {
@@ -439,6 +441,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
+            $data['reviews_count'] = (int)$product_info['reviews'];
 
 			// Captcha
 			if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('review', (array)$this->config->get('config_captcha_page'))) {

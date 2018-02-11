@@ -17,6 +17,24 @@
                 <?php } ?>
             <?php } ?>
         </ul>
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                <?php $bi = 1; foreach ($breadcrumbs as $breadcrumb) { ?>
+                {
+                    "@type": "ListItem",
+                    "position": <?php echo $bi; ?>,
+                    "item": {
+                        "@id": "<?php echo $breadcrumb['href']; ?>",
+                        "name": "<?php echo $breadcrumb['text']; ?>"
+                    }
+                }<?php echo ($bi != count($breadcrumbs)) ? ',' : '' ?>
+                <?php $bi++; } ?>
+            ]
+        }
+    </script>
     </div>
     <div class="master-column-wrapper">
         <?php echo $column_left; ?>
@@ -83,7 +101,7 @@
                                 </div>
                             <?php } ?>
                             <div class="product-name">
-                                <h1 itemprop="name"><?php echo $heading_title; ?></h1>
+                                <h1><?php echo $heading_title; ?></h1>
                             </div>
                             <?php if ($review_status) { ?>
                                 <div class="product-reviews-overview">
@@ -455,8 +473,7 @@
                             <div class="tab-pane ui-tabs-panel" id="tab-review">
                                 <div class="product-reviews-page">
                                     <form class="write-review" id="form-review">
-                                        <div class="product-review-list" id="review">
-                                        </div>
+                                        <div class="product-review-list" id="review"></div>
                                         <div class="title">
                                             <strong><?php echo $text_write; ?></strong>
                                         </div>
@@ -604,6 +621,61 @@
             <?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?></div>
 </div>
+<script type="application/ld+json">{
+   "@context":"http://schema.org",
+   "@type":"Product",
+   "url":"<?php echo $breadcrumbs[count($breadcrumbs)-1]['href']; ?>",
+        "category":"<?php echo $breadcrumbs[count($breadcrumbs)-2]['text']; ?>",
+        "image":"<?php echo $popup; ?>",
+        "brand":"<?php echo $manufacturer; ?>",
+        "manufacturer":"<?php echo $manufacturer; ?>",
+        "model":"<?php echo $model; ?>",
+    <?php if($reviews_count > 0)   {?>
+        "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"<?php echo $rating; ?>",
+            "reviewCount":"<?php echo $reviews_count; ?>"
+        },
+      <?php } ?>
+        "description":"<?php echo strip_tags($description); ?>",
+        "name":"<?php echo $heading_title; ?>",
+        "offers":{
+            "@type":"Offer",
+            "availability":"http://schema.org/<?php echo ($allow_checkout) ? "InStock" : "OutOfStock"; ?>",
+            "price":"<?php echo $price_unformated; ?>",
+            "priceCurrency":"<?php echo $price_currency; ?>"
+        }
+        <?php if (isset($microdata_reviews) && $microdata_reviews && $config_product_reviews)  {?>,
+            "review":[
+         <?php $ri = 1; foreach ($microdata_reviews as $review_item) { ?>
+         {
+               "@type":"Review",
+               "author":"<?php echo $review_item['author']; ?>",
+               "datePublished":"<?php echo $review_item['date_added']; ?>",
+               "description":"<?php echo $review_item['text']; ?>",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating":"5",
+                  "ratingValue":"<?php echo $review_item['rating']; ?>",
+                  "worstRating":"1"
+               }
+            } <?php if($ri != count($microdata_reviews)) { ?>,<?php } ?><?php $ri++; } ?>
+      ] <?php }  ?>
+
+        <?php if (isset($attribute_groups)) { ?>,
+         "additionalProperty":[
+            <?php $ag = 1; foreach ($attribute_groups as $attribute_group) {?>
+                <?php $ai = 1; foreach ($attribute_group['attribute'] as $attribute) {?>
+                     {
+                     "@type":"PropertyValue",
+                     "name":"<?php echo $attribute['name']; ?>",
+                     "value":"<?php echo $attribute['text']; ?>"
+                  } <?php if($ai != count($attribute_group['attribute'] ) or $ag != count($attribute_groups)) { ?>,<?php } ?>
+                    <?php $ai++; } ?>
+                <?php $ag++;} ?>
+         ]
+        <?php } ?>
+}</script>
 <script type="text/javascript"><!--
     $('select[name=\'recurring_id\'], input[name="quantity"]').change(function () {
         $.ajax({

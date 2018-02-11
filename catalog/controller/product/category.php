@@ -42,7 +42,7 @@ class ControllerProductCategory extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
+			'text' => $this->config->get('config_name'),
 			'href' => $this->url->link('common/home')
 		);
 

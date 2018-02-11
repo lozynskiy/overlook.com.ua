@@ -12,20 +12,17 @@
     <?php if ($keywords) { ?>
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
     <?php } ?>
-    <!--meta property="og:title" content="<?php echo $title; ?>"/!-->
-    <!--meta property="og:type" content="website"/!-->
+    <meta property="og:title" content="<?php echo $title; ?>"/>
+    <meta property="og:type" content="website"/>
     <meta property="og:url" content="<?php echo $og_url; ?>"/>
-    <?php if ($og_image) { ?>
-        <!--meta property="og:image" content="<?php echo $og_image; ?>"/!-->
-    <?php } else { ?>
-        <!--meta property="og:image" content="<?php echo $logo; ?>"/!-->
-    <?php } ?>
     <meta property="og:site_name" content="<?php echo $name; ?>"/>
-
-    <?php echo $tc_og; ?>
+    <?php if ($og_image) { ?>
+        <meta property="og:image" content="<?php echo $og_image; ?>"/>
+    <?php } else { ?>
+        <meta property="og:image" content="<?php echo $logo; ?>"/>
+    <?php } ?>
 
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/bootstrap.css"/>
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/stylesheet.css"!-->
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/styles.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/mobile-only.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/480.css"/>
@@ -34,7 +31,6 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/1280.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/tables.css"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/ajaxCart.css"/>
-    <!--link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/style/RichBlog.css"/!-->
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"/>
     <link rel="stylesheet" type="text/css"
@@ -51,7 +47,6 @@
         <link rel="<?php echo $link['rel']; ?>" href="<?php echo $link['href']; ?>"/>
     <?php } ?>
 
-
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/common.js"></script>
@@ -60,27 +55,8 @@
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/owl.carousel.min.js"></script>
     <script type="text/javascript" src="catalog/view/theme/pavilion/scripts/analytics.js"></script>
 
-    <!--script type="text/javascript" src="">
-        < ?php $jq = file_get_contents($minifyed_js); echo $jq;?>
-    </script!-->
-
     <?php foreach ($scripts as $script) { ?>
         <script type="text/javascript" src="<?php echo $script; ?>"></script>
-    <?php } ?>
-    <?php if (($ga_cookie == 1) && (!$user_logged || $ga_exclude_admin != 1 && $user_logged))  { ?>
-        <!-- Begin Cookie Consent -->
-        <script type="text/javascript">
-            window.cookieconsent_options = {
-                "message": "We use cookies to ensure you get the best experience on our website",
-                "dismiss": "Got it!",
-                "learnMore": "More info",
-                "link": null,
-                "theme": "dark-bottom"
-            };
-        </script>
-        <script type="text/javascript"
-                src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-        <!-- End Cookie Consent -->
     <?php } ?>
     <?php if ($ga_status && (!$user_logged || $ga_exclude_admin != 1 && $user_logged))  { ?>
         <script>
