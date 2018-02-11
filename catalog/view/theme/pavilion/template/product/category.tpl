@@ -29,13 +29,13 @@
                     "position": <?php echo $bi; ?>,
                     "item": {
                         "@id": "<?php echo $breadcrumb['href']; ?>",
-                        "name": "<?php echo $breadcrumb['text']; ?>"
+                        "name": "<?php echo str_replace('"', '', $breadcrumb['text']); ?>"
                     }
                 }<?php echo ($bi != count($breadcrumbs)) ? ',' : '' ?>
                 <?php $bi++; } ?>
             ]
         }
-    </script>
+        </script>
     </div>
     <div class="master-column-wrapper">
         <?php echo $column_left; ?>
