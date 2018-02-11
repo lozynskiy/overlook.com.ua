@@ -348,8 +348,9 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$data['price'] = false;
 			}
-            $data['price_unformated'] = $product_info['price'];
+
             $data['price_currency'] = $this->session->data['currency'];
+
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price_0'] = $product_info['price'];
 			} else {

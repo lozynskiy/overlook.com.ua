@@ -240,6 +240,33 @@
                                 <?php } ?>
                             </div>
                         <?php } ?>
+                        <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "ItemList",
+                            "name": "<?php echo str_replace('"', '', $heading_title); ?>",
+                            "url": "<?php echo $breadcrumbs[count($breadcrumbs)-1]['href']; ?>",
+                            "description": "<?php echo str_replace('"', '',$description); ?>",
+                            "numberOfItems": "<?php echo count($products); ?>",
+                            "itemListElement": [
+                                <?php $pi = 1; foreach($products as $product){ ?>
+                                {
+                                    "@type": "Product",
+                                    "position": <?php echo $pi; ?>,
+                                    "image": "<?php echo $product['thumb']; ?>",
+                                    "url": "<?php echo $product['href']; ?>",
+                                    "name": "<?php echo str_replace('"', '', $product['name']); ?>",
+                                    "description": "<?php echo str_replace('"', '', $product['description']); ?>",
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": "<?php echo filter_var($product['price'], FILTER_SANITIZE_NUMBER_INT); ?>",
+                                        "priceCurrency": "<?php echo $price_currency; ?>"
+                                    }
+                                }<?php echo ($pi != count($products)) ? ',' : ''; ?>
+                                <?php $pi++; } ?>
+                            ]
+                        }
+                        </script>
                     <?php } ?>
                     <?php if (!$categories && !$products) { ?>
                         <div class="no-data"><?php echo $text_empty; ?></div>
