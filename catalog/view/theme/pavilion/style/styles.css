@@ -6409,6 +6409,7 @@ text-decoration: line-through;
 #sizeChartModal .table td, 
 #sizeChartModal .table th {
   position: relative;
+  text-align: left;
 }
 #sizeChartModal .table td:hover::after,
 #sizeChartModal .table th:hover::after {
@@ -6443,4 +6444,7 @@ text-decoration: line-through;
   position: absolute;  
   width: 10000px;
   z-index: -1;
+}
+.modal-body.post-body{
+	margin:0;
 }

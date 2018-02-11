@@ -1009,7 +1009,7 @@
                 <button type="button" class="close" data-dismiss="modal"></button>
                 <span class="modal-title"><?php echo $text_sizechart; ?></span>
             </div>
-            <div class="modal-body">
+            <div class="modal-body post-body">
                 <?php echo html_entity_decode($sizechart['description'], ENT_QUOTES, 'UTF-8'); ?>
             </div>
         </div>
