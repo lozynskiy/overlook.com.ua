@@ -273,6 +273,12 @@ class ControllerCommonHeader extends Controller {
 			$data['class'] = 'common-home';
 		}
 
+        $data['noindex'] = '';
+
+		if (strpos($this->request->get['route'], 'account') !== false || strpos($this->request->get['route'], 'checkout') !== false) {
+            $data['noindex'] = true;
+        }
+
 		return $this->load->view('common/header', $data);
 	}
 }

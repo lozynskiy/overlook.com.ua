@@ -69,8 +69,7 @@
                         <?php foreach ($totals as $t => $total) { ?>
                             <?php if ($t + 1 < count($totals)) { ?>
                                 <tr>
-                                    <td class="cart-total-left"><label><?php echo $total['title']; ?>:</label>
-                                    </td>
+                                    <td class="cart-total-left"><label><?php echo $total['title']; ?>:</label></td>
                                     <td class="cart-total-right"><span
                                                 class="value-summary"><?php echo $total['text']; ?></span></td>
                                 </tr>
