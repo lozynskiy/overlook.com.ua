@@ -27,6 +27,8 @@ class ControllerProductCompare extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+        $this->document->setRobots('noindex,follow');
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

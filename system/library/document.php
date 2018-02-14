@@ -7,10 +7,11 @@ class Document {
 	private $styles = array();
 	private $scripts = array();
 	private $og_image;
+    private $robots;
 
-	private $tc_og;
-	public function setTc_og($data){$this->tc_og = $data;}
-	public function getTc_og(){return $this->tc_og;}
+    private $tc_og;
+    public function setTc_og($data){$this->tc_og = $data;}
+    public function getTc_og(){return $this->tc_og;}
 
 	public function setTitle($title) {
 		$this->title = $title;
@@ -78,4 +79,12 @@ class Document {
 	public function getOgImage() {
 		return $this->og_image;
 	}
+
+    public function setRobots($value) {
+        $this->robots = $value;
+    }
+
+    public function getRobots() {
+        return $this->robots;
+    }
 }

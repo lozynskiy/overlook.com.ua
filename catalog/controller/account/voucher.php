@@ -6,6 +6,7 @@ class ControllerAccountVoucher extends Controller {
 		$this->load->language('account/voucher');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		if (!isset($this->session->data['vouchers'])) {
 			$this->session->data['vouchers'] = array();
@@ -175,6 +176,7 @@ class ControllerAccountVoucher extends Controller {
 		$this->load->language('account/voucher');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 

@@ -10,6 +10,7 @@ class ControllerAccountRecurring extends Controller {
 		$this->load->language('account/recurring');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$url = '';
 
@@ -119,6 +120,7 @@ class ControllerAccountRecurring extends Controller {
 
 		if ($recurring_info) {
 			$this->document->setTitle($this->language->get('text_recurring'));
+            $this->document->setRobots('noindex,follow');
 
 			$url = '';
 
@@ -212,6 +214,7 @@ class ControllerAccountRecurring extends Controller {
 			$this->response->setOutput($this->load->view('account/recurring_info', $data));
 		} else {
 			$this->document->setTitle($this->language->get('text_recurring'));
+            $this->document->setRobots('noindex,follow');
 
 			$data['heading_title'] = $this->language->get('text_recurring');
 

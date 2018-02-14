@@ -10,6 +10,7 @@ class ControllerAccountNewsletter extends Controller {
 		$this->load->language('account/newsletter');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			$this->load->model('account/customer');

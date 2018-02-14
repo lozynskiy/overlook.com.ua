@@ -33,6 +33,10 @@ class ControllerProductSpecial extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+        if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+            $this->document->setRobots('noindex,follow');
+        }
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

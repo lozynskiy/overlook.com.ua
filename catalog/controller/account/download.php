@@ -12,6 +12,7 @@ class ControllerAccountDownload extends Controller {
 		$this->load->language('account/download');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 

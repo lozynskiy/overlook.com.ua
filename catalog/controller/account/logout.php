@@ -23,6 +23,7 @@ class ControllerAccountLogout extends Controller {
 		$this->load->language('account/logout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 

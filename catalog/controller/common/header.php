@@ -35,10 +35,11 @@ class ControllerCommonHeader extends Controller {
 		$data['links'] = $this->document->getLinks();
 		$data['styles'] = $this->document->getStyles();
 		$data['scripts'] = $this->document->getScripts();
+        $data['robots'] = $this->document->getRobots();
 		$data['lang'] = $this->language->get('code');
 		$data['direction'] = $this->language->get('direction');
-
 		$data['name'] = $this->config->get('config_name');
+
 
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
@@ -272,12 +273,6 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['class'] = 'common-home';
 		}
-
-        $data['noindex'] = '';
-
-		if (strpos($this->request->get['route'], 'account') !== false || strpos($this->request->get['route'], 'checkout') !== false) {
-            $data['noindex'] = true;
-        }
 
 		return $this->load->view('common/header', $data);
 	}

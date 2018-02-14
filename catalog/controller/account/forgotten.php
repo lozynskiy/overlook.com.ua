@@ -10,6 +10,7 @@ class ControllerAccountForgotten extends Controller {
 		$this->load->language('account/forgotten');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$this->load->model('account/customer');
 

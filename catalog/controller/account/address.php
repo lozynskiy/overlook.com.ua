@@ -12,6 +12,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$this->load->model('account/address');
 
@@ -28,6 +29,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
@@ -69,6 +71,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
@@ -125,6 +128,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$this->load->model('account/address');
 

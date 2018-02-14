@@ -49,6 +49,8 @@ class ControllerAccountLogin extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+        $this->document->setRobots('noindex,follow');
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			// Unset guest
 			unset($this->session->data['guest']);

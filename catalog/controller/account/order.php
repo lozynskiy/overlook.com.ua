@@ -10,6 +10,7 @@ class ControllerAccountOrder extends Controller {
 		$this->load->language('account/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 		
 		$url = '';
 
@@ -129,6 +130,7 @@ class ControllerAccountOrder extends Controller {
 
 		if ($order_info) {
 			$this->document->setTitle($this->language->get('text_order'));
+            $this->document->setRobots('noindex,follow');
 
 			$url = '';
 
@@ -388,6 +390,7 @@ class ControllerAccountOrder extends Controller {
 			$this->response->setOutput($this->load->view('account/order_info', $data));
 		} else {
 			$this->document->setTitle($this->language->get('text_order'));
+            $this->document->setRobots('noindex,follow');
 
 			$data['heading_title'] = $this->language->get('text_order');
 

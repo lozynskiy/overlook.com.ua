@@ -9,6 +9,10 @@ class ControllerProductManufacturer extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+        if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+            $this->document->setRobots('noindex,follow');
+        }
+
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_index'] = $this->language->get('text_index');
@@ -118,6 +122,10 @@ class ControllerProductManufacturer extends Controller {
 
 		if ($manufacturer_info) {
 			$this->document->setTitle($manufacturer_info['name']);
+
+            if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+                $this->document->setRobots('noindex,follow');
+            }
 
 			$url = '';
 
@@ -413,6 +421,10 @@ class ControllerProductManufacturer extends Controller {
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
+
+            if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+                $this->document->setRobots('noindex,follow');
+            }
 
 			$data['heading_title'] = $this->language->get('text_error');
 

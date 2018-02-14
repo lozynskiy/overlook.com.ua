@@ -10,6 +10,7 @@ class ControllerAccountAccount extends Controller {
 		$this->load->language('account/account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 

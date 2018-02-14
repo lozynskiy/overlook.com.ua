@@ -97,6 +97,10 @@ class ControllerProductCategory extends Controller {
 				$this->document->setTitle($category_info['name']);
 			}
 
+            if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+                $this->document->setRobots('noindex,follow');
+            }
+
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 
@@ -439,6 +443,10 @@ class ControllerProductCategory extends Controller {
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
+
+            if (isset($this->request->get['page']) || isset($this->request->get['limit']) || isset($this->request->get['order'])) {
+                $this->document->setRobots('noindex,follow');
+            }
 
 			$data['heading_title'] = $this->language->get('text_error');
 

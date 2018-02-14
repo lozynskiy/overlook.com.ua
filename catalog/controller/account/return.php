@@ -12,6 +12,7 @@ class ControllerAccountReturn extends Controller {
 		$this->load->language('account/return');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 
@@ -117,6 +118,7 @@ class ControllerAccountReturn extends Controller {
 
 		if ($return_info) {
 			$this->document->setTitle($this->language->get('text_return'));
+            $this->document->setRobots('noindex,follow');
 
 			$data['breadcrumbs'] = array();
 
@@ -215,6 +217,7 @@ class ControllerAccountReturn extends Controller {
 			$this->response->setOutput($this->load->view('account/return_info', $data));
 		} else {
 			$this->document->setTitle($this->language->get('text_return'));
+            $this->document->setRobots('noindex,follow');
 
 			$data['breadcrumbs'] = array();
 
@@ -297,6 +300,7 @@ class ControllerAccountReturn extends Controller {
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
@@ -600,6 +604,7 @@ class ControllerAccountReturn extends Controller {
 		$this->load->language('account/return');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 
