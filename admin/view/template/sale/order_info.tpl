@@ -157,7 +157,7 @@
           <tbody>
             <?php foreach ($products as $product) { ?>
             <tr>
-              <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+              <td class="text-left"><a target="_blank" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                 <?php foreach ($product['option'] as $option) { ?>
                 <br />
                 <?php if ($option['type'] != 'file') { ?>
