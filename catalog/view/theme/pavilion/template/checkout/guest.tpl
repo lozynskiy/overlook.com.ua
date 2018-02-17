@@ -671,6 +671,6 @@
                 clearMaskOnLostFocus: true,
                 showMaskOnHover: false
             }
-        );
+        )
     });
 </script>

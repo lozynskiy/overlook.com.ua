@@ -31,10 +31,10 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
         $this->document->setRobots('noindex,follow');
 
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
-		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+		$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/moment.js');
+		$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/locale/'.$this->session->data['language'].'.js');
+		$this->document->addScript('catalog/view/theme/pavilion/scripts/datetimepicker/bootstrap-datetimepicker.min.js');
+		$this->document->addStyle('catalog/view/theme/pavilion/scripts/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		// Required by klarna
 		if ($this->config->get('klarna_account') || $this->config->get('klarna_invoice')) {

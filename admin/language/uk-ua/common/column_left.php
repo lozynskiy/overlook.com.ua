@@ -109,3 +109,4 @@ $_['text_paypal_search']               = 'Пошук транзакцій';
 $_['text_complete_status']             = 'Завершені замовлення';
 $_['text_processing_status']           = 'Замовлення в обробці';
 $_['text_other_status']                = 'Інші статуси';
+$_['text_fast_comment']	               = 'Швидкі коментарі статусів';

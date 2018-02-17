@@ -1,0 +1,24 @@
+.sizechart{
+  width: 100%;
+}
+.sizechart th, .sizechart td{
+  text-align: center;
+}
+.chart-header-bg{
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding:10px;
+  position: relative;;
+  text-align: center;
+}
+.chart-header{
+  width: 80px;
+}
+.chart-data{
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+.chart-data td, .chart-header-bg th{
+  padding: 10px;
+}

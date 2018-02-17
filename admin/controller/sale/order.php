@@ -1380,6 +1380,9 @@ class ControllerSaleOrder extends Controller {
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['footer'] = $this->load->controller('common/footer');
 
+            $this->load->model('localisation/fast_comment_status');
+            $data['template_comment_name'] = $this->model_localisation_fast_comment_status->getComments();
+
 			$this->response->setOutput($this->load->view('sale/order_info', $data));
 		} else {
 			return new Action('error/not_found');

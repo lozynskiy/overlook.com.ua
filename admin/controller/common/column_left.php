@@ -551,6 +551,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+            if ($this->user->hasPermission('access', 'localisation/fast_comment_status')) {
+                $localisation[] = array(
+                    'name'	   => $this->language->get('text_fast_comment'),
+                    'href'     => $this->url->link('localisation/fast_comment_status', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
 			
 			// Returns
 			$return = array();

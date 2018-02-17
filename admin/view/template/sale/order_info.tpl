@@ -253,6 +253,13 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-comment"><?php echo $entry_comment; ?></label>
                   <div class="col-sm-10">
+                      <select class="form-control" id="fast_comment">
+                          <option value=""></option>
+                          <?php foreach ($template_comment_name as $template_name) { ?>
+                              <option value="<?php echo $template_name['fast_comment_id']; ?>"><?php echo $template_name['name']; ?></option>
+                          <?php } ?>
+                      </select>
+                      <br>
                     <textarea name="comment" rows="8" id="input-comment" class="form-control"></textarea>
                   </div>
                 </div>
@@ -651,6 +658,29 @@ $(document).ready(function() {
 $('select[name="order_status_id"]').change(function(){
 	changeStatus();
 });
-//--></script> 
+//--></script>
+    <script type="text/javascript">
+        $('#fast_comment').change(function(){
+            var value = $('#fast_comment').val();
+            if (value) {
+                $.ajax({
+                    url:'index.php?route=localisation/fast_comment_status/getFastComment&token=<?php echo $token; ?>',
+                    type:'post',
+                    dataType:'json',
+                    data:{fast_comment_id:value},
+                    success:function(json){
+                        var order_id = '<?php echo $order_id; ?>';
+                        var customer = '<?php echo $firstname; ?> <?php echo $lastname; ?>';
+                        var total = '<?php echo $total['text']; ?>';
+                        var textarea = $('textarea[name="comment"]');
+                        var textarea_value = json['comment'].replace('{num}',order_id);
+                        textarea_value = textarea_value.replace('{customer}',customer);
+                        textarea_value = textarea_value.replace('{sum}',total);
+                        textarea.val(textarea_value);
+                    }
+                })
+            };
+        })
+    </script>
 </div>
 <?php echo $footer; ?> 
