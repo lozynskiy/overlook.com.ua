@@ -726,13 +726,14 @@ class ModelSaleSmsSending extends Model {
 
         $json = array();        
         $error_format = '';
+
         if (!$to_info) {
             $json['error']['customers'] = $this->language->get('error_customers');
         } else {
             if ($ignore == '0') {
                 foreach ($to_info as $result) {
-                    if (!preg_match("/[3][8][0][0-9]{9}$/i", $result['telephone'])) {
-                        $error_format .= trim($result['firstname'] . ' ' . $result['lastname']) . ' - ' . $result['telephone'] . "</br>";
+                    if (!preg_match("/[3][8][0][0-9]{9}$/i", preg_replace("/[^+0-9]/", '', $result['telephone']))) {
+                        $error_format .= trim($result['firstname'] . ' ' . $result['lastname']) . ' - ' . preg_replace("/[^+0-9]/", '', $result['telephone']) . "</br>";
                     }
                 }
                 if ($error_format != '') {
@@ -767,7 +768,7 @@ class ModelSaleSmsSending extends Model {
             if (isset($book_id)) {
                 //addPhoneToAddressBook
                 foreach ($to_info as $info) {
-                    $res = $proxyApi->addPhoneToAddressBook($book_id, $info['telephone'], trim($info['firstname'] . ' ' . $info['lastname']));
+                    $res = $proxyApi->addPhoneToAddressBook($book_id, preg_replace("/[^+0-9]/", '', $info['telephone']), trim($info['firstname'] . ' ' . $info['lastname']));
                     if (isset($res["error"])) {
                         $json['error']['message'] = $this->language->get('error') . $res["code"] . "<br>";
                     }
