@@ -3,6 +3,7 @@
 	<div class="page-header">
 		<div class="container-fluid">
 		<div class="pull-right">
+            <button form="form_list" class="btn btn-danger" title="" data-toggle="tooltip" type="submit" data-original-title="<?php echo $text_delete; ?>"><i class="fa fa-trash-o"></i></button>
 		</div>
 		<h1><?php echo $heading_title; ?></h1>
 		<ul class="breadcrumb">
@@ -29,7 +30,6 @@
 		</div>
 		<div class="panel-body">
 			<form method="post" enctype="multipart/form-data" id="form_list" action="<?php echo $action_delete; ?>">
-				<button onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form_list').submit() : false;" class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="<?php echo $text_delete; ?>"><i class="fa fa-trash-o"></i></button>
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover">
 						<thead>
